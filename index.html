@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les Aiguilles du Fenua – Artisanat &amp; horlogerie passion à Tahiti</title>
+<meta name="description" content="Les Aiguilles du Fenua : une passion pour l’horlogerie, à Tahiti. Des montres assemblées à la main, pour moi et pour mes proches.">
+<meta property="og:title" content="Les Aiguilles du Fenua">
+<meta property="og:description" content="Artisanat &amp; horlogerie passion, à Tahiti.">
+<meta name="theme-color" content="#0F2C33">
+<link rel="alternate" hreflang="fr" href="index.html">
+<link rel="alternate" hreflang="en" href="en.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='66 66 368 368'%3E%3Ccircle cx='250' cy='250' r='184' fill='%230F2C33'/%3E%3Ccircle cx='250' cy='250' r='170' fill='none' stroke='%23C9A467' stroke-width='12'/%3E%3Cpath d='M60 300 C150 290 176 252 200 229 C236 200 250 240 288 190 C320 200 340 254 440 300 Z' fill='%231F4B53'/%3E%3Cg transform='translate(250 250) rotate(-55)'%3E%3Cpolygon points='0,-92 -16,-12 0,20 16,-12' fill='%23F4ECDD'/%3E%3C/g%3E%3Cg transform='translate(250 250) rotate(60)'%3E%3Cpolygon points='0,-134 -14,-14 0,22 14,-14' fill='%23C9A467'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap">
+<style>
+  :root {
+    --lagon-nuit: #0B2227;
+    --lagon: #0F2C33;
+    --montagne: #1F4B53;
+    --mer: #12363D;
+    --laiton: #C9A467;
+    --sable: #E6D2A8;
+    --ivoire: #F8F4EC;
+    --encre: #12343B;
+
+    --fond: var(--ivoire);
+    --fond-alt: #F0E8DA;
+    --texte: var(--encre);
+    --texte-doux: #4A5E61;
+    --accent: #7A5A28;
+    --filet: #D9CBB0;
+    --carte: #FFFDF8;
+
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: Jost, "Helvetica Neue", Arial, sans-serif;
+
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fond: var(--lagon-nuit);
+      --fond-alt: #0D272D;
+      --texte: #EFE4CE;
+      --texte-doux: #A9B7B5;
+      --accent: var(--laiton);
+      --filet: #24464D;
+      --carte: #113139;
+      color-scheme: dark;
+    }
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-behavior: smooth; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--fond);
+    color: var(--texte);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--laiton); outline-offset: 3px; border-radius: 2px; }
+
+  .conteneur { width: min(1120px, 100% - 3rem); margin-inline: auto; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--lagon);
+    color: var(--sable);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__grille {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+    padding-block: clamp(3.5rem, 9vw, 7rem) clamp(5rem, 10vw, 8rem);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(3rem, 7.2vw, 5.75rem);
+    line-height: 0.95;
+    letter-spacing: 0.005em;
+    margin: 0 0 1.5rem;
+    color: #F1E2C2;
+  }
+  .hero__filet { width: 96px; height: 2px; background: var(--laiton); margin-bottom: 1.5rem; }
+  .hero__devise {
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    color: var(--laiton);
+    margin: 0 0 1.75rem;
+  }
+  .hero__intro { max-width: 34rem; font-size: 1.15rem; color: #D7CBB1; margin: 0 0 2.25rem; }
+  .bouton {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.85rem 1.4rem;
+    border: 1.5px solid var(--laiton);
+    border-radius: 999px;
+    color: #F1E2C2;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: background-color .2s, color .2s;
+  }
+  .bouton:hover { background: var(--laiton); color: var(--lagon-nuit); }
+  .bouton svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  .cadran-zone { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
+  .cadran { width: min(460px, 100%); aspect-ratio: 1; display: block; }
+  .cadran__heure { font-size: 0.95rem; color: #AFC0BD; margin: 0; text-align: center; min-height: 1.6em; }
+  .cadran__heure strong { color: var(--sable); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  .langue {
+    position: absolute; top: 1.25rem; right: max(1.5rem, calc((100% - 1120px) / 2));
+    z-index: 2; font-size: .92rem; letter-spacing: .04em;
+  }
+  .langue a {
+    color: #D7CBB1; text-decoration: none;
+    border-bottom: 1px solid rgba(201,164,103,.55); padding-bottom: 2px;
+  }
+  .langue a:hover { color: var(--laiton); border-bottom-color: var(--laiton); }
+  .hero__vagues { position: absolute; left: 0; right: 0; bottom: -2px; width: 100%; height: 70px; display: block; }
+
+  /* ---------- Sections ---------- */
+  section { padding-block: clamp(4rem, 9vw, 7rem); }
+  .titre {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+    line-height: 1.05;
+    margin: 0 0 1.5rem;
+  }
+  .prose { max-width: 38rem; }
+  .prose p { margin: 0 0 1.15em; }
+  .prose p:first-of-type {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    line-height: 1.4;
+    font-style: italic;
+    color: var(--texte);
+  }
+  .doux { color: var(--texte-doux); }
+
+  .passion { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+  .passion aside { position: sticky; top: calc(2rem + env(safe-area-inset-top, 0px)); }
+  .passion aside p { color: var(--texte-doux); max-width: 22rem; margin: 0; }
+
+  /* Savoir-faire : une vraie séquence */
+  .savoir { background: var(--fond-alt); border-block: 1px solid var(--filet); }
+  .etapes { list-style: none; margin: 2.5rem 0 0; padding: 0; counter-reset: etape; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem 3rem; }
+  .etapes li { counter-increment: etape; border-top: 1px solid var(--filet); padding-top: 1.25rem; }
+  .etapes li::before {
+    content: counter(etape);
+    display: block;
+    font-family: var(--serif);
+    font-size: 2.6rem; line-height: 1;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .etapes h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; margin: 0 0 0.4rem; line-height: 1.2; }
+  .etapes p { margin: 0; color: var(--texte-doux); }
+
+  /* Certificat */
+  .certif { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .cartes { display: flex; flex-direction: column; gap: 1.25rem; align-items: flex-start; }
+  .carte-certif {
+    width: min(100%, 400px);
+    aspect-ratio: 85 / 55;
+    border-radius: 10px;
+    box-shadow: 0 18px 40px -22px rgba(11, 34, 39, .55);
+  }
+  .carte-certif--recto {
+    background: var(--lagon);
+    color: var(--sable);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .6rem;
+    text-align: center;
+  }
+  .carte-certif--recto svg { width: 30%; height: auto; }
+  .carte-certif--recto .nom { font-family: var(--serif); font-weight: 600; font-size: clamp(1.15rem, 3.4vw, 1.5rem); line-height: 1.1; }
+  .carte-certif--recto .devise { font-size: .78rem; letter-spacing: .1em; color: var(--laiton); }
+  .carte-certif--verso {
+    background: #F8F4EC; color: #12343B;
+    padding: 6% 7%;
+    display: flex; flex-direction: column; justify-content: space-between;
+    font-size: clamp(.72rem, 2vw, .88rem);
+    margin-left: clamp(1rem, 6vw, 3.5rem);
+    margin-top: -12%;
+    border: 1px solid #E4D8C2;
+  }
+  .carte-certif--verso .entete { display: flex; justify-content: space-between; align-items: center; }
+  .carte-certif--verso .entete span { font-family: var(--serif); font-weight: 600; font-size: 1.45em; }
+  .champ { display: flex; align-items: flex-end; gap: .5em; white-space: nowrap; }
+  .champ::after { content: ""; flex: 1; border-bottom: 1px dotted #7A6A4C; height: .9em; }
+
+  /* Instagram */
+  .insta { background: var(--lagon); color: var(--sable); text-align: center; position: relative; overflow: hidden; }
+  .insta .titre { color: #F1E2C2; }
+  .insta p { max-width: 34rem; margin: 0 auto 2.25rem; color: #C8BDA5; }
+  .insta__pseudo {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.9rem, 6vw, 3.6rem);
+    color: var(--laiton);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    word-break: break-word;
+  }
+  .insta__pseudo:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+
+  footer { padding-block: 2.5rem; font-size: .9rem; color: var(--texte-doux); }
+  footer .conteneur { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
+  footer a { color: var(--accent); }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .hero__grille { grid-template-columns: 1fr; text-align: left; }
+    .cadran-zone { order: -1; }
+    .cadran { width: min(320px, 82vw); }
+    .passion, .certif { grid-template-columns: 1fr; }
+    .passion aside { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <nav class="langue" aria-label="Langue"><a href="en.html" hreflang="en" lang="en">English</a></nav>
+  <div class="conteneur hero__grille">
+    <div>
+      <h1>Les Aiguilles<br>du Fenua</h1>
+      <div class="hero__filet" aria-hidden="true"></div>
+      <p class="hero__devise">Artisanat &amp; horlogerie passion</p>
+      <p class="hero__intro">Une passion pour l’horlogerie, vécue à Tahiti. J’apprends petit à petit : je choisis les composants et j’assemble mes montres à la main, pour moi et pour mes proches. Chacune est unique et porte un peu du lagon, des montagnes et du temps qu’il faut pour bien faire les choses.</p>
+      <a class="bouton" href="https://www.instagram.com/aiguilles.du.fenua/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+        Voir mes créations sur Instagram
+      </a>
+    </div>
+
+    <div class="cadran-zone">
+      <svg class="cadran" viewBox="0 0 500 500" role="img" aria-labelledby="cadran-titre">
+        <title id="cadran-titre">Emblème Les Aiguilles du Fenua, dont les aiguilles indiquent l’heure de Tahiti</title>
+        <defs>
+          <path id="arcHaut" d="M 54,250 A 196,196 0 0 1 446,250"/>
+          <path id="arcBas" d="M 39,250 A 211,211 0 0 0 461,250"/>
+          <clipPath id="clipCadran"><circle cx="250" cy="250" r="174"/></clipPath>
+        </defs>
+        <circle cx="250" cy="250" r="240" fill="#0B2227"/>
+        <circle cx="250" cy="250" r="232" fill="none" stroke="#C9A467" stroke-width="2.5"/>
+        <circle cx="250" cy="250" r="176" fill="none" stroke="#C9A467" stroke-width="1.5"/>
+        <text font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="27" letter-spacing="5" fill="#E6D2A8"><textPath href="#arcHaut" startOffset="50%" text-anchor="middle">LES AIGUILLES DU FENUA</textPath></text>
+        <text font-family="Jost, 'Helvetica Neue', sans-serif" font-weight="500" font-size="13" letter-spacing="3.2" fill="#E6D2A8"><textPath href="#arcBas" startOffset="50%" text-anchor="middle">ARTISANAT &amp; HORLOGERIE PASSION</textPath></text>
+        <circle cx="46" cy="250" r="3.5" fill="#C9A467"/>
+        <circle cx="454" cy="250" r="3.5" fill="#C9A467"/>
+        <circle cx="250" cy="250" r="174" fill="#0F2C33"/>
+        <g clip-path="url(#clipCadran)">
+          <path d="M 60,300 L 118,300 C 150,290 176,252 200,229 C 212,218 220,214 228,222 C 236,230 242,238 250,232 C 262,222 272,196 288,190 C 300,186 310,200 322,222 C 340,254 360,286 400,300 L 440,300 Z" fill="#1F4B53"/>
+          <rect x="60" y="300" width="380" height="140" fill="#12363D"/>
+          <path d="M 70,318 q 15,-7 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0" fill="none" stroke="#C9A467" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 85,338 q 15,-7 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0" fill="none" stroke="#C9A467" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+          <path d="M 70,358 q 15,-7 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0" fill="none" stroke="#C9A467" stroke-width="1.2" stroke-linecap="round" opacity="0.45"/>
+          <text x="250" y="388" text-anchor="middle" font-family="Jost, 'Helvetica Neue', sans-serif" font-weight="500" font-size="11" letter-spacing="5" fill="#C9A467">TAHITI</text>
+        </g>
+        <g stroke="#C9A467" stroke-linecap="round">
+          <line x1="250" y1="102" x2="250" y2="82" stroke-width="3"/>
+          <line x1="328" y1="114.9" x2="334" y2="104.5" stroke-width="1.5"/>
+          <line x1="385.1" y1="172" x2="395.5" y2="166" stroke-width="1.5"/>
+          <line x1="398" y1="250" x2="418" y2="250" stroke-width="3"/>
+          <line x1="385.1" y1="328" x2="395.5" y2="334" stroke-width="1.5"/>
+          <line x1="328" y1="385.1" x2="334" y2="395.5" stroke-width="1.5"/>
+          <line x1="250" y1="398" x2="250" y2="418" stroke-width="3"/>
+          <line x1="172" y1="385.1" x2="166" y2="395.5" stroke-width="1.5"/>
+          <line x1="114.9" y1="328" x2="104.5" y2="334" stroke-width="1.5"/>
+          <line x1="102" y1="250" x2="82" y2="250" stroke-width="3"/>
+          <line x1="114.9" y1="172" x2="104.5" y2="166" stroke-width="1.5"/>
+          <line x1="172" y1="114.9" x2="166" y2="104.5" stroke-width="1.5"/>
+        </g>
+        <!-- Aiguille des heures -->
+        <g id="aiguilleH" transform="translate(250 250) rotate(-55)">
+          <polygon points="0,-92 -9,-12 0,16" fill="#F4ECDD"/>
+          <polygon points="0,-92 9,-12 0,16" fill="#C9A467"/>
+          <polygon points="0,-92 9,-12 0,16 -9,-12" fill="none" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/>
+        </g>
+        <!-- Aiguille des minutes -->
+        <g id="aiguilleM" transform="translate(250 250) rotate(60)">
+          <polygon points="0,-134 -8,-14 0,18" fill="#F4ECDD"/>
+          <polygon points="0,-134 8,-14 0,18" fill="#C9A467"/>
+          <polygon points="0,-134 8,-14 0,18 -8,-14" fill="none" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/>
+        </g>
+        <!-- Trotteuse -->
+        <g id="aiguilleS" transform="translate(250 250) rotate(0)">
+          <line x1="0" y1="26" x2="0" y2="-150" stroke="#C9A467" stroke-width="1.4" stroke-linecap="round"/>
+        </g>
+        <!-- Fleur de tiaré au centre -->
+        <g transform="translate(250 250)" fill="#F4ECDD" stroke="#0B2227" stroke-width="0.8">
+          <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(10)"/>
+          <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(70)"/>
+          <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(130)"/>
+          <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(190)"/>
+          <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(250)"/>
+          <ellipse cx="0" cy="-9" rx="5" ry="9" transform="rotate(310)"/>
+          <circle cx="0" cy="0" r="3.5" fill="#C9A467"/>
+        </g>
+      </svg>
+      <p class="cadran__heure" aria-live="off">Il est <strong id="heureTexte">…</strong> à Tahiti</p>
+    </div>
+  </div>
+
+  <svg class="hero__vagues" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C120,20 240,20 360,40 C480,60 600,60 720,40 C840,20 960,20 1080,40 C1200,60 1320,60 1440,40 L1440,70 L0,70 Z" fill="var(--fond)"/>
+    <path d="M0,40 C120,20 240,20 360,40 C480,60 600,60 720,40 C840,20 960,20 1080,40 C1200,60 1320,60 1440,40" fill="none" stroke="#C9A467" stroke-width="1.5" opacity=".6"/>
+  </svg>
+</header>
+
+<main>
+  <section id="passion">
+    <div class="conteneur passion">
+      <aside>
+        <h2 class="titre">Ma passion</h2>
+        <p>L’horlogerie, vécue depuis Tahiti, au rythme du fenua.</p>
+      </aside>
+      <div class="prose">
+        <p>Tout a commencé par une curiosité : comprendre ce qui fait battre une montre, derrière le cadran.</p>
+        <p>De cette curiosité est née une passion, que j’apprends pas à pas. Aujourd’hui, je choisis les composants de mes montres et je les assemble moi-même : le mouvement, le cadran, les aiguilles, le boîtier. J’y apprends la patience que demande chaque vis, chaque aiguille posée au bon endroit.</p>
+        <p>À chaque nouvelle montre, je vais un peu plus loin sur la technique. Mon objectif, un jour, c’est de savoir démonter et remonter un mouvement entier. Je n’en suis pas encore là, et c’est justement ce qui rend le chemin passionnant.</p>
+        <p>Les Aiguilles du Fenua, c’est le nom que j’ai donné à cette passion. Ce n’est pas un métier ni un commerce : je fais des montres pour le plaisir, des montres qui me ressemblent et qui ressemblent à notre île : le bleu profond du lagon, le vert sombre des montagnes, la lumière dorée de fin de journée, la fleur de tiaré au centre de mon emblème.</p>
+        <p>Je les porte, et parfois je les offre à ceux qui me sont chers. Je ne cherche pas à en faire beaucoup, mais à bien les faire : des pièces uniques, qui prennent le temps qu’il faut.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="savoir" id="savoir-faire">
+    <div class="conteneur">
+      <h2 class="titre">De l’idée au poignet</h2>
+      <p class="doux prose" style="margin:0">Chaque montre suit le même chemin, à la main, à mon rythme et sans raccourci.</p>
+      <ol class="etapes">
+        <li>
+          <h3>L’idée</h3>
+          <p>Une envie, une couleur, un souvenir, ou la personne de mon entourage à qui je pense en la créant.</p>
+        </li>
+        <li>
+          <h3>Le mouvement</h3>
+          <p>Je choisis le cœur de la montre parmi des mouvements existants, en fonction du style recherché et de la façon dont elle sera portée.</p>
+        </li>
+        <li>
+          <h3>Le cadran et les aiguilles</h3>
+          <p>Couleurs, formes, finitions : c’est ici que la pièce prend son caractère, souvent inspiré du fenua.</p>
+        </li>
+        <li>
+          <h3>L’assemblage</h3>
+          <p>Je monte chaque élément avec soin. C’est l’étape où j’apprends le plus, et où je tente à chaque fois un geste nouveau.</p>
+        </li>
+        <li>
+          <h3>La carte</h3>
+          <p>Pour garder la trace de chaque pièce, je lui associe une petite carte, numérotée et signée.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="certificat">
+    <div class="conteneur certif">
+      <div>
+        <h2 class="titre">Une pièce, une histoire</h2>
+        <div class="prose">
+          <p>Aucune de mes montres n’existe en double.</p>
+          <p class="doux">Chacune a sa carte, qui en garde la mémoire : son numéro, son modèle, son mouvement, la personne pour qui je l’ai faite, la date et ma signature. Un petit rituel de passionné.</p>
+        </div>
+      </div>
+      <div class="cartes" aria-label="Carte d’authenticité, recto et verso">
+        <div class="carte-certif carte-certif--recto">
+          <svg viewBox="66 66 368 368" aria-hidden="true">
+            <defs><clipPath id="clipIcone"><circle cx="250" cy="250" r="172"/></clipPath></defs>
+            <circle cx="250" cy="250" r="184" fill="#0F2C33"/>
+            <circle cx="250" cy="250" r="176" fill="none" stroke="#C9A467" stroke-width="5"/>
+            <g clip-path="url(#clipIcone)">
+              <path d="M 60,300 L 118,300 C 150,290 176,252 200,229 C 212,218 220,214 228,222 C 236,230 242,238 250,232 C 262,222 272,196 288,190 C 300,186 310,200 322,222 C 340,254 360,286 400,300 L 440,300 Z" fill="#1F4B53"/>
+              <rect x="60" y="300" width="380" height="140" fill="#12363D"/>
+              <path d="M 70,322 q 15,-8 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0 t 30,0" fill="none" stroke="#C9A467" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(250 250) rotate(-55)"><polygon points="0,-92 -12,-12 0,18 12,-12" fill="#F4ECDD" stroke="#0B2227" stroke-width="2"/></g>
+            <g transform="translate(250 250) rotate(60)"><polygon points="0,-134 -11,-14 0,20 11,-14" fill="#C9A467" stroke="#0B2227" stroke-width="2"/></g>
+            <circle cx="250" cy="250" r="9" fill="#C9A467"/>
+          </svg>
+          <div class="nom">Les Aiguilles du Fenua</div>
+          <div class="devise">Artisanat &amp; horlogerie passion</div>
+        </div>
+        <div class="carte-certif carte-certif--verso">
+          <div class="entete"><span>Certificat d’authenticité</span></div>
+          <div class="champ">Pièce unique n°</div>
+          <div class="champ">Modèle</div>
+          <div class="champ">Mouvement</div>
+          <div class="champ">Réalisée pour</div>
+          <div style="display:flex; gap:1.2em"><div class="champ" style="flex:1">Date</div><div class="champ" style="flex:1">Signature</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="insta" id="instagram">
+    <div class="conteneur">
+      <h2 class="titre">Suivez l’atelier</h2>
+      <p>Je partage sur Instagram mes nouvelles montres, les étapes de montage et mes progrès au fil des pièces. Venez y jeter un œil, simplement par curiosité ou pour échanger entre passionnés.</p>
+      <a class="insta__pseudo" href="https://www.instagram.com/aiguilles.du.fenua/" target="_blank" rel="noopener">@aiguilles.du.fenua</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="conteneur">
+    <span>© <span id="annee">2026</span> Les Aiguilles du Fenua, Tahiti</span>
+    <a href="https://www.instagram.com/aiguilles.du.fenua/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var h = document.getElementById('aiguilleH');
+    var m = document.getElementById('aiguilleM');
+    var s = document.getElementById('aiguilleS');
+    var texte = document.getElementById('heureTexte');
+    document.getElementById('annee').textContent = new Date().getFullYear();
+
+    function heureTahiti() {
+      try {
+        var parts = new Intl.DateTimeFormat('fr-FR', {
+          timeZone: 'Pacific/Tahiti', hour: 'numeric', minute: 'numeric', second: 'numeric', hourCycle: 'h23'
+        }).formatToParts(new Date());
+        var o = {};
+        parts.forEach(function (p) { o[p.type] = parseInt(p.value, 10); });
+        return { h: o.hour, m: o.minute, s: o.second };
+      } catch (e) {
+        // Repli : Tahiti est à UTC−10 toute l’année
+        var d = new Date(Date.now() - 10 * 3600 * 1000);
+        return { h: d.getUTCHours(), m: d.getUTCMinutes(), s: d.getUTCSeconds() };
+      }
+    }
+
+    function maj() {
+      var t = heureTahiti();
+      h.setAttribute('transform', 'translate(250 250) rotate(' + ((t.h % 12) * 30 + t.m * 0.5) + ')');
+      m.setAttribute('transform', 'translate(250 250) rotate(' + (t.m * 6 + t.s * 0.1) + ')');
+      s.setAttribute('transform', 'translate(250 250) rotate(' + (t.s * 6) + ')');
+      if (document.documentElement.lang === 'en') {
+        texte.textContent = ((t.h % 12) || 12) + ':' + String(t.m).padStart(2, '0') + (t.h < 12 ? ' am' : ' pm');
+      } else {
+        texte.textContent = t.h + ' h ' + String(t.m).padStart(2, '0');
+      }
+    }
+    maj();
+    setInterval(maj, 1000);
+  })();
+</script>
+</body>
+</html>
