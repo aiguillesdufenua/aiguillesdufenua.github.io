@@ -129,6 +129,9 @@
     color: #D7CBB1; text-decoration: none;
     border-bottom: 1px solid rgba(201,164,103,.55); padding-bottom: 2px;
   }
+  .langue a + a { margin-left: 1.4rem; }
+  .lien-fleche { color: var(--accent); font-weight: 500; text-decoration: none; }
+  .lien-fleche:hover { text-decoration: underline; text-underline-offset: .2em; }
   .langue a:hover { color: var(--laiton); border-bottom-color: var(--laiton); }
   .hero__vagues { position: absolute; left: 0; right: 0; bottom: -2px; width: 100%; height: 70px; display: block; }
 
@@ -236,7 +239,7 @@
 <body>
 
 <header class="hero">
-  <nav class="langue" aria-label="Langue"><a href="en.html" hreflang="en" lang="en">English</a></nav>
+  <nav class="langue" aria-label="Navigation"><a href="montres.html">Mes montres</a><a href="en.html" hreflang="en" lang="en">English</a></nav>
   <div class="conteneur hero__grille">
     <div>
       <h1>Les Aiguilles<br>du Fenua</h1>
@@ -376,7 +379,8 @@
         <h2 class="titre">Une pièce, une histoire</h2>
         <div class="prose">
           <p>Aucune de mes montres n’existe en double.</p>
-          <p class="doux">Chacune a sa carte, qui en garde la mémoire : son numéro, son modèle, son mouvement, la personne pour qui je l’ai faite, la date et ma signature. Un petit rituel de passionné.</p>
+          <p class="doux">Chacune a sa carte, qui en garde la mémoire : son numéro, son modèle, son mouvement, la date et ma signature. Un petit rituel de passionné.</p>
+          <p><a class="lien-fleche" href="montres.html">Découvrir toutes mes montres →</a></p>
         </div>
       </div>
       <div class="cartes" aria-label="Carte d’authenticité, recto et verso">
@@ -402,7 +406,6 @@
           <div class="champ">Pièce unique n°</div>
           <div class="champ">Modèle</div>
           <div class="champ">Mouvement</div>
-          <div class="champ">Réalisée pour</div>
           <div style="display:flex; gap:1.2em"><div class="champ" style="flex:1">Date</div><div class="champ" style="flex:1">Signature</div></div>
         </div>
       </div>
