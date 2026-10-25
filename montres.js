@@ -57,7 +57,8 @@ const MONTRES = [
     mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
     photos: [
       { src: "images/montre-001-1.jpg", alt: { fr: "La montre vue de face dans son élement océan.", en: "The watch, front view." } },
-      { src: "images/montre-001-2.jpg", alt: { fr: "La montre dans l'élément du Fenua.", en: "The watch, front view." } },
+      { src: "images/montre-001-2.jpg", alt: { fr: "La montre dans l'élément du Fenua.", en: "The watch, front view in Fenua nature." } },
+      { src: "images/montre-001-3.jpg", alt: { fr: "Le dos de la montre.", en: "The watch, back view." } },
     ],
     composants: [
       { nom: { fr: "Boîtier", en: "Case" },      valeur: { fr: "Acier, 40 mm", en: "Steel, 40 mm" } },
