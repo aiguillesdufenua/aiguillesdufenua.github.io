@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Using an automatic watch – Les Aiguilles du Fenua</title>
+<meta name="description" content="How to wind an automatic watch and set the time and date without damaging the movement.">
+<meta name="theme-color" content="#0F2C33">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='66 66 368 368'%3E%3Ccircle cx='250' cy='250' r='184' fill='%230F2C33'/%3E%3Ccircle cx='250' cy='250' r='170' fill='none' stroke='%23C9A467' stroke-width='12'/%3E%3Cpath d='M60 300 C150 290 176 252 200 229 C236 200 250 240 288 190 C320 200 340 254 440 300 Z' fill='%231F4B53'/%3E%3Cg transform='translate(250 250) rotate(-55)'%3E%3Cpolygon points='0,-92 -16,-12 0,20 16,-12' fill='%23F4ECDD'/%3E%3C/g%3E%3Cg transform='translate(250 250) rotate(60)'%3E%3Cpolygon points='0,-134 -14,-14 0,22 14,-14' fill='%23C9A467'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="montres.css">
+<style>
+  .guide { max-width: 760px; }
+  .guide h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.1; margin: 3.5rem 0 1rem; }
+  .guide h2:first-child { margin-top: 0; }
+  .guide h3 { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; margin: 2rem 0 .6rem; }
+  .guide p { margin: 0 0 1em; }
+  .figure { margin: 1.75rem 0 2rem; background: var(--lagon); border-radius: 12px; padding: 1rem 1rem .5rem; }
+  .figure svg { display: block; width: 100%; height: auto; max-height: 380px; }
+  .figure figcaption { color: #AFC0BD; font-size: .92rem; padding: .25rem .5rem .75rem; }
+  .figures-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.75rem 0 2rem; }
+  .figures-duo .figure { margin: 0; }
+  .pas { list-style: none; counter-reset: pas; margin: 1rem 0 1.5rem; padding: 0; }
+  .pas li { counter-increment: pas; position: relative; padding: 0 0 1rem 3rem; }
+  .pas li::before {
+    content: counter(pas); position: absolute; left: 0; top: -.1rem;
+    width: 2rem; height: 2rem; border-radius: 50%;
+    display: grid; place-items: center;
+    border: 1.5px solid var(--accent); color: var(--accent);
+    font-family: var(--serif); font-weight: 600; font-size: 1.15rem;
+  }
+  .attention {
+    border-left: 3px solid var(--danger); background: var(--danger-fond);
+    padding: 1.25rem 1.5rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0 2rem;
+  }
+  .attention strong:first-child { display: block; font-family: var(--serif); font-size: 1.45rem; color: var(--danger); margin-bottom: .35rem; }
+  .attention p:last-child { margin-bottom: 0; }
+  .astuce { border-left: 3px solid var(--laiton); background: var(--fond-alt); padding: 1rem 1.5rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0; }
+  .astuce p:last-child { margin-bottom: 0; }
+  .sommaire { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 0 0 3rem; padding: 0; list-style: none; }
+  .sommaire a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--filet); }
+  .sommaire a:hover { border-bottom-color: var(--accent); }
+  .reflexes { margin: 0; padding: 0; list-style: none; }
+  .reflexes li { padding: .85rem 0; border-top: 1px solid var(--filet); }
+  .reflexes li:last-child { border-bottom: 1px solid var(--filet); }
+  .reflexes strong { font-weight: 500; }
+  :root { --danger: #A8432C; --danger-fond: #F7E6DF; }
+  @media (prefers-color-scheme: dark) { :root { --danger: #E88B72; --danger-fond: #2A2423; } }
+  @media (max-width: 680px) { .figures-duo { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="barre">
+  <div class="conteneur">
+    <a class="marque" href="en.html"><svg viewBox="66 66 368 368" aria-hidden="true"><circle cx="250" cy="250" r="184" fill="#0B2227"/><circle cx="250" cy="250" r="172" fill="none" stroke="#C9A467" stroke-width="10"/><path d="M80,300 C150,290 176,252 200,229 C236,200 250,240 288,190 C320,200 340,254 420,300 Z" fill="#1F4B53"/><g transform="translate(250 250) rotate(-55)"><polygon points="0,-92 -14,-12 0,20 14,-12" fill="#F4ECDD"/></g><g transform="translate(250 250) rotate(60)"><polygon points="0,-134 -13,-14 0,22 13,-14" fill="#C9A467"/></g></svg>Les Aiguilles du Fenua</a>
+    <nav aria-label="Navigation">
+      <a href="watches.html">My watches</a>
+      <a href="how-to-use.html" aria-current="page">How to use</a>
+      <a href="utilisation.html" hreflang="fr" lang="fr">Français</a>
+    </nav>
+  </div>
+</div>
+<header class="entete">
+  <div class="conteneur">
+    <h1>Using an automatic watch</h1>
+    <p class="entete__intro">Winding the movement, setting the time and date, and the few things to avoid so your watch stays with you for a long time.</p>
+  </div>
+  <svg class="vagues" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C120,20 240,20 360,40 C480,60 600,60 720,40 C840,20 960,20 1080,40 C1200,60 1320,60 1440,40 L1440,70 L0,70 Z" fill="var(--fond)"/><path d="M0,40 C120,20 240,20 360,40 C480,60 600,60 720,40 C840,20 960,20 1080,40 C1200,60 1320,60 1440,40" fill="none" stroke="#C9A467" stroke-width="1.5" opacity=".6"/></svg>
+</header>
+<main class="conteneur section">
+  <div class="guide">
+
+    <ul class="sommaire">
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#crown">The crown</a></li>
+      <li><a href="#winding">Winding</a></li>
+      <li><a href="#time">Setting the time</a></li>
+      <li><a href="#date">Setting the date</a></li>
+      <li><a href="#habits">Good habits</a></li>
+    </ul>
+
+    <h2 id="how-it-works">How it works</h2>
+    <p>An automatic watch has no battery. Its energy is stored in a spring, the mainspring, which slowly unwinds to move the hands.</p>
+    <p>To wind that spring, a half-disc called the “rotor” spins freely inside the watch with every movement of your wrist. Worn every day, the watch winds itself.</p>
+    <figure class="figure">
+      <svg viewBox="0 0 400 265" role="img" aria-label="View from the back of the watch">
+  <text x="200" y="26" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="20" fill="#F1E2C2">View from the back of the watch</text>
+  <circle cx="160" cy="145" r="92" fill="#12363D" stroke="#C9A467" stroke-width="3"/>
+  <circle cx="160" cy="145" r="80" fill="#0F2C33"/>
+  <path d="M 84,145 A 76,76 0 0 0 236,145 L 172,145 A 12,12 0 0 0 148,145 Z" fill="#1F4B53" stroke="#C9A467" stroke-width="1.5"/>
+  <circle cx="160" cy="145" r="7" fill="#C9A467"/>
+  <circle cx="130" cy="105" r="22" fill="none" stroke="#E6D2A8" stroke-width="1.5"/>
+  <path d="M130,105 m-4,0 a4,4 0 1,1 8,0 a8,8 0 1,1 -16,0 a12,12 0 1,1 24,0 a16,16 0 1,1 -32,0" fill="none" stroke="#E6D2A8" stroke-width="1.2"/>
+  <defs><marker id="fr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#C9A467"/></marker></defs>
+  <path d="M 79,213 A 106,106 0 0 0 241,213" fill="none" stroke="#C9A467" stroke-width="2" marker-start="url(#fr)" marker-end="url(#fr)"/>
+  <line x1="236" y1="170" x2="270" y2="186" stroke="#E6D2A8" stroke-width="1"/>
+  <text x="274" y="190" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#E6D2A8">The rotor spins</text>
+  <line x1="152" y1="96" x2="270" y2="82" stroke="#E6D2A8" stroke-width="1"/>
+  <text x="274" y="86" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#E6D2A8">The spring winds up</text>
+</svg>
+      <figcaption>With every gesture, the rotor turns and winds the spring.</figcaption>
+    </figure>
+    <p>Once you take it off, it keeps running for its “power reserve”, often around 40 hours depending on the movement. If it stays in a drawer longer than that, it stops: that’s normal, just wind it and set it again.</p>
+
+    <h2 id="crown">The crown and its positions</h2>
+    <p>The crown is the small knob on the side of the case, usually at 3 o’clock. Depending on whether it is pushed in or pulled out one or two clicks, it does different things.</p>
+    <div class="figures-duo">
+      <figure class="figure">
+        <svg viewBox="0 0 400 260" role="img" aria-label="Movement without date">
+  <text x="200" y="30" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="22" fill="#F1E2C2">Movement without date</text>
+  <circle cx="110" cy="150" r="88" fill="#12363D" stroke="#C9A467" stroke-width="3"/>
+  <circle cx="110" cy="150" r="77" fill="#0F2C33"/>
+  <line x1="110.0" y1="79.0" x2="110.0" y2="88.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="145.5" y1="88.5" x2="141.0" y2="96.3" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="171.5" y1="114.5" x2="163.7" y2="119.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="181.0" y1="150.0" x2="172.0" y2="150.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="171.5" y1="185.5" x2="163.7" y2="181.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="145.5" y1="211.5" x2="141.0" y2="203.7" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="110.0" y1="221.0" x2="110.0" y2="212.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="74.5" y1="211.5" x2="79.0" y2="203.7" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="48.5" y1="185.5" x2="56.3" y2="181.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="39.0" y1="150.0" x2="48.0" y2="150.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="48.5" y1="114.5" x2="56.3" y2="119.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="74.5" y1="88.5" x2="79.0" y2="96.3" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <g transform="translate(110 150) rotate(-60)"><polygon points="0,-40 -6,-10 0,14 6,-10" fill="#F4ECDD" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <g transform="translate(110 150) rotate(60)"><polygon points="0,-58 -5,-10 0,14 5,-10" fill="#C9A467" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <circle cx="110" cy="150" r="4" fill="#C9A467"/>
+  <rect x="198" y="144" width="84" height="12" fill="#1F4B53"/>
+  <rect x="276" y="126" width="22" height="48" rx="5" fill="none" stroke="#C9A467" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="218" y="126" width="22" height="48" rx="5" fill="#C9A467"/>
+  <g stroke="#0F2C33" stroke-width="1.4"><line x1="223" y1="132" x2="223" y2="168"/><line x1="227" y1="132" x2="227" y2="168"/><line x1="231" y1="132" x2="231" y2="168"/><line x1="235" y1="132" x2="235" y2="168"/></g>
+  <line x1="229" y1="180" x2="229" y2="190" stroke="#C9A467" stroke-width="1"/><text x="229" y="214" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="24" fill="#C9A467">0</text><text x="229" y="236" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#E6D2A8">Winding</text><line x1="287" y1="180" x2="287" y2="190" stroke="#C9A467" stroke-width="1"/><text x="287" y="214" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="24" fill="#C9A467">1</text><text x="287" y="236" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#E6D2A8">Time</text>
+</svg>
+        <figcaption>Two positions: pushed in to wind, pulled out one click to set the time.</figcaption>
+      </figure>
+      <figure class="figure">
+        <svg viewBox="0 0 400 260" role="img" aria-label="Movement with date">
+  <text x="200" y="30" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="22" fill="#F1E2C2">Movement with date</text>
+  <circle cx="110" cy="150" r="88" fill="#12363D" stroke="#C9A467" stroke-width="3"/>
+  <circle cx="110" cy="150" r="77" fill="#0F2C33"/>
+  <line x1="110.0" y1="79.0" x2="110.0" y2="88.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="145.5" y1="88.5" x2="141.0" y2="96.3" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="171.5" y1="114.5" x2="163.7" y2="119.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="181.0" y1="150.0" x2="172.0" y2="150.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="171.5" y1="185.5" x2="163.7" y2="181.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="145.5" y1="211.5" x2="141.0" y2="203.7" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="110.0" y1="221.0" x2="110.0" y2="212.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="74.5" y1="211.5" x2="79.0" y2="203.7" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="48.5" y1="185.5" x2="56.3" y2="181.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="39.0" y1="150.0" x2="48.0" y2="150.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="48.5" y1="114.5" x2="56.3" y2="119.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="74.5" y1="88.5" x2="79.0" y2="96.3" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="152" y="140" width="30" height="20" rx="2" fill="#F8F4EC" stroke="#C9A467" stroke-width="1"/><text x="167" y="155" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="12" fill="#12343B">27</text>
+  <g transform="translate(110 150) rotate(-60)"><polygon points="0,-40 -6,-10 0,14 6,-10" fill="#F4ECDD" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <g transform="translate(110 150) rotate(60)"><polygon points="0,-58 -5,-10 0,14 5,-10" fill="#C9A467" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <circle cx="110" cy="150" r="4" fill="#C9A467"/>
+  <rect x="198" y="144" width="142" height="12" fill="#1F4B53"/>
+  <rect x="276" y="126" width="22" height="48" rx="5" fill="none" stroke="#C9A467" stroke-width="1.5" stroke-dasharray="4 3"/><rect x="334" y="126" width="22" height="48" rx="5" fill="none" stroke="#C9A467" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="218" y="126" width="22" height="48" rx="5" fill="#C9A467"/>
+  <g stroke="#0F2C33" stroke-width="1.4"><line x1="223" y1="132" x2="223" y2="168"/><line x1="227" y1="132" x2="227" y2="168"/><line x1="231" y1="132" x2="231" y2="168"/><line x1="235" y1="132" x2="235" y2="168"/></g>
+  <line x1="229" y1="180" x2="229" y2="190" stroke="#C9A467" stroke-width="1"/><text x="229" y="214" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="24" fill="#C9A467">0</text><text x="229" y="236" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#E6D2A8">Winding</text><line x1="287" y1="180" x2="287" y2="190" stroke="#C9A467" stroke-width="1"/><text x="287" y="214" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="24" fill="#C9A467">1</text><text x="287" y="236" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#E6D2A8">Date</text><line x1="345" y1="180" x2="345" y2="190" stroke="#C9A467" stroke-width="1"/><text x="345" y="214" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="24" fill="#C9A467">2</text><text x="345" y="236" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#E6D2A8">Time</text>
+</svg>
+        <figcaption>Three positions: pushed in to wind, one click for the date, two clicks for the time.</figcaption>
+      </figure>
+    </div>
+    <div class="astuce">
+      <p><strong>Screw-down crown?</strong> On some watches, the crown screws onto the case for better water protection. First unscrew it by turning it towards you (counterclockwise) until it releases. After each adjustment, screw it back in while pressing lightly, without forcing.</p>
+    </div>
+
+    <h2 id="winding">Winding the watch</h2>
+    <p>If your watch has stopped, or you haven’t worn it for a few days, give it some energy by hand before setting it.</p>
+    <figure class="figure">
+      <svg viewBox="0 0 400 250" role="img" aria-label="Manual winding">
+  <text x="200" y="26" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="20" fill="#F1E2C2">Manual winding</text>
+  <circle cx="105" cy="145" r="84" fill="#12363D" stroke="#C9A467" stroke-width="3"/>
+  <circle cx="105" cy="145" r="73" fill="#0F2C33"/>
+  <line x1="105.0" y1="78.0" x2="105.0" y2="87.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="138.5" y1="87.0" x2="134.0" y2="94.8" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="163.0" y1="111.5" x2="155.2" y2="116.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="172.0" y1="145.0" x2="163.0" y2="145.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="163.0" y1="178.5" x2="155.2" y2="174.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="138.5" y1="203.0" x2="134.0" y2="195.2" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="105.0" y1="212.0" x2="105.0" y2="203.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="71.5" y1="203.0" x2="76.0" y2="195.2" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="47.0" y1="178.5" x2="54.8" y2="174.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="38.0" y1="145.0" x2="47.0" y2="145.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="47.0" y1="111.5" x2="54.8" y2="116.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="71.5" y1="87.0" x2="76.0" y2="94.8" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/>
+  <g transform="translate(105 145) rotate(-30)"><polygon points="0,-38 -6,-10 0,14 6,-10" fill="#F4ECDD" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <g transform="translate(105 145) rotate(0)"><polygon points="0,-56 -5,-10 0,14 5,-10" fill="#C9A467" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <circle cx="105" cy="145" r="4" fill="#C9A467"/>
+  <rect x="189" y="139" width="14" height="12" fill="#1F4B53"/>
+  <rect x="203" y="123" width="22" height="44" rx="5" fill="#C9A467"/>
+  <g stroke="#0F2C33" stroke-width="1.4"><line x1="208" y1="129" x2="208" y2="161"/><line x1="212" y1="129" x2="212" y2="161"/><line x1="216" y1="129" x2="216" y2="161"/><line x1="220" y1="129" x2="220" y2="161"/></g>
+  <defs><marker id="fl" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#E6D2A8"/></marker></defs>
+  <path d="M 244,177 C 270,161 270,127 244,111" fill="none" stroke="#E6D2A8" stroke-width="2.2" marker-end="url(#fl)"/>
+  <text x="282" y="138" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#E6D2A8">Turn upwards</text>
+  <text x="282" y="156" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#E6D2A8">(towards 12)</text>
+  <text x="282" y="184" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#C9A467">20 to 30 turns</text>
+</svg>
+      <figcaption>With the crown pushed in (position 0), gently turn it towards 12 o’clock.</figcaption>
+    </figure>
+    <ol class="pas">
+      <li>Leave the crown in position 0 (pushed in, or unscrewed if it screws down).</li>
+      <li>Gently turn it upwards, towards 12 o’clock, about twenty to thirty times. The hands should start moving again.</li>
+      <li>Then wear the watch: the rotor will take over.</li>
+    </ol>
+    <p>You won’t feel a hard stop: an automatic watch is designed so it can’t be overwound, the spring simply slips once it’s full. Turn gently, there’s no need to keep going.</p>
+    <p class="doux">Some movements can’t be wound by hand. In that case, gently swing the watch from side to side for a minute to get it going.</p>
+
+    <h2 id="time">Setting the time</h2>
+    <h3>Movement without date</h3>
+    <ol class="pas">
+      <li>Pull the crown out one click (position 1). On many movements, the seconds hand stops: handy for setting the time to the second.</li>
+      <li>Turn the crown to move the hands to the right time. For more precision, go slightly past the time, then come back to the right minute.</li>
+      <li>Push the crown back to position 0 on a round second, then screw it down if needed.</li>
+    </ol>
+    <h3>Movement with date</h3>
+    <p>The principle is the same, but the time is set by pulling the crown out <strong>two clicks</strong> (position 2). With a date, you also need to know whether it’s morning or afternoon: the date changes at midnight, not at noon. The full method is just below.</p>
+
+    <h2 id="date">Setting the date</h2>
+    <div class="attention">
+      <strong>Never do this</strong>
+      <p>Never change the date (crown in position 1) while the hour and minute hands are in the upper part of the dial, between 9 and 3.</p>
+      <p>Around midnight, the date mechanism is already switching to the next day. Forcing the date at that moment can damage or break the small teeth of that mechanism. On the dial, you can’t tell whether it’s 10 in the morning or 10 at night, so the simple rule is to avoid that whole zone.</p>
+    </div>
+    <figure class="figure">
+      <svg viewBox="0 0 400 350" role="img" aria-label="Where to put the hands">
+  <text x="200" y="26" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="20" fill="#F1E2C2">Where to put the hands</text>
+  <circle cx="200" cy="195" r="118" fill="#12363D" stroke="#C9A467" stroke-width="3"/>
+  <circle cx="200" cy="195" r="104" fill="#0F2C33"/>
+  <path d="M 96,195 A 104,104 0 0 1 304,195 L 200,195 Z" fill="#E07A5F" fill-opacity=".28"/>
+  <path d="M 96,195 A 104,104 0 0 1 304,195" fill="none" stroke="#E07A5F" stroke-width="3" stroke-dasharray="6 4"/>
+  <line x1="96" y1="195" x2="304" y2="195" stroke="#E07A5F" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <line x1="200.0" y1="99.0" x2="200.0" y2="111.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="248.0" y1="111.9" x2="242.0" y2="122.3" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="283.1" y1="147.0" x2="272.7" y2="153.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="296.0" y1="195.0" x2="284.0" y2="195.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="283.1" y1="243.0" x2="272.7" y2="237.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="248.0" y1="278.1" x2="242.0" y2="267.7" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="200.0" y1="291.0" x2="200.0" y2="279.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="152.0" y1="278.1" x2="158.0" y2="267.7" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="116.9" y1="243.0" x2="127.3" y2="237.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="104.0" y1="195.0" x2="116.0" y2="195.0" stroke="#C9A467" stroke-width="3" stroke-linecap="round"/><line x1="116.9" y1="147.0" x2="127.3" y2="153.0" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/><line x1="152.0" y1="111.9" x2="158.0" y2="122.3" stroke="#C9A467" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="200" y="132" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="14" fill="#F4B7A5">Zone to avoid</text>
+  <text x="200" y="150" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#F4B7A5">from 9 to 3</text>
+  <text x="200" y="340" text-anchor="middle" font-family="Jost, 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="14" fill="#C9A467">↑ Safe zone to set the date</text>
+  <g transform="translate(200 195) rotate(195)"><polygon points="0,-52 -7,-10 0,14 7,-10" fill="#F4ECDD" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <g transform="translate(200 195) rotate(180)"><polygon points="0,-76 -6,-10 0,14 6,-10" fill="#C9A467" stroke="#0B2227" stroke-width="1.2" stroke-linejoin="round"/></g>
+  <circle cx="200" cy="195" r="5" fill="#C9A467"/>
+  <text x="70" y="201" text-anchor="end" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="18" fill="#E6D2A8">9</text>
+  <text x="330" y="201" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="18" fill="#E6D2A8">3</text>
+  <text x="200" y="70" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="18" fill="#E6D2A8">12</text>
+</svg>
+      <figcaption>Before touching the date, move the hands to the lower half of the dial, around 6:30.</figcaption>
+    </figure>
+    <h3>The safe method, step by step</h3>
+    <ol class="pas">
+      <li>Pull the crown out two clicks (position 2) and move the hands to around <strong>6:30</strong>, in the safe zone.</li>
+      <li>Push it in one click (position 1). Turn it to set the date to <strong>the day before</strong> today. Depending on the movement, only one direction moves the date: if nothing happens, turn the other way.</li>
+      <li>Pull it back out to position 2 and move the hands <strong>forward</strong> until the date changes to today. You now know it’s midnight.</li>
+      <li>Keep moving the hands forward to the exact time, adding 12 hours if it’s the afternoon.</li>
+      <li>Push the crown back to position 0 and screw it down if it’s a screw-down crown.</li>
+    </ol>
+    <div class="astuce">
+      <p><strong>30-day months and February</strong>: the watch doesn’t know the calendar, it always counts up to 31. On the first day after a short month, simply move the date forward one or more days, always with the hands in the safe zone.</p>
+    </div>
+
+    <h2 id="habits">Good habits</h2>
+    <ul class="reflexes">
+      <li><strong>Take the watch off to set it.</strong> Handling the crown on your wrist puts sideways pressure on the stem.</li>
+      <li><strong>Always push the crown back in</strong>, and screw it down if it screws, before getting your hands wet or going into the water. Never operate it underwater.</li>
+      <li><strong>Keep it away from magnets</strong>: speakers, magnetic clasps on bags or phone cases. A magnetized watch often starts running very fast.</li>
+      <li><strong>Avoid hard knocks</strong>, such as a fall onto tiles or certain sports.</li>
+      <li><strong>Running a little fast or slow is normal</strong>: a mechanical watch can gain or lose a few seconds a day, sometimes more depending on the movement.</li>
+      <li><strong>A service now and then</strong> by a watchmaker cleans and lubricates the movement so it lasts a long time.</li>
+    </ul>
+
+  </div>
+</main>
+<footer>
+  <div class="conteneur">
+    <span>© 2026 Les Aiguilles du Fenua, Tahiti</span>
+    <a href="https://www.instagram.com/aiguilles.du.fenua/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+</body>
+</html>
