@@ -161,3 +161,56 @@ footer a { color: var(--accent); }
   .suite { flex-direction: column; }
   .suite__droite { text-align: left; }
 }
+
+/* Pastilles (fiche montre et lexique) */
+.titre-lexique { margin-top: 2.5rem; }
+.pastilles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.pastille {
+  display: inline-block; padding: .35rem .85rem;
+  border: 1px solid var(--filet); border-radius: 999px;
+  color: var(--texte); text-decoration: none; font-size: .92rem;
+  transition: border-color .2s, color .2s;
+}
+.pastille:hover { border-color: var(--accent); color: var(--accent); }
+.pastille--montre { border-color: var(--accent); color: var(--accent); }
+
+/* Lexique */
+.lex-outils {
+  display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between;
+  padding-bottom: 1.5rem; border-bottom: 1px solid var(--filet); margin-bottom: 1rem;
+}
+.lex-cats { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; }
+.lex-cats a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--filet); }
+.lex-cats a:hover { border-bottom-color: var(--accent); }
+.lex-recherche {
+  font: inherit; font-size: 1rem; color: var(--texte); background: transparent;
+  border: 1px solid var(--filet); border-radius: 999px; padding: .55rem 1.1rem; width: min(100%, 300px);
+}
+.lex-recherche:focus { outline: none; border-color: var(--laiton); }
+.lex-cat { padding-top: 3rem; scroll-margin-top: 1rem; }
+.lex-cat__titre { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 4.5vw, 2.8rem); line-height: 1.1; margin: 0 0 .6rem; }
+.lex-cat__intro { max-width: 40rem; color: var(--texte-doux); margin: 0 0 1.75rem; }
+.lex-grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
+.lex-fiche {
+  border: 1px solid var(--filet); border-radius: 12px; padding: 1.4rem 1.5rem 1.3rem;
+  scroll-margin-top: 1.5rem; transition: border-color .3s, box-shadow .3s;
+}
+.lex-fiche:target { border-color: var(--laiton); box-shadow: 0 0 0 3px rgba(201,164,103,.25); }
+.lex-fiche h3 { font-family: var(--serif); font-weight: 600; font-size: 1.55rem; line-height: 1.15; margin: 0 0 .6rem; }
+.lex-fiche p { margin: 0 0 .8em; }
+.lex-pm { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; padding-top: 1rem; border-top: 1px solid var(--filet); font-size: .95rem; }
+.lex-pm ul { margin: 0; padding-left: 1.1rem; }
+.lex-pm li { margin-bottom: .25rem; }
+.lex-pm__titre { font-weight: 500; margin: 0 0 .35rem !important; }
+.lex-pm__titre--plus { color: var(--accent); }
+.lex-pm__titre--moins { color: var(--texte-doux); }
+.lex-sous { font-size: .9rem; color: var(--texte-doux); margin: 1rem 0 .5rem !important; }
+.lex-voir { font-size: .92rem; color: var(--texte-doux); margin: 1rem 0 0 !important; }
+.lex-voir a { color: var(--accent); }
+.lex-tableau { overflow-x: auto; margin: 0 0 2rem; border: 1px solid var(--filet); border-radius: 12px; }
+.lex-tableau table { width: 100%; border-collapse: collapse; min-width: 520px; font-size: .95rem; }
+.lex-tableau th, .lex-tableau td { text-align: left; padding: .75rem 1rem; border-bottom: 1px solid var(--filet); }
+.lex-tableau tbody tr:last-child th, .lex-tableau tbody tr:last-child td { border-bottom: none; }
+.lex-tableau thead th { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; background: var(--fond-alt); }
+.lex-tableau tbody th { font-weight: 500; color: var(--texte-doux); }
+@media (max-width: 520px) { .lex-pm { grid-template-columns: 1fr; } .lex-grille { grid-template-columns: 1fr; } }

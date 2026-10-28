@@ -10,6 +10,8 @@
       precedente: 'Montre précédente', suivante: 'Montre suivante', retour: 'Toutes mes montres',
       introuvable: 'Cette montre est introuvable.', photoAVenir: 'Photo à venir',
       vide: 'Les premières montres arrivent bientôt.', voirPhoto: 'Voir la photo',
+      lexique: 'lexique.html', autreLexique: 'glossary.html', dansLexique: 'Dans le lexique', mesMontres: 'Mes montres concernées',
+      voirAussi: 'Voir aussi', plus: 'Les plus', moins: 'Les moins', rechercher: 'Rechercher un mot…', aucun: 'Aucun mot ne correspond à votre recherche.',
       qrTitre: 'QR code pour la carte de cette montre',
       qrAide: 'Enregistrez l’image (clic droit ou appui long), puis imprimez-la au dos de la carte. Cette section n’apparaît que si l’adresse se termine par &qr.'
     },
@@ -20,6 +22,8 @@
       precedente: 'Previous watch', suivante: 'Next watch', retour: 'All my watches',
       introuvable: 'This watch could not be found.', photoAVenir: 'Photo coming soon',
       vide: 'The first watches are coming soon.', voirPhoto: 'Show photo',
+      lexique: 'glossary.html', autreLexique: 'lexique.html', dansLexique: 'In the glossary', mesMontres: 'My watches with this',
+      voirAussi: 'See also', plus: 'Pros', moins: 'Cons', rechercher: 'Search for a word…', aucun: 'No word matches your search.',
       qrTitre: 'QR code for this watch’s card',
       qrAide: 'Save the image (right-click or long press), then print it on the back of the card. This section only appears when the address ends with &qr.'
     }
@@ -134,6 +138,7 @@
           '</dl>' +
           (m.histoire ? '<h2 class="titre-moyen">' + esc(T.histoire) + '</h2><div class="prose-fiche">' + paragraphes(m.histoire) + '</div>' : '') +
           (composants ? '<h2 class="titre-moyen">' + esc(T.composants) + '</h2><dl class="composants">' + composants + '</dl>' : '') +
+          '<div id="ficheLexique"></div>' +
         '</div>' +
       '</div>' +
 
@@ -160,6 +165,19 @@
       });
     });
 
+    if (m.lexique && m.lexique.length) {
+      avecLexique(function () {
+        var pastilles = m.lexique.map(function (id) {
+          var f = INDEX_LEXIQUE[id];
+          return f ? '<li><a class="pastille" href="' + T.lexique + '#' + id + '">' + esc(t(f.nom)) + '</a></li>' : '';
+        }).join('');
+        if (pastilles) {
+          document.getElementById('ficheLexique').innerHTML =
+            '<h2 class="titre-moyen titre-lexique">' + esc(T.dansLexique) + '</h2><ul class="pastilles">' + pastilles + '</ul>';
+        }
+      });
+    }
+
     if (params.has('qr')) {
       var s = document.createElement('script');
       s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
@@ -174,4 +192,87 @@
     }
   }
 
+
+  /* ---------- Lexique ---------- */
+  var INDEX_LEXIQUE; // rempli par indexer()
+  function indexer() {
+    INDEX_LEXIQUE = {};
+    (typeof LEXIQUE !== 'undefined' ? LEXIQUE : []).forEach(function (c) {
+      (c.fiches || []).forEach(function (f) { INDEX_LEXIQUE[f.id] = f; });
+    });
+  }
+  function avecLexique(suite) {
+    if (typeof LEXIQUE !== 'undefined') { indexer(); suite(); return; }
+    var sc = document.createElement('script');
+    sc.src = 'lexique.js';
+    sc.onload = function () { indexer(); suite(); };
+    document.head.appendChild(sc);
+  }
+  function sansAccents(x) { return String(x).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+
+  var lexique = document.getElementById('lexique');
+  if (lexique) {
+    if (lienLangue) lienLangue.href = T.autreLexique + location.hash;
+    window.addEventListener('hashchange', function () { if (lienLangue) lienLangue.href = T.autreLexique + location.hash; });
+    indexer();
+    var cats = typeof LEXIQUE !== 'undefined' ? LEXIQUE : [];
+
+    function liste_(arr) { return '<ul>' + arr.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>'; }
+
+    var html = '<nav class="lex-outils" aria-label="' + esc(T.dansLexique) + '"><ul class="lex-cats">' +
+      cats.map(function (c) { return '<li><a href="#' + c.id + '">' + esc(t(c.nom)) + '</a></li>'; }).join('') +
+      '</ul><input id="lexRecherche" class="lex-recherche" type="search" placeholder="' + esc(T.rechercher) + '" aria-label="' + esc(T.rechercher) + '"></nav>';
+
+    html += cats.map(function (c) {
+      var tableau = '';
+      if (c.tableau) {
+        var col = t(c.tableau.colonnes);
+        tableau = '<div class="lex-tableau"><table><thead><tr>' + col.map(function (x) { return '<th scope="col">' + esc(x) + '</th>'; }).join('') +
+          '</tr></thead><tbody>' + c.tableau.lignes.map(function (l) {
+            var v = t(l);
+            return '<tr><th scope="row">' + esc(v[0]) + '</th>' + v.slice(1).map(function (x) { return '<td>' + esc(x) + '</td>'; }).join('') + '</tr>';
+          }).join('') + '</tbody></table></div>';
+      }
+      return '<section class="lex-cat" id="' + c.id + '"><h2 class="lex-cat__titre">' + esc(t(c.nom)) + '</h2>' +
+        (c.intro ? '<p class="lex-cat__intro">' + esc(t(c.intro)) + '</p>' : '') + tableau +
+        '<div class="lex-grille">' + (c.fiches || []).map(function (f) {
+          var montresLiees = liste.filter(function (m) { return (m.lexique || []).indexOf(f.id) >= 0; });
+          var plus = t(f.plus), moins = t(f.moins);
+          return '<article class="lex-fiche" id="' + f.id + '" data-texte="' + esc(sansAccents(t(f.nom) + ' ' + t(f.texte))) + '">' +
+            '<h3>' + esc(t(f.nom)) + '</h3>' + paragraphes(f.texte) +
+            ((plus && plus.length) || (moins && moins.length) ? '<div class="lex-pm">' +
+              (plus && plus.length ? '<div><p class="lex-pm__titre lex-pm__titre--plus">' + esc(T.plus) + '</p>' + liste_(plus) + '</div>' : '') +
+              (moins && moins.length ? '<div><p class="lex-pm__titre lex-pm__titre--moins">' + esc(T.moins) + '</p>' + liste_(moins) + '</div>' : '') +
+            '</div>' : '') +
+            (montresLiees.length ? '<p class="lex-sous">' + esc(T.mesMontres) + '</p><ul class="pastilles">' + montresLiees.map(function (m) {
+              return '<li><a class="pastille pastille--montre" href="' + T.fiche + '?n=' + m.numero + '">' + T.numero + ' ' + num(m.numero) + ' ' + esc(t(m.modele)) + '</a></li>';
+            }).join('') + '</ul>' : '') +
+            (f.voir && f.voir.length ? '<p class="lex-voir">' + esc(T.voirAussi) + ' : ' + f.voir.filter(function (id) { return INDEX_LEXIQUE[id]; }).map(function (id) {
+              return '<a href="#' + id + '">' + esc(t(INDEX_LEXIQUE[id].nom)) + '</a>';
+            }).join(', ') + '</p>' : '') +
+            '</article>';
+        }).join('') + '</div></section>';
+    }).join('');
+    html += '<p id="lexAucun" class="doux" hidden>' + esc(T.aucun) + '</p>';
+    lexique.innerHTML = html;
+
+    if (location.hash) {
+      var cible = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (cible) setTimeout(function () { cible.scrollIntoView(); }, 0);
+    }
+
+    document.getElementById('lexRecherche').addEventListener('input', function () {
+      var q = sansAccents(this.value.trim());
+      var total = 0;
+      lexique.querySelectorAll('.lex-cat').forEach(function (sec) {
+        var vis = 0;
+        sec.querySelectorAll('.lex-fiche').forEach(function (a) {
+          var ok = !q || a.dataset.texte.indexOf(q) >= 0;
+          a.hidden = !ok; if (ok) vis++;
+        });
+        sec.hidden = vis === 0; total += vis;
+      });
+      document.getElementById('lexAucun').hidden = total > 0;
+    });
+  }
 })();

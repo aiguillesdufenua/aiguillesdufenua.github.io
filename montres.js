@@ -19,9 +19,10 @@
   - Pour séparer deux paragraphes, écrivez \n\n dans le texte.
   - Laissez  photos: []  tant que vous n’avez pas de photo :
     le site affichera « Photo à venir ».
+  - La liste  lexique: [...]  relie la montre aux fiches du lexique
+    (identifiants listés dans lexique.js et MODE-EMPLOI.md), par exemple :
+      lexique: ["automatique", "verre-saphir", "plongee"],
 
-  Les deux montres ci-dessous sont des EXEMPLES : remplacez leurs
-  textes par ceux de vos vraies montres.
 */
 
 const MONTRES = [
@@ -31,6 +32,7 @@ const MONTRES = [
     date: "2025-09",
     modele: { fr: "DIY Watch Club DWC-D02", en: "DIY Watch Club DWC-D02" },
     mouvement: { fr: "Seiko NH70A", en: "Seiko NH70A" },
+    lexique: ["automatique", "verre-saphir", "plongee"],
     photos: [
       { src: "images/montre-000-1.jpg", alt: { fr: "La montre vue de face", en: "The watch, front view" } },
       // { src: "images/montre-001-2.jpg", alt: { fr: "Le dos de la montre", en: "The back of the watch" } },
@@ -55,6 +57,7 @@ const MONTRES = [
     date: "2025-10",
     modele: { fr: "Miti Nui", en: "Miti Nui" },
     mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
+    lexique: ["automatique", "verre-saphir", "plongee"],
     photos: [
       { src: "images/montre-001-1.jpg", alt: { fr: "La montre vue de face dans son élement océan.", en: "The watch, front view." } },
       { src: "images/montre-001-2.jpg", alt: { fr: "La montre dans l'élément du Fenua.", en: "The watch, front view in Fenua nature." } },
@@ -68,7 +71,7 @@ const MONTRES = [
     ],
     histoire: {
       fr: "La première montre pour laquelle j'ai choisi les composants, aiguilles et cadran.\n\nPour rendre hommage à l'immensité de l'océan, ses trésors et ses couleurs. Miti Nui signifie grande mer en tahitien.",
-      en: "The very first watch for which I have chosen all components, hands and dial.\n\Tribute to the immensity of the ocean, its treasures and colors. Miti Nui means great sea in tahitian."
+      en: "The very first watch for which I have chosen all components, hands and dial.\n\nTribute to the immensity of the ocean, its treasures and colors. Miti Nui means great sea in tahitian."
     },
     appris: {
       fr: "Choisir des composants compatibles entre eux et ajuster la longueur de tige de remontoir au boitier.",

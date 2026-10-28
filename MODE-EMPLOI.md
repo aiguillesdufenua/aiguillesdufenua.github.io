@@ -37,3 +37,24 @@ Un QR code apparaît en bas de la page. Enregistrez l’image et imprimez-la au 
 
 - Galerie : `https://aiguillesdufenua.github.io/montres.html` (anglais : `watches.html`)
 - Fiche de la montre n° 3 : `https://aiguillesdufenua.github.io/montre.html?n=3` (anglais : `watch.html?n=3`)
+
+## Relier une montre au lexique
+
+Dans `montres.js`, ajoutez une ligne `lexique` à la montre, avec les identifiants des fiches qui la concernent :
+
+```js
+lexique: ["automatique", "verre-saphir", "plongee"],
+```
+
+La fiche de la montre affiche alors ces mots, cliquables, et chaque fiche du lexique liste automatiquement les montres concernées.
+
+Identifiants disponibles (voir `lexique.js`) :
+
+- Mouvements : `automatique`, `manuel`, `quartz`
+- Verres : `verre-saphir`, `verre-mineral`, `verre-acrylique`
+- Types de montres : `plongee`, `field`, `dress`, `gmt`, `chronographe`, `pilote`
+- Vocabulaire : `boitier`, `cadran`, `index`, `rehaut`, `trotteuse`, `couronne`, `lunette`, `cornes`, `entrecornes`, `fond`, `rotor`, `reserve-de-marche`, `stop-seconde`, `luminescence`, `etancheite`, `calibre`
+
+## Ajouter un mot au lexique
+
+Ouvrez `lexique.js`, copiez une fiche `{ id: ..., }` dans la bonne catégorie et changez l’identifiant et les textes. L’identifiant doit être en minuscules, sans espace ni accent.
