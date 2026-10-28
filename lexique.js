@@ -8,8 +8,9 @@
   liste  lexique: [...]  d’une montre, pour la relier à la fiche.
 
   Pour ajouter une fiche : copiez un bloc { id: ..., } dans la bonne
-  catégorie et changez les textes. Les champs  plus, moins  et  voir
-  sont facultatifs.
+  catégorie et changez les textes. Les champs  plus, moins, voir  et
+  illustration  sont facultatifs (les illustrations sont dans
+  illustrations.js).
 */
 
 const LEXIQUE = [
@@ -139,6 +140,7 @@ const LEXIQUE = [
     fiches: [
       {
         id: "plongee",
+        illustration: "plongee",
         nom: { fr: "Montre de plongée", en: "Dive watch" },
         texte: {
           fr: "Conçue pour mesurer le temps passé sous l’eau. On la reconnaît à sa lunette tournante graduée sur 60 minutes, qui ne tourne que dans un sens par sécurité, à ses index très lumineux et à sa couronne vissée. La norme ISO 6425 exige au moins 100 mètres d’étanchéité ; beaucoup de modèles annoncent 200 mètres ou plus.\n\nAu fenua, c’est la montre du lagon par excellence.",
@@ -148,6 +150,7 @@ const LEXIQUE = [
       },
       {
         id: "field",
+        illustration: "field",
         nom: { fr: "Montre de terrain (field)", en: "Field watch" },
         texte: {
           fr: "Héritée des montres militaires. Tout est pensé pour la lisibilité et la robustesse : grands chiffres arabes, souvent une échelle de 13 à 24 heures, cadran mat, boîtier simple et bracelet en toile ou en cuir. Une montre de tous les jours, sans chichis.",
@@ -157,6 +160,7 @@ const LEXIQUE = [
       },
       {
         id: "dress",
+        illustration: "dress",
         nom: { fr: "Montre habillée (dress)", en: "Dress watch" },
         texte: {
           fr: "Fine, élégante et discrète, pensée pour glisser sous une manche de chemise. Cadran épuré, souvent sans trotteuse ni date, boîtier de diamètre modéré et bracelet en cuir.",
@@ -166,6 +170,7 @@ const LEXIQUE = [
       },
       {
         id: "gmt",
+        illustration: "gmt",
         nom: { fr: "Montre GMT", en: "GMT watch" },
         texte: {
           fr: "Elle affiche un deuxième fuseau horaire grâce à une aiguille supplémentaire qui fait le tour du cadran en 24 heures, souvent associée à une lunette graduée de 1 à 24. Idéale pour garder l’heure de Tahiti en voyage, ou suivre celle de proches à l’autre bout du monde.",
@@ -175,6 +180,7 @@ const LEXIQUE = [
       },
       {
         id: "chronographe",
+        illustration: "chronographe",
         nom: { fr: "Chronographe", en: "Chronograph" },
         texte: {
           fr: "Une montre avec une fonction chronomètre. Deux poussoirs, de part et d’autre de la couronne, permettent de démarrer, arrêter et remettre à zéro, et de petits compteurs sur le cadran affichent les minutes et heures écoulées. À ne pas confondre avec « chronomètre », qui désigne une montre certifiée pour sa précision.",
@@ -184,6 +190,7 @@ const LEXIQUE = [
       },
       {
         id: "pilote",
+        illustration: "pilote",
         nom: { fr: "Montre d’aviateur", en: "Pilot watch" },
         texte: {
           fr: "Née dans les cockpits. Grand boîtier, cadran noir très contrasté, grands chiffres lumineux et souvent un triangle à midi pour s’orienter d’un coup d’œil. La couronne est volumineuse, à l’origine pour pouvoir la manipuler avec des gants.",
@@ -201,6 +208,12 @@ const LEXIQUE = [
       fr: "Les petits mots de l’horlogerie, pour s’y retrouver quand on parle d’une montre.",
       en: "The small words of watchmaking, to find your way when talking about a watch."
     },
+    schemas: [
+      { illustration: "anatomie-face",
+        legende: { fr: "Une montre vue de face. Cliquez sur un nom souligné pour ouvrir sa fiche.", en: "A watch seen from the front. Click an underlined name to open its entry." } },
+      { illustration: "anatomie-coupe",
+        legende: { fr: "La même montre vue en coupe : ce qui se cache sous le verre et derrière le cadran.", en: "The same watch in cross-section: what hides under the crystal and behind the dial." } }
+    ],
     fiches: [
       { id: "boitier", nom: { fr: "Boîtier", en: "Case" },
         texte: { fr: "L’enveloppe de la montre, qui protège le mouvement. Il est souvent en acier inoxydable, parfois en titane, en bronze ou en céramique. Son diamètre, en millimètres, donne la taille de la montre.", en: "The housing of the watch, protecting the movement. It is usually stainless steel, sometimes titanium, bronze or ceramic. Its diameter, in millimetres, gives the size of the watch." },

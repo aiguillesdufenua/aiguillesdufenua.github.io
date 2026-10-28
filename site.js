@@ -235,10 +235,16 @@
       }
       return '<section class="lex-cat" id="' + c.id + '"><h2 class="lex-cat__titre">' + esc(t(c.nom)) + '</h2>' +
         (c.intro ? '<p class="lex-cat__intro">' + esc(t(c.intro)) + '</p>' : '') + tableau +
+        (c.schemas && typeof ILLUSTRATIONS !== 'undefined' ? c.schemas.map(function (sc) {
+          var dessin = ILLUSTRATIONS[sc.illustration];
+          return dessin ? '<figure class="lex-schema">' + dessin(lang) + (sc.legende ? '<figcaption>' + esc(t(sc.legende)) + '</figcaption>' : '') + '</figure>' : '';
+        }).join('') : '') +
         '<div class="lex-grille">' + (c.fiches || []).map(function (f) {
           var montresLiees = liste.filter(function (m) { return (m.lexique || []).indexOf(f.id) >= 0; });
           var plus = t(f.plus), moins = t(f.moins);
           return '<article class="lex-fiche" id="' + f.id + '" data-texte="' + esc(sansAccents(t(f.nom) + ' ' + t(f.texte))) + '">' +
+            (f.illustration && typeof ILLUSTRATIONS !== 'undefined' && ILLUSTRATIONS[f.illustration] ?
+              '<figure class="lex-illu">' + ILLUSTRATIONS[f.illustration](lang) + '</figure>' : '') +
             '<h3>' + esc(t(f.nom)) + '</h3>' + paragraphes(f.texte) +
             ((plus && plus.length) || (moins && moins.length) ? '<div class="lex-pm">' +
               (plus && plus.length ? '<div><p class="lex-pm__titre lex-pm__titre--plus">' + esc(T.plus) + '</p>' + liste_(plus) + '</div>' : '') +

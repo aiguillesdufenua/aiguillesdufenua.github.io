@@ -214,3 +214,12 @@ footer a { color: var(--accent); }
 .lex-tableau thead th { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; background: var(--fond-alt); }
 .lex-tableau tbody th { font-weight: 500; color: var(--texte-doux); }
 @media (max-width: 520px) { .lex-pm { grid-template-columns: 1fr; } .lex-grille { grid-template-columns: 1fr; } }
+
+/* Illustrations du lexique */
+.lex-schema { margin: 0 0 1.5rem; background: var(--lagon); border-radius: 12px; padding: 1rem 1rem .25rem; }
+.lex-schema svg { display: block; width: 100%; height: auto; max-height: 480px; }
+.lex-schema figcaption { color: #AFC0BD; font-size: .92rem; padding: .25rem .5rem .9rem; }
+.lex-schema a text:hover { fill: #F1E2C2; }
+.lex-schema + .lex-schema { margin-bottom: 2.5rem; }
+.lex-illu { margin: -.4rem -.5rem 1rem; background: var(--lagon); border-radius: 10px; padding: .75rem; }
+.lex-illu svg { display: block; width: 100%; max-width: 220px; height: auto; margin-inline: auto; }
