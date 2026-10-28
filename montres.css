@@ -222,4 +222,15 @@ footer a { color: var(--accent); }
 .lex-schema a text:hover { fill: #F1E2C2; }
 .lex-schema + .lex-schema { margin-bottom: 2.5rem; }
 .lex-illu { margin: -.4rem -.5rem 1rem; background: var(--lagon); border-radius: 10px; padding: .75rem; }
-.lex-illu svg { display: block; width: 100%; max-width: 220px; height: auto; margin-inline: auto; }
+.lex-illu svg { display: block; width: 100%; max-width: 250px; height: auto; margin-inline: auto; }
+.lex-illu figcaption { color: #AFC0BD; font-size: .86rem; line-height: 1.45; padding: .6rem .25rem .1rem; }
+
+/* Animations des mouvements */
+.anim-rotor, .anim-balancier, .anim-pas { transform-box: view-box; }
+.anim-rotor { animation: rotor 7s ease-in-out infinite; }
+.anim-balancier { animation: balancier .5s ease-in-out infinite alternate; }
+.anim-pas { animation: pas 6s steps(6) infinite; }
+@keyframes rotor { 0%, 100% { transform: rotate(-35deg); } 50% { transform: rotate(150deg); } }
+@keyframes balancier { from { transform: rotate(-120deg); } to { transform: rotate(120deg); } }
+@keyframes pas { to { transform: rotate(60deg); } }
+@media (prefers-reduced-motion: reduce) { .anim-rotor, .anim-balancier, .anim-pas { animation: none; } }

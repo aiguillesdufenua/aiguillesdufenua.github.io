@@ -244,7 +244,8 @@
           var plus = t(f.plus), moins = t(f.moins);
           return '<article class="lex-fiche" id="' + f.id + '" data-texte="' + esc(sansAccents(t(f.nom) + ' ' + t(f.texte))) + '">' +
             (f.illustration && typeof ILLUSTRATIONS !== 'undefined' && ILLUSTRATIONS[f.illustration] ?
-              '<figure class="lex-illu">' + ILLUSTRATIONS[f.illustration](lang) + '</figure>' : '') +
+              '<figure class="lex-illu">' + ILLUSTRATIONS[f.illustration](lang) +
+              (f.illustrationLegende ? '<figcaption>' + esc(t(f.illustrationLegende)) + '</figcaption>' : '') + '</figure>' : '') +
             '<h3>' + esc(t(f.nom)) + '</h3>' + paragraphes(f.texte) +
             ((plus && plus.length) || (moins && moins.length) ? '<div class="lex-pm">' +
               (plus && plus.length ? '<div><p class="lex-pm__titre lex-pm__titre--plus">' + esc(T.plus) + '</p>' + liste_(plus) + '</div>' : '') +

@@ -25,6 +25,8 @@ const LEXIQUE = [
     fiches: [
       {
         id: "automatique",
+        illustration: "automatique",
+        illustrationLegende: { fr: "Vue du dos : le rotor doré oscille avec le poignet et remonte le ressort. En dessous, le balancier bat la mesure.", en: "Back view: the golden rotor swings with the wrist and winds the spring. Underneath, the balance keeps the beat." },
         nom: { fr: "Mouvement automatique", en: "Automatic movement" },
         texte: {
           fr: "Un mouvement mécanique qui se remonte tout seul quand on le porte. Un rotor, demi-disque monté sur roulement, tourne au moindre geste du poignet et remonte le ressort de barillet. Posée, la montre fonctionne pendant sa réserve de marche, souvent autour de 40 heures, puis s’arrête.\n\nCe sont les mouvements les plus courants dans les montres que l’on assemble soi-même, comme les Seiko NH35 ou les Miyota 8215.",
@@ -42,6 +44,8 @@ const LEXIQUE = [
       },
       {
         id: "manuel",
+        illustration: "manuel",
+        illustrationLegende: { fr: "Vue du dos : sans rotor, on voit le grand rochet remonté par la couronne, les roues du rouage et le balancier.", en: "Back view: with no rotor, you can see the large ratchet wheel wound by the crown, the gear train and the balance." },
         nom: { fr: "Mouvement à remontage manuel", en: "Hand-wound movement" },
         texte: {
           fr: "Le plus ancien des mouvements mécaniques. Il n’a pas de rotor : on le remonte soi-même en tournant la couronne, généralement une fois par jour ou tous les deux jours. Ce petit rituel matinal fait partie de son charme.\n\nComme il n’a pas de rotor, il est souvent plus fin, et son dos transparent laisse mieux voir la mécanique.",
@@ -59,6 +63,8 @@ const LEXIQUE = [
       },
       {
         id: "quartz",
+        illustration: "quartz",
+        illustrationLegende: { fr: "Vue du dos : la pile alimente le circuit, le quartz donne la cadence et la bobine fait avancer les roues seconde par seconde.", en: "Back view: the battery powers the circuit, the quartz sets the pace and the coil moves the wheels second by second." },
         nom: { fr: "Mouvement à quartz", en: "Quartz movement" },
         texte: {
           fr: "Un mouvement électronique alimenté par une pile. Un petit cristal de quartz vibre à une fréquence très stable, 32 768 fois par seconde, et un circuit transforme ces vibrations en impulsions qui font avancer les aiguilles. On le reconnaît à sa trotteuse qui saute d’une seconde à l’autre.",
@@ -183,8 +189,8 @@ const LEXIQUE = [
         illustration: "chronographe",
         nom: { fr: "Chronographe", en: "Chronograph" },
         texte: {
-          fr: "Une montre avec une fonction chronomètre. Deux poussoirs, de part et d’autre de la couronne, permettent de démarrer, arrêter et remettre à zéro, et de petits compteurs sur le cadran affichent les minutes et heures écoulées. À ne pas confondre avec « chronomètre », qui désigne une montre certifiée pour sa précision.",
-          en: "A watch with a stopwatch function. Two pushers, on either side of the crown, start, stop and reset it, and small sub-dials show the elapsed minutes and hours. Not to be confused with “chronometer”, which means a watch certified for its accuracy."
+          fr: "Une montre qui sait mesurer un temps écoulé, comme le chrono d’un entraîneur sportif. Deux poussoirs, de part et d’autre de la couronne, permettent de démarrer, arrêter et remettre à zéro : la grande trotteuse centrale compte alors les secondes, et de petits compteurs sur le cadran affichent les minutes et les heures écoulées.\n\nÀ ne pas confondre avec un « chronomètre » : en horlogerie, ce mot désigne une montre dont la précision a été testée et certifiée par un organisme officiel, comme le COSC en Suisse. Une montre peut être l’un, l’autre, les deux… ou aucun des deux.",
+          en: "A watch that can measure elapsed time, like a coach’s stopwatch. Two pushers, on either side of the crown, start, stop and reset it: the large central seconds hand then counts the seconds, and small sub-dials show the elapsed minutes and hours.\n\nNot to be confused with a “chronometer”: in watchmaking, that word means a watch whose accuracy has been tested and certified by an official body, such as the COSC in Switzerland. A watch can be one, the other, both… or neither."
         },
         voir: ["couronne", "calibre"]
       },

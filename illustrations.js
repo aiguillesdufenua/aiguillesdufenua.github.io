@@ -180,6 +180,109 @@ const ILLUSTRATIONS = (function () {
     return svg(s, lang === 'en' ? 'Typical pilot watch' : 'Montre d’aviateur type');
   }
 
+
+  /* ---------- Mouvements (vus du dos de la montre) ---------- */
+  var PLATINE = '#C3CBCB', PLATINE_F = '#8E9C9D', RUBIS = '#B4334A', BLEUI = '#2B4C7E', DORE = '#C9A467', DORE_F = '#8C6D38';
+
+  function rubis(x, y) { return '<circle cx="' + x + '" cy="' + y + '" r="4.2" fill="' + DORE + '" stroke="' + DORE_F + '" stroke-width=".8"/><circle cx="' + x + '" cy="' + y + '" r="2.4" fill="' + RUBIS + '"/>'; }
+  function vis(x, y, a) {
+    var p1 = pt(x, y, 3.2, a || 30), p2 = pt(x, y, 3.2, (a || 30) + 180);
+    return '<circle cx="' + x + '" cy="' + y + '" r="4.3" fill="' + BLEUI + '" stroke="#1B3157" stroke-width=".8"/><line x1="' + f(p1[0]) + '" y1="' + f(p1[1]) + '" x2="' + f(p2[0]) + '" y2="' + f(p2[1]) + '" stroke="#9DB3D6" stroke-width="1.2"/>';
+  }
+  function roue(x, y, r, couleur, dents, classe, origine) {
+    var tour = 2 * Math.PI * (r + 2), pas = tour / (dents || 40);
+    var g = '<g' + (classe ? ' class="' + classe + '" style="transform-origin:' + x + 'px ' + y + 'px"' : '') + '>' +
+      '<circle cx="' + x + '" cy="' + y + '" r="' + (r + 2) + '" fill="none" stroke="' + couleur + '" stroke-width="4" stroke-dasharray="' + f(pas / 2) + ' ' + f(pas / 2) + '"/>' +
+      '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="' + couleur + '" stroke="' + DORE_F + '" stroke-width=".8"/>' +
+      '<circle cx="' + x + '" cy="' + y + '" r="' + f(r * 0.72) + '" fill="#4A5A5C" opacity=".55"/>';
+    for (var k = 0; k < 4; k++) {
+      var a = pt(x, y, r * 0.72, k * 90 + 20), b = pt(x, y, r * 0.72, k * 90 + 200);
+      if (k < 2) g += '<line x1="' + f(a[0]) + '" y1="' + f(a[1]) + '" x2="' + f(b[0]) + '" y2="' + f(b[1]) + '" stroke="' + couleur + '" stroke-width="' + f(Math.max(2, r * 0.18)) + '"/>';
+    }
+    return g + '<circle cx="' + x + '" cy="' + y + '" r="' + f(Math.max(2.5, r * 0.18)) + '" fill="' + DORE + '" stroke="' + DORE_F + '" stroke-width=".6"/></g>';
+  }
+  function balancier(x, y, r) {
+    var spirale = 'M ' + x + ',' + y;
+    for (var k = 1; k <= 60; k++) { var p = pt(x, y, 2 + k * (r - 6) / 60, k * 24); spirale += ' L ' + f(p[0]) + ',' + f(p[1]); }
+    return '<g class="anim-balancier" style="transform-origin:' + x + 'px ' + y + 'px">' +
+      '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="none" stroke="' + DORE + '" stroke-width="4.5"/>' +
+      '<line x1="' + (x - r) + '" y1="' + y + '" x2="' + (x + r) + '" y2="' + y + '" stroke="' + DORE + '" stroke-width="3"/>' +
+      '</g><path d="' + spirale + '" fill="none" stroke="#5E7072" stroke-width=".9"/>';
+  }
+  function cotes(id, cx, cy, r, couleur) {
+    var s = '<clipPath id="' + id + '"><circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"/></clipPath><g clip-path="url(#' + id + ')" stroke="' + couleur + '" stroke-width="7" opacity=".35">';
+    for (var x = cx - r - 40; x < cx + r + 40; x += 14) s += '<line x1="' + x + '" y1="' + (cy - r - 20) + '" x2="' + (x + 40) + '" y2="' + (cy + r + 20) + '"/>';
+    return s + '</g>';
+  }
+  function boiteMouvement(contenu, label) {
+    var s = '<circle cx="150" cy="150" r="128" fill="' + ACIER + '" stroke="' + ACIER_F + '" stroke-width="1.5"/>' +
+      '<circle cx="150" cy="150" r="120" fill="#22383D"/>' +
+      // tige et couronne : vue du dos, la couronne se trouve à gauche
+      '<rect x="6" y="140" width="22" height="20" fill="' + ACIER + '" stroke="' + ACIER_F + '"/><rect x="0" y="132" width="14" height="36" rx="4" fill="' + ACIER + '" stroke="' + ACIER_F + '"/>' +
+      '<line x1="26" y1="150" x2="58" y2="150" stroke="' + PLATINE_F + '" stroke-width="3"/>';
+    return svg(s + contenu, label);
+  }
+
+  function mvtAutomatique(lang) {
+    var s = '<circle cx="150" cy="150" r="112" fill="' + PLATINE + '" stroke="' + PLATINE_F + '" stroke-width="1.2"/>' + cotes('ca', 150, 150, 112, '#FFFFFF');
+    // ponts et rouage
+    s += '<path d="M 62,120 Q 120,70 205,78 L 212,112 Q 140,112 80,150 Z" fill="#B3BCBC" stroke="' + PLATINE_F + '"/>';
+    s += roue(196, 196, 20, DORE, 48) + roue(170, 230, 12, DORE, 30);
+    s += '<path d="M 70,176 Q 92,150 140,170 L 132,226 Q 100,238 78,222 Z" fill="#B3BCBC" stroke="' + PLATINE_F + '"/>';
+    s += balancier(104, 202, 26);
+    s += rubis(104, 202) + rubis(196, 196) + rubis(170, 230) + rubis(150, 100) + rubis(120, 96);
+    s += vis(72, 136) + vis(200, 88) + vis(132, 216) + vis(84, 216) + vis(228, 168);
+    // rotor
+    s += '<g class="anim-rotor" style="transform-origin:150px 150px">' +
+      '<path d="M 46,150 A 104,104 0 0 1 254,150 L 186,150 A 36,36 0 0 0 114,150 Z" fill="' + DORE + '" stroke="' + DORE_F + '" stroke-width="1.2"/>' +
+      '<path d="M 60,150 A 90,90 0 0 1 240,150" fill="none" stroke="' + DORE_F + '" stroke-width="1" opacity=".6"/>' +
+      '<path d="M 74,150 A 76,76 0 0 1 226,150" fill="none" stroke="' + DORE_F + '" stroke-width="1" opacity=".4"/>' +
+      '<path d="M 88,150 A 62,62 0 0 1 212,150" fill="none" stroke="' + DORE_F + '" stroke-width="1" opacity=".4"/>' +
+      '<rect x="114" y="146" width="72" height="8" fill="' + DORE + '"/>' +
+      '</g>';
+    s += '<circle cx="150" cy="150" r="13" fill="' + PLATINE + '" stroke="' + PLATINE_F + '"/><circle cx="150" cy="150" r="6" fill="' + BLEUI + '"/>';
+    return boiteMouvement(s, lang === 'en' ? 'Automatic movement seen from the back, with its golden rotor' : 'Mouvement automatique vu du dos, avec son rotor doré');
+  }
+
+  function mvtManuel(lang) {
+    var s = '<circle cx="150" cy="150" r="112" fill="' + PLATINE + '" stroke="' + PLATINE_F + '" stroke-width="1.2"/>';
+    // pont de barillet
+    s += '<path d="M 58,118 Q 90,58 168,52 Q 230,58 238,110 Q 200,140 150,138 Q 96,140 58,118 Z" fill="#B3BCBC" stroke="' + PLATINE_F + '"/>' + cotes('cm', 150, 150, 112, '#FFFFFF');
+    s += roue(150, 96, 34, '#D2D8D8', 60) + roue(92, 102, 14, '#D2D8D8', 30);
+    s += '<circle cx="150" cy="96" r="7" fill="' + PLATINE + '" stroke="' + PLATINE_F + '"/>';
+    // pont de rouage
+    s += '<path d="M 150,150 Q 210,140 238,170 Q 230,214 196,236 Q 168,214 150,190 Z" fill="#B3BCBC" stroke="' + PLATINE_F + '"/>';
+    s += roue(176, 168, 13, DORE, 34) + roue(210, 196, 9, DORE, 26);
+    // coq et balancier
+    s += '<path d="M 60,190 Q 76,160 118,170 L 140,214 Q 120,240 86,236 Z" fill="#B3BCBC" stroke="' + PLATINE_F + '"/>';
+    s += balancier(104, 202, 28);
+    s += rubis(104, 202) + rubis(176, 168) + rubis(210, 196) + rubis(150, 150) + rubis(196, 224);
+    s += vis(150, 96, 70) + vis(92, 102, 10) + vis(70, 118) + vis(226, 104) + vis(232, 178) + vis(66, 214) + vis(134, 222);
+    return boiteMouvement(s, lang === 'en' ? 'Hand-wound movement seen from the back, with its wheels and balance' : 'Mouvement à remontage manuel vu du dos, avec ses roues et son balancier');
+  }
+
+  function mvtQuartz(lang) {
+    var s = '<circle cx="150" cy="150" r="112" fill="#3A4648" stroke="#22383D" stroke-width="1.2"/>';
+    // circuit imprimé
+    s += '<path d="M 60,96 L 150,70 L 236,104 L 236,150 L 150,150 L 120,186 L 60,170 Z" fill="#2F5B4F" stroke="#1F3F37"/>';
+    s += '<g fill="none" stroke="' + DORE + '" stroke-width="1.6" opacity=".85"><path d="M 74,110 L 120,96 L 170,96"/><path d="M 80,150 L 112,140 L 150,120 L 200,120"/><path d="M 196,108 L 226,122"/></g>';
+    s += '<rect x="132" y="104" width="22" height="16" rx="2" fill="#151C1D"/><g stroke="#AAB5B5" stroke-width="1">' + [136, 141, 146, 151].map(function (x) { return '<line x1="' + x + '" y1="101" x2="' + x + '" y2="104"/><line x1="' + x + '" y1="120" x2="' + x + '" y2="123"/>'; }).join('') + '</g>';
+    // quartz (petit cylindre)
+    s += '<rect x="186" y="128" width="40" height="11" rx="5.5" fill="#D5DADA" stroke="#8E9C9D"/><line x1="182" y1="133.5" x2="186" y2="133.5" stroke="#D5DADA" stroke-width="1.5"/>';
+    // bobine du moteur
+    s += '<rect x="70" y="122" width="44" height="22" rx="3" fill="#B87333" stroke="#7A4A20"/><g stroke="#8F5726" stroke-width="1">' +
+      [74, 78, 82, 86, 90, 94, 98, 102, 106, 110].map(function (x) { return '<line x1="' + x + '" y1="123" x2="' + x + '" y2="143"/>'; }).join('') + '</g>';
+    // pile
+    s += '<circle cx="190" cy="196" r="38" fill="#D5DADA" stroke="#8E9C9D" stroke-width="1.5"/><circle cx="190" cy="196" r="31" fill="none" stroke="#B3BCBC"/>' +
+      '<text x="190" y="194" text-anchor="middle" font-family="' + SANS + '" font-weight="500" font-size="20" fill="#5E7072">+</text>' +
+      '<text x="190" y="212" text-anchor="middle" font-family="' + SANS + '" font-size="10" fill="#5E7072">' + (lang === 'en' ? '1.55 V' : '1,55 V') + '</text>';
+    s += '<path d="M 156,176 Q 150,196 158,218" fill="none" stroke="' + DORE + '" stroke-width="3"/>';
+    // rouage avec roue qui avance par pas
+    s += roue(112, 206, 16, DORE, 36, 'anim-pas') + roue(132, 176, 8, DORE, 20);
+    s += vis(74, 104) + vis(226, 96) + vis(84, 222) + vis(232, 160);
+    return boiteMouvement(s, lang === 'en' ? 'Quartz movement seen from the back, with its battery, coil and circuit' : 'Mouvement à quartz vu du dos, avec sa pile, sa bobine et son circuit');
+  }
+
   /* ---------- Schémas d’anatomie ---------- */
   var L = {
     fr: {
@@ -306,6 +409,7 @@ const ILLUSTRATIONS = (function () {
   }
 
   return {
+    automatique: mvtAutomatique, manuel: mvtManuel, quartz: mvtQuartz,
     plongee: plongee, field: field, dress: dress, gmt: gmt, chronographe: chronographe, pilote: pilote,
     'anatomie-face': anatomieFace, 'anatomie-coupe': anatomieCoupe
   };
