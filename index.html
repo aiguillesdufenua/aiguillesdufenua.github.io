@@ -130,6 +130,11 @@
     border-bottom: 1px solid rgba(201,164,103,.55); padding-bottom: 2px;
   }
   .langue a + a { margin-left: 1.4rem; }
+  @media (max-width: 760px) {
+    .langue { left: 1.5rem; right: 1.5rem; display: flex; flex-wrap: wrap; gap: .45rem 1.1rem; }
+    .langue a + a { margin-left: 0; }
+    .hero__grille { padding-top: 6.5rem; }
+  }
   .lien-fleche { color: var(--accent); font-weight: 500; text-decoration: none; }
   .lien-fleche:hover { text-decoration: underline; text-underline-offset: .2em; }
   .langue a:hover { color: var(--laiton); border-bottom-color: var(--laiton); }
@@ -239,7 +244,7 @@
 <body>
 
 <header class="hero">
-  <nav class="langue" aria-label="Navigation"><a href="montres.html">Mes montres</a><a href="utilisation.html">Utilisation</a><a href="lexique.html">Lexique</a><a href="histoire.html">Histoire</a><a href="en.html" hreflang="en" lang="en">English</a></nav>
+  <nav class="langue" aria-label="Navigation"><a href="montres.html">Mes montres</a><a href="fabrication.html">Fabrication</a><a href="utilisation.html">Utilisation</a><a href="lexique.html">Lexique</a><a href="histoire.html">Histoire</a><a href="en.html" hreflang="en" lang="en">English</a></nav>
   <div class="conteneur hero__grille">
     <div>
       <h1>Les Aiguilles<br>du Fenua</h1>

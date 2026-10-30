@@ -61,7 +61,7 @@ a { color: inherit; }
   color: #F1E2C2; text-decoration: none;
 }
 .marque svg { width: 36px; height: 36px; flex-shrink: 0; }
-.barre nav { display: flex; gap: 1.4rem; font-size: .95rem; letter-spacing: .03em; }
+.barre nav { display: flex; flex-wrap: wrap; row-gap: .5rem; gap: .5rem 1.4rem; font-size: .95rem; letter-spacing: .03em; }
 .barre nav a { color: #D7CBB1; text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
 .barre nav a:hover { color: var(--laiton); }
 .barre nav a[aria-current="page"] { color: var(--laiton); border-bottom-color: var(--laiton); }
