@@ -29,7 +29,7 @@ const MONTRES = [
 
     {
     numero: 0,
-    date: "2025-09",
+    date: "2026-09",
     modele: { fr: "DIY Watch Club DWC-D02", en: "DIY Watch Club DWC-D02" },
     mouvement: { fr: "Seiko NH70A", en: "Seiko NH70A" },
     lexique: ["automatique", "verre-saphir", "plongee"],
@@ -54,7 +54,7 @@ const MONTRES = [
   },
   {
     numero: 1,
-    date: "2025-10",
+    date: "2026-10",
     modele: { fr: "Miti Nui", en: "Miti Nui" },
     mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
     lexique: ["automatique", "verre-saphir", "plongee"],
@@ -80,7 +80,7 @@ const MONTRES = [
   },
   {
     numero: 2,
-    date: "2025-11 (à venir)",
+    date: "2026-11 (à venir)",
     modele: { fr: "Herenui Mărō", en: "Herenui Mărō" },
     mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
     lexique: ["automatique", "verre-saphir", "plongee"],
@@ -104,9 +104,9 @@ const MONTRES = [
       en: "Learning in progress."
     }
   },
-    {
+  {
     numero: 3,
-    date: "2025-11 (à venir)",
+    date: "2026-11 (à venir)",
     modele: { fr: "Hereiti Honu", en: "Hereiti Honu" },
     mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
     lexique: ["automatique", "verre-saphir", "dress"],
@@ -117,7 +117,7 @@ const MONTRES = [
     ],
     composants: [
       { nom: { fr: "Boîtier", en: "Case" },      valeur: { fr: "Acier, 36 mm", en: "Steel, 36 mm" } },
-      { nom: { fr: "Cadran", en: "Dial" },       valeur: { fr: "Bleu marine", en: "Blue marine" } },
+      { nom: { fr: "Cadran", en: "Dial" },       valeur: { fr: "Bleu marine", en: "Navy blue" } },
       { nom: { fr: "Aiguilles", en: "Hands" },   valeur: { fr: "Surprise", en: "Surprise" } },
       { nom: { fr: "Bracelet", en: "Strap" },    valeur: { fr: "Acier", en: "Stainless Steel" } },
     ],
@@ -130,4 +130,60 @@ const MONTRES = [
       en: "Learning in progress."
     }
   },
+  {
+    numero: 4,
+    date: "2026-12 (à venir)",
+    modele: { fr: "Tehani no te mou’a", en: "Tehani no te mou’a" },
+    mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
+    lexique: ["automatique", "verre-saphir", "dress"],
+    photos: [
+      //{ src: "images/montre-001-1.jpg", alt: { fr: "La montre vue de face dans son élement océan.", en: "The watch, front view." } },
+      //{ src: "images/montre-001-2.jpg", alt: { fr: "La montre dans l'élément du Fenua.", en: "The watch, front view in Fenua nature." } },
+      //{ src: "images/montre-001-3.jpg", alt: { fr: "Le dos de la montre.", en: "The watch, back view." } },
+    ],
+    composants: [
+      { nom: { fr: "Boîtier", en: "Case" },      valeur: { fr: "Acier, 36 mm", en: "Steel, 36 mm" } },
+      { nom: { fr: "Cadran", en: "Dial" },       valeur: { fr: "Bleu", en: "Blue" } },
+      { nom: { fr: "Aiguilles", en: "Hands" },   valeur: { fr: "Surprise", en: "Surprise" } },
+      { nom: { fr: "Bracelet", en: "Strap" },    valeur: { fr: "Acier", en: "Stainless Steel" } },
+    ],
+    histoire: {
+      fr: "A venir, projet.\n\nTehani no te mou’a signifie la bien-aimée de la montagne en tahitien.",
+      en: "In progress, project.\n\nTehani no te mou’a means the love from the mountain in tahitian."
+    },
+    appris: {
+      fr: "En cours d'apprentissage.",
+      en: "Learning in progress."
+    }
+  },
+  {
+    numero: 5,
+    date: "2026-12 (à venir)",
+    modele: { fr: "Poe Iti", en: "Poe Iti" },
+    mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
+    lexique: ["automatique", "verre-saphir", "dress"],
+    photos: [
+      //{ src: "images/montre-001-1.jpg", alt: { fr: "La montre vue de face dans son élement océan.", en: "The watch, front view." } },
+      //{ src: "images/montre-001-2.jpg", alt: { fr: "La montre dans l'élément du Fenua.", en: "The watch, front view in Fenua nature." } },
+      //{ src: "images/montre-001-3.jpg", alt: { fr: "Le dos de la montre.", en: "The watch, back view." } },
+    ],
+    composants: [
+      { nom: { fr: "Boîtier", en: "Case" },      valeur: { fr: "Acier, 36 mm", en: "Steel, 36 mm" } },
+      { nom: { fr: "Cadran", en: "Dial" },       valeur: { fr: "Blanc", en: "White" } },
+      { nom: { fr: "Aiguilles", en: "Hands" },   valeur: { fr: "Surprise", en: "Surprise" } },
+      { nom: { fr: "Bracelet", en: "Strap" },    valeur: { fr: "Acier", en: "Stainless Steel" } },
+    ],
+    histoire: {
+      fr: "A venir, projet.\n\nPoe Iti signifie petite perle en tahitien.",
+      en: "In progress, project.\n\nPoe Iti means little pearl in tahitian."
+    },
+    appris: {
+      fr: "En cours d'apprentissage.",
+      en: "Learning in progress."
+    }
+  },
+
+
+
+  
 ];
