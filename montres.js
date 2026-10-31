@@ -78,5 +78,56 @@ const MONTRES = [
       en: "Select compatible components and winding stem adjustement to fit watch case."
     }
   },
-
+  {
+    numero: 2,
+    date: "2025-11 (à venir)",
+    modele: { fr: "Herenui Mărō", en: "Herenui Mărō" },
+    mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
+    lexique: ["automatique", "verre-saphir", "plongee"],
+    photos: [
+      //{ src: "images/montre-001-1.jpg", alt: { fr: "La montre vue de face dans son élement océan.", en: "The watch, front view." } },
+      //{ src: "images/montre-001-2.jpg", alt: { fr: "La montre dans l'élément du Fenua.", en: "The watch, front view in Fenua nature." } },
+      //{ src: "images/montre-001-3.jpg", alt: { fr: "Le dos de la montre.", en: "The watch, back view." } },
+    ],
+    composants: [
+      { nom: { fr: "Boîtier", en: "Case" },      valeur: { fr: "Acier, 40 mm", en: "Steel, 40 mm" } },
+      { nom: { fr: "Cadran", en: "Dial" },       valeur: { fr: "Bleu marine", en: "Blue marine" } },
+      { nom: { fr: "Aiguilles", en: "Hands" },   valeur: { fr: "Surprise", en: "Surprise" } },
+      { nom: { fr: "Bracelet", en: "Strap" },    valeur: { fr: "Acier", en: "Stainless Steel" } },
+    ],
+    histoire: {
+      fr: "A venir, projet de montre de couple.\n\nHerenui signifie grand amour en tahitien.",
+      en: "In progress, part of couple watch project.\n\nHerenui means big love in tahitian."
+    },
+    appris: {
+      fr: "En cours d'apprentissage.",
+      en: "Learning in progress."
+    }
+  },
+    {
+    numero: 3,
+    date: "2025-11 (à venir)",
+    modele: { fr: "Hereiti Honu", en: "Hereiti Honu" },
+    mouvement: { fr: "Seiko NH35A", en: "Seiko NH35A" },
+    lexique: ["automatique", "verre-saphir", "dress"],
+    photos: [
+      //{ src: "images/montre-001-1.jpg", alt: { fr: "La montre vue de face dans son élement océan.", en: "The watch, front view." } },
+      //{ src: "images/montre-001-2.jpg", alt: { fr: "La montre dans l'élément du Fenua.", en: "The watch, front view in Fenua nature." } },
+      //{ src: "images/montre-001-3.jpg", alt: { fr: "Le dos de la montre.", en: "The watch, back view." } },
+    ],
+    composants: [
+      { nom: { fr: "Boîtier", en: "Case" },      valeur: { fr: "Acier, 36 mm", en: "Steel, 40 mm" } },
+      { nom: { fr: "Cadran", en: "Dial" },       valeur: { fr: "Bleu marine", en: "Blue marine" } },
+      { nom: { fr: "Aiguilles", en: "Hands" },   valeur: { fr: "Surprise", en: "Surprise" } },
+      { nom: { fr: "Bracelet", en: "Strap" },    valeur: { fr: "Acier", en: "Stainless Steel" } },
+    ],
+    histoire: {
+      fr: "A venir, projet de montre de couple.\n\nHereiti signifie petit amour en tahitien.",
+      en: "In progress, part of couple watch project.\n\nHereiti means little love in tahitian."
+    },
+    appris: {
+      fr: "En cours d'apprentissage.",
+      en: "Learning in progress."
+    }
+  },
 ];
