@@ -116,7 +116,7 @@ const MONTRES = [
       //{ src: "images/montre-001-3.jpg", alt: { fr: "Le dos de la montre.", en: "The watch, back view." } },
     ],
     composants: [
-      { nom: { fr: "Boîtier", en: "Case" },      valeur: { fr: "Acier, 36 mm", en: "Steel, 40 mm" } },
+      { nom: { fr: "Boîtier", en: "Case" },      valeur: { fr: "Acier, 36 mm", en: "Steel, 36 mm" } },
       { nom: { fr: "Cadran", en: "Dial" },       valeur: { fr: "Bleu marine", en: "Blue marine" } },
       { nom: { fr: "Aiguilles", en: "Hands" },   valeur: { fr: "Surprise", en: "Surprise" } },
       { nom: { fr: "Bracelet", en: "Strap" },    valeur: { fr: "Acier", en: "Stainless Steel" } },
