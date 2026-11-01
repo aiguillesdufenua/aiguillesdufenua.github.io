@@ -267,3 +267,29 @@ footer a { color: var(--accent); }
 }
 .bouton-partage:hover { background: var(--accent); color: var(--fond); }
 .bouton-partage svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+
+/* Fiches techniques des calibres */
+.calibre-section { padding-bottom: clamp(2.5rem, 6vw, 4rem); }
+.calibre { background: var(--lagon); color: #D7CBB1; border-radius: 16px; padding: clamp(1.5rem, 4vw, 2.25rem); }
+.calibre__sur { margin: 0; font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--laiton); }
+.calibre__nom { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 4.5vw, 2.8rem); line-height: 1.05; color: #F1E2C2; margin: .1rem 0 .2rem; }
+.calibre__fab { margin: 0 0 1rem; color: #AFC0BD; font-size: .95rem; }
+.calibre p { max-width: 44rem; }
+.calibre__tuiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: .6rem; margin: 1.5rem 0 1rem; }
+.calibre__tuiles div { background: rgba(255,255,255,.04); border: 1px solid rgba(201,164,103,.28); border-radius: 10px; padding: .75rem .9rem; }
+.calibre__tuiles dt { font-size: .82rem; letter-spacing: .03em; color: #AFC0BD; margin-bottom: .2rem; }
+.calibre__tuiles dd { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 1.3rem; line-height: 1.2; color: #F1E2C2; }
+.calibre__tuiles small { display: block; font-family: var(--sans); font-weight: 400; font-size: .82rem; color: #AFC0BD; }
+.calibre__note { font-size: .85rem; color: #AFC0BD; margin: 1rem 0 0; }
+.calibre .lex-sous { color: #AFC0BD; }
+.calibre .pastille--montre { color: var(--laiton); border-color: var(--laiton); }
+.calibres-grille { display: grid; gap: 1.25rem; }
+.lex-cat .calibre { scroll-margin-top: 1.5rem; }
+
+/* Calibre avec illustration */
+.calibre--illustre { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 320px); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.calibre__dessin { margin: 0; position: sticky; top: 1.5rem; }
+.calibre__dessin svg { display: block; width: 100%; height: auto; }
+.calibre__dessin figcaption { font-size: .86rem; color: #AFC0BD; margin-top: .6rem; line-height: 1.45; }
+.calibre--illustre .calibre__tuiles { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+@media (max-width: 860px) { .calibre--illustre { grid-template-columns: 1fr; } .calibre__dessin { position: static; max-width: 320px; order: -1; } }

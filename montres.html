@@ -22,7 +22,7 @@
       <a href="progression.html">Progression</a>
       <a href="fabrication.html">Fabrication</a>
       <a href="utilisation.html">Utilisation</a>
-      <div class="sous-menu"><a class="sous-menu__titre" href="lexique.html">Encyclopédie</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Afficher les pages de l’encyclopédie"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="lexique.html">Lexique</a></li><li><a href="habillage.html">Habillage</a></li><li><a href="technologies.html">Technologies</a></li><li><a href="histoire.html">Histoire</a></li></ul></div>
+      <div class="sous-menu"><a class="sous-menu__titre" href="lexique.html">Encyclopédie</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Afficher les pages de l’encyclopédie"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="lexique.html">Lexique</a></li><li><a href="calibres.html">Calibres</a></li><li><a href="habillage.html">Habillage</a></li><li><a href="technologies.html">Technologies</a></li><li><a href="histoire.html">Histoire</a></li></ul></div>
       <a id="lienLangue" class="drapeau" href="watches.html" hreflang="en" lang="en" title="English version" aria-label="English version"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="den"><circle cx="12" cy="12" r="10.5"/></clipPath></defs><g clip-path="url(#den)"><rect width="24" height="24" fill="#2B4C7E"/><path d="M0,0 L24,24 M24,0 L0,24" stroke="#EDE6D3" stroke-width="4.5"/><path d="M0,0 L24,24 M24,0 L0,24" stroke="#B4533C" stroke-width="1.5"/><path d="M12,0 V24 M0,12 H24" stroke="#EDE6D3" stroke-width="6"/><path d="M12,0 V24 M0,12 H24" stroke="#B4533C" stroke-width="3"/></g><circle cx="12" cy="12" r="10.5" fill="none" stroke="#C9A467" stroke-width="1.6"/></svg></a>
     </nav><script class="js-menu">(function(){var b=document.querySelectorAll(".sous-menu__bouton");function fermer(){document.querySelectorAll(".sous-menu.ouvert").forEach(function(m){m.classList.remove("ouvert");m.querySelector(".sous-menu__bouton").setAttribute("aria-expanded","false");});}b.forEach(function(x){x.addEventListener("click",function(e){e.stopPropagation();var m=x.parentNode,o=!m.classList.contains("ouvert");fermer();if(o){m.classList.add("ouvert");x.setAttribute("aria-expanded","true");}});});document.addEventListener("click",fermer);document.addEventListener("keydown",function(e){if(e.key==="Escape")fermer();});})();</script><!--/menu-->
   </div>
@@ -45,5 +45,6 @@
 </footer>
 <script src="montres.js"></script>
 <script src="site.js"></script>
+<script src="infobulles.js" defer></script>
 </body>
 </html>

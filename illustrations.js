@@ -408,8 +408,54 @@ const ILLUSTRATIONS = (function () {
     return svg(s, t.coupe, '0 0 700 300');
   }
 
+
+  /* ---------- Calibres de mes montres ---------- */
+  function calNH35(lang) {
+    var s = '<circle cx="150" cy="150" r="132" fill="' + PLATINE + '" stroke="' + PLATINE_F + '" stroke-width="1.5"/>';
+    // disque de date, tout autour du mouvement
+    s += '<circle cx="150" cy="150" r="128" fill="#F3F0E8" stroke="' + PLATINE_F + '"/><circle cx="150" cy="150" r="102" fill="' + PLATINE + '" stroke="' + PLATINE_F + '"/>';
+    for (var d = 1; d <= 31; d++) {
+      var a = 90 + (d - 27) * (360 / 31);
+      var p = pt(150, 150, 115, a);
+      s += '<text x="' + f(p[0]) + '" y="' + f(p[1]) + '" text-anchor="middle" dominant-baseline="central" font-family="' + SANS + '" font-weight="500" font-size="10.5" fill="#12343B" transform="rotate(' + f(a) + ' ' + f(p[0]) + ' ' + f(p[1]) + ')">' + d + '</text>';
+    }
+    // guichet de date à 3 h
+    s += '<rect x="250" y="138" width="30" height="24" rx="3" fill="none" stroke="' + DORE + '" stroke-width="2.5"/>';
+    // côtes de la platine, vis et rubis
+    s += cotes('c35', 150, 150, 100, '#FFFFFF');
+    // minuterie au centre : roue des heures, roue de minuterie, chaussée
+    s += roue(150, 150, 30, '#D2D8D8', 64) + roue(112, 112, 13, DORE, 30) + roue(196, 104, 15, DORE, 32);
+    s += '<circle cx="150" cy="150" r="9" fill="' + DORE + '" stroke="' + DORE_F + '"/><circle cx="150" cy="150" r="4" fill="#4A5A5C"/>';
+    // sautoir du disque de date
+    s += '<path d="M 98,196 Q 150,236 206,196" fill="none" stroke="#8E9C9D" stroke-width="5" stroke-linecap="round"/><polygon points="204,190 214,200 204,204" fill="#8E9C9D"/>';
+    s += vis(100, 196) + vis(84, 140) + vis(214, 150) + rubis(112, 112) + rubis(196, 104);
+    // tige et couronne à 3 h (côté cadran)
+    s += '<line x1="283" y1="150" x2="299" y2="150" stroke="' + PLATINE_F + '" stroke-width="4"/>';
+    return svg(s, lang === 'en' ? 'Seiko NH35A seen from the dial side, with its date disc' : 'Seiko NH35A vu côté cadran, avec son disque de date');
+  }
+
+  function calNH70(lang) {
+    var s = '<circle cx="150" cy="150" r="132" fill="#1F2E31" stroke="' + PLATINE_F + '" stroke-width="1.5"/>';
+    // rouage visible à travers les ajours
+    s += roue(150, 150, 22, DORE, 50) + roue(194, 120, 16, DORE, 36) + roue(206, 176, 12, DORE, 28) + roue(112, 98, 32, '#D2D8D8', 64);
+    // ponts ajourés : arcs pleins qui laissent voir le mécanisme
+    var pont = PLATINE;
+    s += '<path d="M 18,150 A 132,132 0 0 1 282,150 L 262,150 A 112,112 0 0 0 38,150 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
+    s += '<path d="M 282,150 A 132,132 0 0 1 18,150 L 38,150 A 112,112 0 0 0 262,150 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
+    s += '<path d="M 40,128 Q 96,60 176,66 L 182,84 Q 110,82 64,140 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
+    s += '<path d="M 150,40 L 162,40 L 214,160 L 236,214 L 222,220 L 200,170 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
+    s += '<path d="M 44,196 Q 70,160 120,176 L 132,190 Q 90,190 64,226 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
+    // cœur ouvert : le balancier qui bat
+    s += '<circle cx="100" cy="208" r="34" fill="#162326" stroke="' + PLATINE_F + '"/>' + balancier(100, 208, 26);
+    s += rubis(100, 208) + rubis(150, 150) + rubis(194, 120) + rubis(206, 176) + rubis(112, 98);
+    s += vis(52, 132) + vis(170, 72) + vis(226, 210) + vis(58, 206) + vis(250, 120) + vis(46, 176);
+    s += '<line x1="262" y1="150" x2="296" y2="150" stroke="' + PLATINE_F + '" stroke-width="4"/>';
+    return svg(s, lang === 'en' ? 'Seiko NH70A skeleton movement, with openworked bridges' : 'Seiko NH70A squelette, aux ponts ajourés');
+  }
+
   return {
     automatique: mvtAutomatique, manuel: mvtManuel, quartz: mvtQuartz,
+    'calibre-NH35A': calNH35, 'calibre-NH70A': calNH70,
     plongee: plongee, field: field, dress: dress, gmt: gmt, chronographe: chronographe, pilote: pilote,
     'anatomie-face': anatomieFace, 'anatomie-coupe': anatomieCoupe
   };

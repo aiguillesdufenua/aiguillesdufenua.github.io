@@ -83,3 +83,11 @@ Le script crée `partage/montre-002.html`, etc. Le bouton « Partager cette mont
 ## Google
 
 Le plan du site (`sitemap.xml`) et `robots.txt` aident Google à trouver toutes les pages. Si vous ajoutez une nouvelle page au site, pensez à l’ajouter au plan du site.
+
+## Les fiches techniques des calibres
+
+Elles sont dans `calibres.js`. Une montre affiche automatiquement la fiche de son calibre quand le nom du calibre (par exemple `NH35A`) figure dans son champ `mouvement`, dans `montres.js`. Pour un nouveau calibre, copiez un bloc dans `calibres.js` et changez les valeurs. Les fiches apparaissent aussi en bas du lexique, avec les montres qui les utilisent.
+
+## Les infobulles
+
+Elles sont automatiques. Les mots déclencheurs de chaque fiche sont listés dans le champ `termes` de `lexique.js`. Pour qu’un nouveau mot affiche une infobulle, ajoutez-le à cette liste, en français et en anglais.

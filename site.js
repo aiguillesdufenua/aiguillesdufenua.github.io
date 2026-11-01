@@ -142,6 +142,7 @@
         '</div>' +
       '</div>' +
 
+      '<div id="ficheCalibre"></div>' +
       (m.appris ? '<section class="appris"><div class="conteneur"><h2 class="titre-moyen">' + esc(T.appris) +
         '</h2><blockquote>' + paragraphes(m.appris) + '</blockquote></div></section>' : '') +
 
@@ -181,6 +182,12 @@
       });
     }
 
+    avecScript('illustrations.js', 'ILLUSTRATIONS', function () { avecScript('calibres.js', 'CALIBRES', function () {
+      var cal = calibreDe(m);
+      if (cal) document.getElementById('ficheCalibre').innerHTML =
+        '<section class="calibre-section"><div class="conteneur">' + carteCalibre(cal, false) + '</div></section>';
+    }); });
+
     var bp = document.getElementById('boutonPartage');
     if (bp) bp.addEventListener('click', function () {
       var lien = location.origin + location.pathname.replace(/[^\/]*$/, '') + 'partage/montre-' + num(m.numero) + '.html';
@@ -206,6 +213,64 @@
     }
   }
 
+
+  /* ---------- Calibres ---------- */
+  var C_TXT = {
+    fr: { titre: 'Fiche technique du calibre', type: 'Type', rubis: 'Rubis', freq: 'Fréquence', reserve: 'Réserve de marche', stop: 'Stop-seconde',
+          manuel: 'Remontage manuel', date: 'Date', dim: 'Diamètre × hauteur', precision: 'Précision annoncée', aiguilles: 'Trous des aiguilles',
+          oui: 'Oui', non: 'Non', heures: 'heures', alt: 'alternances/heure', montres: 'Mes montres équipées de ce calibre', section: 'Les calibres de mes montres',
+          note: 'Valeurs du fabricant. En pratique, un mouvement bien réglé fait souvent bien mieux que la précision annoncée.' },
+    en: { titre: 'Calibre specifications', type: 'Type', rubis: 'Jewels', freq: 'Frequency', reserve: 'Power reserve', stop: 'Hacking seconds',
+          manuel: 'Hand-winding', date: 'Date', dim: 'Diameter × height', precision: 'Rated accuracy', aiguilles: 'Hand hole sizes',
+          oui: 'Yes', non: 'No', heures: 'hours', alt: 'beats/hour', montres: 'My watches with this calibre', section: 'The calibres in my watches',
+          note: 'Manufacturer figures. In practice, a well-regulated movement often does much better than its rated accuracy.' }
+  }[lang];
+  function avecScript(src, nom, suite) {
+    var existe = (nom === 'CALIBRES' && typeof CALIBRES !== 'undefined') || (nom === 'ILLUSTRATIONS' && typeof ILLUSTRATIONS !== 'undefined');
+    if (existe) { suite(); return; }
+    var sc = document.createElement('script'); sc.src = src; sc.onload = suite; document.head.appendChild(sc);
+  }
+  function calibreDe(m) {
+    if (typeof CALIBRES === 'undefined') return null;
+    var mvt = (m.calibre || t(m.mouvement) || '').replace(/\s+/g, '').toUpperCase();
+    return CALIBRES.filter(function (c) { return mvt.indexOf(c.id.replace(/\s+/g, '').toUpperCase()) >= 0; })[0] || null;
+  }
+  function nombre(x, dec) { return Number(x).toLocaleString(T.locale, { minimumFractionDigits: dec || 0, maximumFractionDigits: dec || 0 }); }
+  function carteCalibre(c, avecMontres) {
+    var tuiles = [
+      [C_TXT.type, t(c.type)],
+      [C_TXT.rubis, c.rubis],
+      [C_TXT.freq, nombre(c.alternances) + '<small>' + C_TXT.alt + ' · ' + nombre(c.alternances / 7200, 0) + ' Hz</small>'],
+      [C_TXT.reserve, '≈ ' + c.reserve + ' ' + C_TXT.heures],
+      [C_TXT.stop, c.stop ? C_TXT.oui : C_TXT.non],
+      [C_TXT.manuel, c.manuel ? C_TXT.oui : C_TXT.non],
+      [C_TXT.date, esc(t(c.date))],
+      [C_TXT.dim, nombre(c.diametre, 1) + ' × ' + nombre(c.hauteur, 2) + ' mm'],
+      [C_TXT.precision, esc(t(c.precision))]
+    ];
+    if (c.aiguilles) tuiles.push([C_TXT.aiguilles, esc(t(c.aiguilles))]);
+    var liees = '';
+    if (avecMontres) {
+      liees = liste.filter(function (m) { var x = calibreDe(m); return x && x.id === c.id; }).map(function (m) {
+        return '<li><a class="pastille pastille--montre" href="' + T.fiche + '?n=' + m.numero + '">' + T.numero + ' ' + num(m.numero) + ' ' + esc(t(m.modele)) + '</a></li>';
+      }).join('');
+    }
+    var dessin = (typeof ILLUSTRATIONS !== 'undefined' && ILLUSTRATIONS['calibre-' + c.id]) ? ILLUSTRATIONS['calibre-' + c.id](lang) : '';
+    return '<article class="calibre' + (dessin ? ' calibre--illustre' : '') + '" id="calibre-' + c.id + '"><div class="calibre__texte"><p class="calibre__sur">' + esc(C_TXT.titre) + '</p><h2 class="calibre__nom">' + esc(c.nom) + '</h2>' +
+      '<p class="calibre__fab">' + esc(t(c.fabricant)) + '</p>' + paragraphes(c.texte) +
+      '<dl class="calibre__tuiles">' + tuiles.map(function (x) { return '<div><dt>' + esc(x[0]) + '</dt><dd>' + x[1] + '</dd></div>'; }).join('') + '</dl>' +
+      (liees ? '<p class="lex-sous">' + esc(C_TXT.montres) + '</p><ul class="pastilles">' + liees + '</ul>' : '') +
+      '<p class="calibre__note">' + esc(C_TXT.note) + '</p></div>' +
+      (dessin ? '<figure class="calibre__dessin">' + dessin + '<figcaption>' + esc(t(c.legende)) + '</figcaption></figure>' : '') + '</article>';
+  }
+
+  var listeCalibres = document.getElementById('calibres-liste');
+  if (listeCalibres) {
+    avecScript('illustrations.js', 'ILLUSTRATIONS', function () { avecScript('calibres.js', 'CALIBRES', function () {
+      listeCalibres.innerHTML = '<div class="calibres-grille">' + CALIBRES.map(function (c) { return carteCalibre(c, true); }).join('') + '</div>';
+      if (location.hash) { var cible = document.getElementById(location.hash.slice(1)); if (cible) cible.scrollIntoView(); }
+    }); });
+  }
 
   /* ---------- Lexique ---------- */
   var INDEX_LEXIQUE; // rempli par indexer()
@@ -286,6 +351,7 @@
       var q = sansAccents(this.value.trim());
       var total = 0;
       lexique.querySelectorAll('.lex-cat').forEach(function (sec) {
+        if (!sec.querySelector('.lex-fiche')) { sec.hidden = !!q; return; }
         var vis = 0;
         sec.querySelectorAll('.lex-fiche').forEach(function (a) {
           var ok = !q || a.dataset.texte.indexOf(q) >= 0;

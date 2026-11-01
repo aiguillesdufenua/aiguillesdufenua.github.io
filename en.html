@@ -277,6 +277,16 @@
   .apercu-texte { margin: 0 0 1.75rem; max-width: 40rem; }
   .progression-accueil .bouton { color: var(--accent); }
   .progression-accueil .bouton:hover { color: #0B2227; }
+
+  /* L’origine du projet */
+  .origine { background: var(--lagon); color: #D7CBB1; }
+  .origine .titre { color: #F1E2C2; margin-bottom: .4rem; }
+  .origine .origine__sous { font-family: var(--serif); font-style: italic; font-size: 1.45rem; color: var(--laiton); margin: 0 0 2rem; }
+  .origine blockquote { margin: 0; padding-left: 1.25rem; border-left: 2px solid var(--laiton); font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 2.6vw, 1.9rem); line-height: 1.3; color: #F1E2C2; max-width: 20rem; }
+  .origine .prose p { color: #D7CBB1; }
+  .origine .prose p:first-of-type { color: #F1E2C2; }
+  .origine .prose p:first-of-type::first-letter { float: left; font-family: var(--serif); font-weight: 600; font-size: 4.2em; line-height: .82; margin: .06em .12em 0 0; color: var(--laiton); }
+  .origine .prose p:last-of-type { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -287,7 +297,7 @@
       <a href="progress.html">Progress</a>
       <a href="making.html">Making</a>
       <a href="how-to-use.html">How to use</a>
-      <div class="sous-menu"><a class="sous-menu__titre" href="glossary.html">Encyclopedia</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Show the encyclopedia pages"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="glossary.html">Glossary</a></li><li><a href="exterior.html">Exterior</a></li><li><a href="technology.html">Technologies</a></li><li><a href="history.html">History</a></li></ul></div>
+      <div class="sous-menu"><a class="sous-menu__titre" href="glossary.html">Encyclopedia</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Show the encyclopedia pages"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="glossary.html">Glossary</a></li><li><a href="calibers.html">Calibres</a></li><li><a href="exterior.html">Exterior</a></li><li><a href="technology.html">Technologies</a></li><li><a href="history.html">History</a></li></ul></div>
       <a id="lienLangue" class="drapeau" href="index.html" hreflang="fr" lang="fr" title="Version française" aria-label="Version française"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="dfr"><circle cx="12" cy="12" r="10.5"/></clipPath></defs><g clip-path="url(#dfr)"><rect width="8" height="24" fill="#2B4C7E"/><rect x="8" width="8" height="24" fill="#EDE6D3"/><rect x="16" width="8" height="24" fill="#B4533C"/></g><circle cx="12" cy="12" r="10.5" fill="none" stroke="#C9A467" stroke-width="1.6"/></svg></a>
     </nav><script class="js-menu">(function(){var b=document.querySelectorAll(".sous-menu__bouton");function fermer(){document.querySelectorAll(".sous-menu.ouvert").forEach(function(m){m.classList.remove("ouvert");m.querySelector(".sous-menu__bouton").setAttribute("aria-expanded","false");});}b.forEach(function(x){x.addEventListener("click",function(e){e.stopPropagation();var m=x.parentNode,o=!m.classList.contains("ouvert");fermer();if(o){m.classList.add("ouvert");x.setAttribute("aria-expanded","true");}});});document.addEventListener("click",fermer);document.addEventListener("keydown",function(e){if(e.key==="Escape")fermer();});})();</script><!--/menu-->
   <div class="conteneur hero__grille">
@@ -391,6 +401,17 @@
         <p>Les Aiguilles du Fenua (“the hands of the fenua”) is the name I gave this passion. It isn’t a job or a business: I make watches for the joy of it, watches that reflect who I am and reflect our island: the deep blue of the lagoon, the dark green of the mountains, the golden light at the end of the day, the tiare flower at the heart of my emblem.</p>
         <p>I wear them, and sometimes I give them to people I care about. I’m not trying to make many, but to make them well: one-of-a-kind pieces that take the time they need.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="origine" id="origine">
+    <div class="conteneur passion">
+      <aside>
+        <h2 class="titre">How it all began</h2>
+        <p class="origine__sous">From collecting to creating</p>
+        <blockquote>“The pleasure is no longer fleeting.”</blockquote>
+      </aside>
+      <div class="prose"><p>For years, my relationship with watchmaking came down to the joy of discovering and acquiring. I gathered many beautiful pieces, each carefully chosen to mark a milestone, celebrate an important moment in life, or simply for the thrill of wearing a new, exceptional object.</p><p>Yet I eventually felt the limits of this approach. The excitement of something new was short-lived. The pleasure, however intense, remained instantaneous, bound to the act of buying or to the event it celebrated. Once the watch became part of everyday life, the magic of the first days gently faded and gave way to habit.</p><p>Something deeper was missing: an intimate bond with the material and the mechanism. So I made myself a promise. For my next watches, I no longer wanted to simply choose them in a shop window; I wanted to bring them to life. That is how this adventure began.</p><p>Moving to the other side of the workbench has completely changed the way I see time. Studying the architecture of calibres, pairing the textures of a dial, using the setting tool to fit the delicate hour hand with infinite care… Assembly demands a precision and focus that anchor me entirely in the present moment. The pleasure is no longer fleeting. It now lives in the hours of patience, in the rigour of handwork, and in the deep satisfaction of having brought a unique piece to life with my own hands.</p></div>
     </div>
   </section>
 
@@ -527,5 +548,6 @@
 <script src="montres.js"></script>
 <script src="progression.js"></script>
 <script src="site.js"></script>
+<script src="infobulles.js" defer></script>
 </body>
 </html>

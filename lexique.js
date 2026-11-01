@@ -10,7 +10,8 @@
   Pour ajouter une fiche : copiez un bloc { id: ..., } dans la bonne
   catégorie et changez les textes. Les champs  plus, moins, voir  et
   illustration  sont facultatifs (les illustrations sont dans
-  illustrations.js).
+  illustrations.js). Le champ  termes  liste les mots qui, dans les
+  autres pages du site, affichent une infobulle vers cette fiche.
 */
 
 const LEXIQUE = [
@@ -25,6 +26,7 @@ const LEXIQUE = [
     fiches: [
       {
         id: "automatique",
+        termes: { fr: ["mouvement automatique", "mouvements automatiques", "montre automatique", "montres automatiques", "remontage automatique"], en: ["automatic movement", "automatic movements", "automatic watch", "automatic watches", "self-winding"] },
         illustration: "automatique",
         illustrationLegende: { fr: "Vue du dos : le rotor doré oscille avec le poignet et remonte le ressort. En dessous, le balancier bat la mesure.", en: "Back view: the golden rotor swings with the wrist and winds the spring. Underneath, the balance keeps the beat." },
         nom: { fr: "Mouvement automatique", en: "Automatic movement" },
@@ -44,6 +46,7 @@ const LEXIQUE = [
       },
       {
         id: "manuel",
+        termes: { fr: ["remontage manuel"], en: ["hand-wound", "hand-winding", "manual winding"] },
         illustration: "manuel",
         illustrationLegende: { fr: "Vue du dos : sans rotor, on voit le grand rochet remonté par la couronne, les roues du rouage et le balancier.", en: "Back view: with no rotor, you can see the large ratchet wheel wound by the crown, the gear train and the balance." },
         nom: { fr: "Mouvement à remontage manuel", en: "Hand-wound movement" },
@@ -63,6 +66,7 @@ const LEXIQUE = [
       },
       {
         id: "quartz",
+        termes: { fr: ["quartz"], en: ["quartz"] },
         illustration: "quartz",
         illustrationLegende: { fr: "Vue du dos : la pile alimente le circuit, le quartz donne la cadence et la bobine fait avancer les roues seconde par seconde.", en: "Back view: the battery powers the circuit, the quartz sets the pace and the coil moves the wheels second by second." },
         nom: { fr: "Mouvement à quartz", en: "Quartz movement" },
@@ -102,6 +106,7 @@ const LEXIQUE = [
     fiches: [
       {
         id: "verre-saphir",
+        termes: { fr: ["verre saphir", "saphir"], en: ["sapphire crystal", "sapphire"] },
         nom: { fr: "Verre saphir", en: "Sapphire crystal" },
         texte: {
           fr: "Un cristal de saphir synthétique, fabriqué en laboratoire. C’est l’un des matériaux les plus durs qui existent, juste après le diamant : il est pratiquement inrayable au quotidien. Il est souvent associé à un traitement antireflet, qui évite les reflets et donne cette impression de verre invisible.",
@@ -113,6 +118,7 @@ const LEXIQUE = [
       },
       {
         id: "verre-mineral",
+        termes: { fr: ["verre minéral"], en: ["mineral crystal"] },
         nom: { fr: "Verre minéral", en: "Mineral crystal" },
         texte: {
           fr: "Du verre trempé, traité pour être plus résistant que le verre ordinaire. C’est un bon compromis entre prix, solidité et résistance aux rayures. Certaines marques le durcissent encore davantage, comme le Hardlex de Seiko.",
@@ -124,6 +130,7 @@ const LEXIQUE = [
       },
       {
         id: "verre-acrylique",
+        termes: { fr: ["verre acrylique", "hésalite", "plexiglas"], en: ["acrylic crystal", "hesalite", "plexiglass"] },
         nom: { fr: "Verre acrylique", en: "Acrylic crystal" },
         texte: {
           fr: "Un plastique transparent, aussi appelé plexiglas ou hésalite. C’était le verre de la plupart des montres jusqu’aux années 1970. Il se raye facilement, mais les rayures s’effacent avec une pâte à polir. Il est souvent bombé, ce qui donne un charme vintage et des reflets chaleureux.",
@@ -146,6 +153,7 @@ const LEXIQUE = [
     fiches: [
       {
         id: "plongee",
+        termes: { fr: ["montre de plongée", "montres de plongée"], en: ["dive watch", "dive watches"] },
         illustration: "plongee",
         nom: { fr: "Montre de plongée", en: "Dive watch" },
         texte: {
@@ -156,6 +164,7 @@ const LEXIQUE = [
       },
       {
         id: "field",
+        termes: { fr: ["montre de terrain", "montres de terrain"], en: ["field watch", "field watches"] },
         illustration: "field",
         nom: { fr: "Montre de terrain (field)", en: "Field watch" },
         texte: {
@@ -166,6 +175,7 @@ const LEXIQUE = [
       },
       {
         id: "dress",
+        termes: { fr: ["montre habillée", "montres habillées"], en: ["dress watch", "dress watches"] },
         illustration: "dress",
         nom: { fr: "Montre habillée (dress)", en: "Dress watch" },
         texte: {
@@ -176,6 +186,7 @@ const LEXIQUE = [
       },
       {
         id: "gmt",
+        termes: { fr: ["GMT"], en: ["GMT"] },
         illustration: "gmt",
         nom: { fr: "Montre GMT", en: "GMT watch" },
         texte: {
@@ -186,6 +197,7 @@ const LEXIQUE = [
       },
       {
         id: "chronographe",
+        termes: { fr: ["chronographe", "chronographes"], en: ["chronograph", "chronographs"] },
         illustration: "chronographe",
         nom: { fr: "Chronographe", en: "Chronograph" },
         texte: {
@@ -196,6 +208,7 @@ const LEXIQUE = [
       },
       {
         id: "pilote",
+        termes: { fr: ["montre d’aviateur", "montres d’aviateur"], en: ["pilot watch", "pilot watches"] },
         illustration: "pilote",
         nom: { fr: "Montre d’aviateur", en: "Pilot watch" },
         texte: {
@@ -221,54 +234,60 @@ const LEXIQUE = [
         legende: { fr: "La même montre vue en coupe : ce qui se cache sous le verre et derrière le cadran.", en: "The same watch in cross-section: what hides under the crystal and behind the dial." } }
     ],
     fiches: [
-      { id: "boitier", nom: { fr: "Boîtier", en: "Case" },
+      { id: "boitier", termes: { fr: ["boîtier", "boîtiers"], en: ["watch case", "the case"] }, nom: { fr: "Boîtier", en: "Case" },
         texte: { fr: "L’enveloppe de la montre, qui protège le mouvement. Il est souvent en acier inoxydable, parfois en titane, en bronze ou en céramique. Son diamètre, en millimètres, donne la taille de la montre.", en: "The housing of the watch, protecting the movement. It is usually stainless steel, sometimes titanium, bronze or ceramic. Its diameter, in millimetres, gives the size of the watch." },
         voir: ["fond", "cornes"] },
-      { id: "cadran", nom: { fr: "Cadran", en: "Dial" },
+      { id: "cadran", termes: { fr: ["cadran", "cadrans"], en: ["dial", "dials"] }, nom: { fr: "Cadran", en: "Dial" },
         texte: { fr: "Le visage de la montre, la plaque sur laquelle on lit l’heure. C’est souvent lui qui donne tout son caractère à une pièce : couleur, texture, finition.", en: "The face of the watch, the plate on which you read the time. It often gives a piece its whole character: color, texture, finish." },
         voir: ["index", "rehaut"] },
-      { id: "index", nom: { fr: "Index", en: "Indices" },
+      { id: "index", termes: { fr: ["index"], en: ["indices"] }, nom: { fr: "Index", en: "Indices" },
         texte: { fr: "Les repères des heures sur le cadran, qui remplacent ou accompagnent les chiffres : bâtons, points, triangles… Ils sont souvent recouverts de matière luminescente.", en: "The hour markers on the dial, replacing or accompanying the numerals: batons, dots, triangles… They are often coated with luminous material." },
         voir: ["cadran", "luminescence"] },
-      { id: "rehaut", nom: { fr: "Rehaut", en: "Chapter ring" },
+      { id: "rehaut", termes: { fr: ["rehaut"], en: ["chapter ring"] }, nom: { fr: "Rehaut", en: "Chapter ring" },
         texte: { fr: "L’anneau qui fait la transition entre le cadran et le verre, sur le pourtour. Il porte parfois une échelle des minutes ou des secondes.", en: "The ring that bridges the dial and the crystal, around the edge. It sometimes carries a minutes or seconds scale." },
         voir: ["cadran"] },
-      { id: "trotteuse", nom: { fr: "Trotteuse", en: "Seconds hand" },
+      { id: "trotteuse", termes: { fr: ["trotteuse"], en: ["seconds hand"] }, nom: { fr: "Trotteuse", en: "Seconds hand" },
         texte: { fr: "L’aiguille des secondes. Sur un mouvement mécanique, elle glisse en continu ; sur un quartz, elle saute d’une seconde à l’autre.", en: "The seconds hand. On a mechanical movement it sweeps continuously; on a quartz it jumps from one second to the next." },
         voir: ["stop-seconde", "quartz"] },
-      { id: "couronne", nom: { fr: "Couronne", en: "Crown" },
+      { id: "couronne", termes: { fr: ["couronne"], en: ["crown"] }, nom: { fr: "Couronne", en: "Crown" },
         texte: { fr: "Le petit bouton sur le côté du boîtier. Selon sa position, elle sert à remonter le mouvement, régler la date ou régler l’heure. Une couronne vissée améliore l’étanchéité.", en: "The small knob on the side of the case. Depending on its position, it winds the movement, sets the date or sets the time. A screw-down crown improves water resistance." },
         voir: ["etancheite", "manuel"] },
-      { id: "lunette", nom: { fr: "Lunette", en: "Bezel" },
+      { id: "lunette", termes: { fr: ["lunette"], en: ["bezel"] }, nom: { fr: "Lunette", en: "Bezel" },
         texte: { fr: "L’anneau qui entoure le verre, au-dessus du boîtier. Elle peut être fixe et décorative, ou tournante et graduée, pour mesurer un temps écoulé ou suivre un second fuseau horaire.", en: "The ring around the crystal, on top of the case. It can be fixed and decorative, or rotating and graduated, to measure elapsed time or track a second time zone." },
         voir: ["plongee", "gmt"] },
-      { id: "cornes", nom: { fr: "Cornes", en: "Lugs" },
+      { id: "cornes", termes: { fr: ["cornes"], en: ["lugs"] }, nom: { fr: "Cornes", en: "Lugs" },
         texte: { fr: "Les quatre petites pattes du boîtier qui tiennent le bracelet, grâce à des barrettes à ressort.", en: "The four small arms of the case that hold the strap, using spring bars." },
         voir: ["entrecornes", "boitier"] },
-      { id: "entrecornes", nom: { fr: "Entrecornes", en: "Lug width" },
+      { id: "entrecornes", termes: { fr: ["entrecornes"], en: ["lug width"] }, nom: { fr: "Entrecornes", en: "Lug width" },
         texte: { fr: "La distance entre les cornes, en millimètres : 18, 20, 22 mm… C’est la mesure indispensable pour choisir un bracelet qui s’adapte à la montre.", en: "The distance between the lugs, in millimetres: 18, 20, 22 mm… It’s the essential measurement for choosing a strap that fits the watch." },
         voir: ["cornes"] },
-      { id: "fond", nom: { fr: "Fond de boîte", en: "Case back" },
+      { id: "fond", termes: { fr: ["fond de boîte", "fond transparent"], en: ["case back", "caseback"] }, nom: { fr: "Fond de boîte", en: "Case back" },
         texte: { fr: "L’arrière du boîtier, contre le poignet. Il peut être plein, vissé ou clipsé, ou transparent avec un verre saphir pour admirer le mouvement.", en: "The back of the case, against the wrist. It can be solid, screwed or snapped on, or see-through with a sapphire crystal to admire the movement." },
         voir: ["boitier", "verre-saphir"] },
-      { id: "rotor", nom: { fr: "Rotor", en: "Rotor" },
+      { id: "rotor", termes: { fr: ["rotor"], en: ["rotor"] }, nom: { fr: "Rotor", en: "Rotor" },
         texte: { fr: "La masse oscillante en forme de demi-disque d’un mouvement automatique. Elle tourne avec les gestes du poignet et remonte le ressort.", en: "The half-disc oscillating weight of an automatic movement. It spins with the movements of the wrist and winds the spring." },
         voir: ["automatique"] },
-      { id: "reserve-de-marche", nom: { fr: "Réserve de marche", en: "Power reserve" },
+      { id: "reserve-de-marche", termes: { fr: ["réserve de marche"], en: ["power reserve"] }, nom: { fr: "Réserve de marche", en: "Power reserve" },
         texte: { fr: "La durée pendant laquelle une montre mécanique continue de fonctionner une fois complètement remontée, sans être portée ni remontée. Souvent autour de 40 heures, parfois bien plus.", en: "How long a mechanical watch keeps running once fully wound, without being worn or wound again. Often around 40 hours, sometimes much more." },
         voir: ["automatique", "manuel"] },
-      { id: "stop-seconde", nom: { fr: "Stop-seconde", en: "Hacking seconds" },
+      { id: "stop-seconde", termes: { fr: ["stop-seconde"], en: ["hacking"] }, nom: { fr: "Stop-seconde", en: "Hacking seconds" },
         texte: { fr: "Une fonction qui arrête la trotteuse quand on tire la couronne pour régler l’heure. Pratique pour synchroniser sa montre à la seconde près.", en: "A feature that stops the seconds hand when you pull the crown to set the time. Handy for synchronizing your watch to the second." },
         voir: ["trotteuse", "couronne"] },
-      { id: "luminescence", nom: { fr: "Luminescence", en: "Lume" },
+      { id: "luminescence", termes: { fr: ["luminescence", "luminescente", "luminescents"], en: ["lume", "luminous"] }, nom: { fr: "Luminescence", en: "Lume" },
         texte: { fr: "La matière déposée sur les aiguilles et les index, qui emmagasine la lumière et brille dans le noir. La plus connue s’appelle Super-LumiNova.", en: "The material applied to the hands and indices, which stores light and glows in the dark. The best known is called Super-LumiNova." },
         voir: ["index", "plongee"] },
-      { id: "etancheite", nom: { fr: "Étanchéité", en: "Water resistance" },
+      { id: "etancheite", termes: { fr: ["étanchéité", "étanche", "étanches"], en: ["water resistance", "water-resistant"] }, nom: { fr: "Étanchéité", en: "Water resistance" },
         texte: { fr: "La résistance de la montre à l’eau, exprimée en mètres ou en ATM. Attention, c’est une pression de test, pas une profondeur de plongée : une montre « 30 m » supporte les éclaboussures, pas la baignade. Comptez 100 m pour nager sereinement, et 200 m pour plonger.", en: "How well the watch resists water, expressed in metres or ATM. Careful, it’s a test pressure, not a diving depth: a “30 m” watch handles splashes, not swimming. Count on 100 m to swim with peace of mind, and 200 m for diving." },
         voir: ["couronne", "plongee"] },
-      { id: "calibre", nom: { fr: "Calibre", en: "Calibre" },
+      { id: "calibre", termes: { fr: ["calibre", "calibres"], en: ["calibre", "calibres", "caliber"] }, nom: { fr: "Calibre", en: "Calibre" },
         texte: { fr: "Un autre mot pour désigner un modèle de mouvement, souvent suivi de sa référence : calibre NH35, calibre 8215…", en: "Another word for a movement model, often followed by its reference: NH35 calibre, 8215 calibre…" },
-        voir: ["automatique"] }
+        voir: ["automatique"] },
+      { id: "rubis", termes: { fr: ["rubis"], en: ["jewels"] }, nom: { fr: "Rubis (pierres)", en: "Jewels" },
+        texte: { fr: "De minuscules rubis synthétiques servent de paliers aux axes des roues et du balancier : très durs et très lisses, ils réduisent les frottements et l’usure. Le nombre de rubis, souvent 17 à 24 dans une montre automatique, indique surtout combien de points de frottement sont ainsi protégés.", en: "Tiny synthetic rubies act as bearings for the arbors of the wheels and the balance: very hard and very smooth, they reduce friction and wear. The jewel count, often 17 to 24 in an automatic watch, mainly shows how many friction points are protected this way." },
+        voir: ["calibre", "automatique"] },
+      { id: "frequence", termes: { fr: ["alternances", "fréquence"], en: ["beats per hour", "frequency"] }, nom: { fr: "Fréquence (alternances)", en: "Frequency (beat rate)" },
+        texte: { fr: "Le nombre de battements du balancier. On l’exprime en alternances par heure : 21 600 alternances, soit 3 Hz, font avancer la trotteuse par six petits pas chaque seconde. Plus la fréquence est élevée, plus la trotteuse semble glisser et plus la montre peut être précise, au prix d’une usure un peu plus rapide.", en: "The number of beats of the balance. It is expressed in beats per hour: 21,600 beats, or 3 Hz, move the seconds hand in six small steps every second. The higher the frequency, the smoother the sweep and the more precise the watch can be, at the cost of slightly faster wear." },
+        voir: ["trotteuse", "calibre"] }
     ]
   }
 
