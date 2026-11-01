@@ -12,7 +12,7 @@
       vide: 'Les premières montres arrivent bientôt.', voirPhoto: 'Voir la photo',
       lexique: 'lexique.html', autreLexique: 'glossary.html', dansLexique: 'Dans le lexique', mesMontres: 'Mes montres concernées',
       voirAussi: 'Voir aussi', plus: 'Les plus', moins: 'Les moins', rechercher: 'Rechercher un mot…', aucun: 'Aucun mot ne correspond à votre recherche.',
-      qrTitre: 'QR code pour la carte de cette montre',
+      qrTitre: 'QR code pour la carte de cette montre', partager: 'Partager cette montre', copie: 'Lien copié !',
       qrAide: 'Enregistrez l’image (clic droit ou appui long), puis imprimez-la au dos de la carte. Cette section n’apparaît que si l’adresse se termine par &qr.'
     },
     en: {
@@ -24,7 +24,7 @@
       vide: 'The first watches are coming soon.', voirPhoto: 'Show photo',
       lexique: 'glossary.html', autreLexique: 'lexique.html', dansLexique: 'In the glossary', mesMontres: 'My watches with this',
       voirAussi: 'See also', plus: 'Pros', moins: 'Cons', rechercher: 'Search for a word…', aucun: 'No word matches your search.',
-      qrTitre: 'QR code for this watch’s card',
+      qrTitre: 'QR code for this watch’s card', partager: 'Share this watch', copie: 'Link copied!',
       qrAide: 'Save the image (right-click or long press), then print it on the back of the card. This section only appears when the address ends with &qr.'
     }
   }[lang];
@@ -151,6 +151,9 @@
         (suiv ? '<a class="lien-fleche suite__droite" href="' + T.fiche + '?n=' + suiv.numero + '">' + esc(T.suivante) +
           ' →<span>' + T.numero + ' ' + num(suiv.numero) + ' ' + esc(t(suiv.modele)) + '</span></a>' : '<span></span>') +
       '</nav>' +
+      '<div class="conteneur partage"><button type="button" class="bouton-partage" id="boutonPartage">' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>' +
+        esc(T.partager) + '</button></div>' +
 
       (params.has('qr') ? '<section class="conteneur qr"><h2 class="titre-moyen">' + esc(T.qrTitre) +
         '</h2><div id="qrCode" class="qr__code"></div><p class="doux">' + esc(T.qrAide) + '</p></section>' : '');
@@ -177,6 +180,17 @@
         }
       });
     }
+
+    var bp = document.getElementById('boutonPartage');
+    if (bp) bp.addEventListener('click', function () {
+      var lien = location.origin + location.pathname.replace(/[^\/]*$/, '') + 'partage/montre-' + num(m.numero) + '.html';
+      var titre = T.numero + ' ' + num(m.numero) + ' ' + t(m.modele) + ' – Les Aiguilles du Fenua';
+      if (navigator.share) { navigator.share({ title: titre, url: lien }).catch(function () {}); return; }
+      if (navigator.clipboard) navigator.clipboard.writeText(lien).then(function () {
+        var avant = bp.lastChild.textContent; bp.lastChild.textContent = T.copie;
+        setTimeout(function () { bp.lastChild.textContent = avant; }, 2000);
+      });
+    });
 
     if (params.has('qr')) {
       var s = document.createElement('script');
@@ -281,5 +295,62 @@
       });
       document.getElementById('lexAucun').hidden = total > 0;
     });
+  }
+
+  /* ---------- Ma progression ---------- */
+  var P = {
+    fr: { atteint: 'Atteint', encours: 'En cours', prochain: 'Prochaine étape', avenir: 'À venir', sur: 'sur', objectifs: 'objectifs atteints',
+          objectif: 'objectif atteint', prochaine: 'Prochaine étape', voir: 'Voir ma progression →', montre: 'Montre' },
+    en: { atteint: 'Achieved', encours: 'In progress', prochain: 'Next step', avenir: 'Coming later', sur: 'of', objectifs: 'goals achieved',
+          objectif: 'goal achieved', prochaine: 'Next step', voir: 'See my progress →', montre: 'Watch' }
+  }[lang];
+  var progressionPage = lang === 'en' ? 'progress.html' : 'progression.html';
+  var objectifs = typeof OBJECTIFS !== 'undefined' ? OBJECTIFS : [];
+  var nbAtteints = objectifs.filter(function (o) { return o.statut === 'atteint'; }).length;
+  var suivant = objectifs.filter(function (o) { return o.statut === 'prochain' || o.statut === 'encours'; })[0];
+
+  function repere(o, i) {
+    if (o.statut === 'atteint') return '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#C9A467"/><polyline points="14,25 21,32 34,17" fill="none" stroke="#0B2227" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var dernier = i === objectifs.length - 1;
+    var contenu = dernier
+      ? '<path d="M24 12 L27 21 L36 21 L29 27 L31.5 36 L24 30.5 L16.5 36 L19 27 L12 21 L21 21 Z" fill="currentColor"/>'
+      : '<text x="24" y="30" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="19" fill="currentColor">' + (i + 1) + '</text>';
+    return '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="var(--fond)" stroke="currentColor" stroke-width="2.5"' +
+      (o.statut === 'avenir' ? ' stroke-dasharray="4 3"' : '') + '/>' + contenu + '</svg>';
+  }
+
+  var progression = document.getElementById('progression');
+  if (progression && objectifs.length) {
+    var pct = Math.round(nbAtteints / objectifs.length * 100);
+    progression.innerHTML =
+      '<div class="prog-resume"><p class="prog-resume__chiffre"><strong>' + nbAtteints + '</strong> ' + P.sur + ' ' + objectifs.length + '</p>' +
+      '<p class="prog-resume__texte">' + esc(nbAtteints > 1 ? P.objectifs : P.objectif) + '</p>' +
+      '<div class="prog-barre" role="img" aria-label="' + pct + ' %"><span style="width:' + pct + '%"></span></div></div>' +
+      '<ol class="chemin">' + objectifs.map(function (o, i) {
+        var montres = (o.montres || []).map(function (n) {
+          var m = liste.filter(function (x) { return x.numero === n; })[0];
+          return '<li><a class="pastille pastille--montre" href="' + T.fiche + '?n=' + n + '">' + T.numero + ' ' + num(n) + (m ? ' ' + esc(t(m.modele)) : '') + '</a></li>';
+        }).join('');
+        var statut = P[o.statut] + (o.statut === 'atteint' && o.date ? ' · ' + esc(dateLisible(o.date)) : '');
+        return '<li class="jalon jalon--' + o.statut + (i === objectifs.length - 1 ? ' jalon--dernier' : '') + '">' +
+          '<div class="jalon__repere">' + repere(o, i) + '</div>' +
+          '<div class="jalon__carte">' +
+            '<p class="jalon__statut">' + statut + (o.etiquette ? '<span class="jalon__etiquette">' + esc(t(o.etiquette)) + '</span>' : '') + '</p>' +
+            '<h2>' + esc(t(o.titre)) + '</h2>' + paragraphes(o.texte) +
+            (o.note ? '<p class="jalon__note">' + esc(t(o.note)) + '</p>' : '') +
+            (montres ? '<ul class="pastilles">' + montres + '</ul>' : '') +
+          '</div></li>';
+      }).join('') + '</ol>';
+  }
+
+  var apercu = document.getElementById('progression-apercu');
+  if (apercu && objectifs.length) {
+    apercu.innerHTML =
+      '<ol class="apercu-points">' + objectifs.map(function (o, i) {
+        return '<li class="apercu-point apercu-point--' + o.statut + '" title="' + esc(t(o.titre)) + '"><span>' + (o.statut === 'atteint' ? '✓' : (i + 1)) + '</span></li>';
+      }).join('') + '</ol>' +
+      '<p class="apercu-texte"><strong>' + nbAtteints + ' ' + P.sur + ' ' + objectifs.length + '</strong> ' + esc(nbAtteints > 1 ? P.objectifs : P.objectif) +
+      (suivant ? '. ' + esc(P.prochaine) + (lang === 'en' ? ': ' : ' : ') + '<em>' + esc(t(suivant.titre)) + '</em>' : '') + '</p>' +
+      '<a class="bouton" href="' + progressionPage + '">' + esc(P.voir) + '</a>';
   }
 })();

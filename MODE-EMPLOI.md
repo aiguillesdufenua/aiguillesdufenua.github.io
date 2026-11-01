@@ -58,3 +58,28 @@ Identifiants disponibles (voir `lexique.js`) :
 ## Ajouter un mot au lexique
 
 Ouvrez `lexique.js`, copiez une fiche `{ id: ..., }` dans la bonne catégorie et changez l’identifiant et les textes. L’identifiant doit être en minuscules, sans espace ni accent.
+
+## Mettre à jour ma progression
+
+Tout est dans `progression.js`. Quand un objectif est atteint :
+
+1. Passez son `statut` à `"atteint"`.
+2. Ajoutez la date (`date: "2026-06"`) et le numéro de la montre (`montres: [2]`).
+3. Passez l’objectif suivant à `"prochain"` (ou `"encours"` si vous y travaillez déjà).
+
+La page Progression et l’aperçu de l’accueil se mettent à jour tout seuls.
+
+## Après chaque nouvelle montre : les pages de partage
+
+Pour que le lien d’une montre s’affiche avec sa photo sur WhatsApp, Messenger ou Instagram, lancez depuis le dossier du dépôt :
+
+```bash
+python3 generer_partages.py
+git add partage
+```
+
+Le script crée `partage/montre-002.html`, etc. Le bouton « Partager cette montre » des fiches utilise ces pages.
+
+## Google
+
+Le plan du site (`sitemap.xml`) et `robots.txt` aident Google à trouver toutes les pages. Si vous ajoutez une nouvelle page au site, pensez à l’ajouter au plan du site.

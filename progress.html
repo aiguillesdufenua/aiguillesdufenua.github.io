@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My progress – Les Aiguilles du Fenua</title>
+<meta name="description" content="My path as an apprentice watchmaker, goal by goal: from the first kit to restoring a vintage watch.">
+<meta name="theme-color" content="#0F2C33">
+<!--og--><meta property="og:type" content="website"><meta property="og:site_name" content="Les Aiguilles du Fenua"><meta property="og:title" content="My progress – Les Aiguilles du Fenua"><meta property="og:description" content="My path as an apprentice watchmaker, goal by goal: from the first kit to restoring a vintage watch."><meta property="og:url" content="https://aiguillesdufenua.github.io/progress.html"><meta property="og:image" content="https://aiguillesdufenua.github.io/images/partage.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Les Aiguilles du Fenua, création et horlogerie passion, Tahiti"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" hreflang="fr" href="https://aiguillesdufenua.github.io/progression.html"><link rel="alternate" hreflang="en" href="https://aiguillesdufenua.github.io/progress.html"><!--/og-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='66 66 368 368'%3E%3Ccircle cx='250' cy='250' r='184' fill='%230F2C33'/%3E%3Ccircle cx='250' cy='250' r='170' fill='none' stroke='%23C9A467' stroke-width='12'/%3E%3Cpath d='M60 300 C150 290 176 252 200 229 C236 200 250 240 288 190 C320 200 340 254 440 300 Z' fill='%231F4B53'/%3E%3Cg transform='translate(250 250) rotate(-55)'%3E%3Cpolygon points='0,-92 -16,-12 0,20 16,-12' fill='%23F4ECDD'/%3E%3C/g%3E%3Cg transform='translate(250 250) rotate(60)'%3E%3Cpolygon points='0,-134 -14,-14 0,22 14,-14' fill='%23C9A467'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="montres.css">
+<style>
+  .fil { margin: 0 0 1.25rem; font-size: .95rem; }
+  .fil a { color: #D7CBB1; text-decoration: none; }
+  .fil a:hover { color: var(--laiton); }
+  .sommaire { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 0; padding: 2.5rem 0 0; list-style: none; }
+  .sommaire a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--filet); }
+  .sommaire a:hover { border-bottom-color: var(--accent); }
+  .bloc { padding-top: clamp(3rem, 7vw, 4.5rem); scroll-margin-top: 1rem; }
+  .bloc__titre { font-family: var(--serif); font-weight: 600; font-size: clamp(2.1rem, 4.8vw, 3.1rem); line-height: 1.05; margin: 0 0 .8rem; }
+  .bloc__intro { max-width: 42rem; color: var(--texte-doux); font-size: 1.08rem; margin: 0 0 2rem; }
+  .sous-titre { font-family: var(--serif); font-weight: 600; font-size: 1.7rem; margin: 2.5rem 0 1rem; }
+  .cartes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; }
+  .cartes--larges { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .carte { border: 1px solid var(--filet); border-radius: 12px; padding: 1.2rem 1.3rem 1.25rem; }
+  .carte__visuel { background: var(--lagon); border-radius: 10px; margin: -.4rem -.5rem 1rem; padding: .75rem; display: grid; place-items: center; }
+  .carte__visuel svg { width: 100%; max-width: 150px; height: auto; display: block; }
+  .carte h3 { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; line-height: 1.15; margin: 0 0 .4rem; }
+  .carte p { margin: 0; color: var(--texte-doux); font-size: .97rem; }
+  .carte .pm { margin-top: .7rem; font-size: .92rem; }
+  .carte .pm span { display: block; }
+  .carte .pm .plus { color: var(--accent); }
+  .planche { margin: 0 0 1.5rem; background: var(--lagon); border-radius: 12px; padding: 1rem; overflow-x: auto; }
+  .planche svg { display: block; width: 100%; min-width: 560px; height: auto; }
+  .planche figcaption { color: #AFC0BD; font-size: .92rem; padding: .5rem .25rem 0; }
+  .definitions { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .25rem 2.5rem; }
+  .definitions div { padding: .75rem 0; border-top: 1px solid var(--filet); }
+  .definitions dt { font-weight: 500; margin-bottom: .2rem; }
+  .definitions dd { margin: 0; color: var(--texte-doux); font-size: .97rem; }
+  .fenua { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start; background: var(--lagon); color: #D7CBB1; border-radius: 14px; padding: 1.6rem 1.8rem; margin: 2.5rem 0 0; }
+  .fenua svg { width: 64px; height: 64px; }
+  .fenua h3 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; color: #F1E2C2; margin: 0 0 .5rem; }
+  .fenua p { margin: 0 0 .7em; }
+  .fenua p:last-child { margin-bottom: 0; }
+  .fenua ul { margin: .3rem 0 .7rem; padding-left: 1.1rem; }
+  .fenua li { margin-bottom: .3rem; }
+  .tableau { overflow-x: auto; margin: 1rem 0 0; border: 1px solid var(--filet); border-radius: 12px; }
+  .tableau table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: .97rem; }
+  .tableau th, .tableau td { text-align: left; padding: .75rem 1rem; border-bottom: 1px solid var(--filet); vertical-align: top; }
+  .tableau tbody tr:last-child th, .tableau tbody tr:last-child td { border-bottom: none; }
+  .tableau thead th { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; background: var(--fond-alt); }
+  .tableau tbody th { font-weight: 500; white-space: nowrap; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .duo figure { margin: 0; background: var(--lagon); border-radius: 12px; padding: 1rem; }
+  .duo figure svg { display: block; width: 100%; height: auto; }
+  .duo p { margin: 0 0 1em; }
+  .suite-pages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; padding: 3.5rem 0 4.5rem; }
+  .suite-pages a { display: block; border: 1px solid var(--filet); border-radius: 12px; padding: 1.2rem 1.4rem; text-decoration: none; color: inherit; }
+  .suite-pages a:hover { border-color: var(--accent); }
+  .suite-pages span { display: block; color: var(--accent); font-size: .92rem; }
+  .suite-pages strong { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; }
+  @media (max-width: 760px) { .duo { grid-template-columns: 1fr; } .fenua { grid-template-columns: 1fr; } }
+</style><style>
+  .prog-resume { display: grid; grid-template-columns: auto 1fr; align-items: end; gap: .25rem 1.25rem; max-width: 40rem; margin: 3rem 0 1rem; }
+  .prog-resume__chiffre { margin: 0; font-family: var(--serif); font-size: 1.6rem; color: var(--texte-doux); line-height: 1; }
+  .prog-resume__chiffre strong { font-size: 4.2rem; font-weight: 600; color: var(--accent); }
+  .prog-resume__texte { margin: 0 0 .6rem; color: var(--texte-doux); }
+  .prog-barre { grid-column: 1 / -1; height: 8px; border-radius: 4px; background: var(--fond-alt); border: 1px solid var(--filet); overflow: hidden; margin-top: .75rem; }
+  .prog-barre span { display: block; height: 100%; background: var(--laiton); border-radius: 4px; }
+
+  .chemin { list-style: none; margin: 3rem 0 0; padding: 0; position: relative; max-width: 46rem; }
+  .jalon { position: relative; display: grid; grid-template-columns: 56px 1fr; gap: 1.5rem; padding-bottom: 2.5rem; }
+  .jalon::before { content: ""; position: absolute; left: 27px; top: 52px; bottom: 0; border-left: 2px dashed var(--filet); }
+  .jalon--atteint::before { border-left: 2px solid var(--laiton); }
+  .jalon--dernier::before { display: none; }
+  .jalon__repere { width: 56px; height: 56px; color: var(--filet); }
+  .jalon__repere svg { display: block; width: 100%; height: 100%; }
+  .jalon--prochain .jalon__repere, .jalon--encours .jalon__repere { color: var(--accent); }
+  .jalon--prochain .jalon__repere svg, .jalon--encours .jalon__repere svg { animation: pulse 2.4s ease-in-out infinite; border-radius: 50%; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(201,164,103,.45); } 50% { box-shadow: 0 0 0 10px rgba(201,164,103,0); } }
+  @media (prefers-reduced-motion: reduce) { .jalon__repere svg { animation: none !important; } }
+  .jalon--avenir .jalon__repere { color: var(--texte-doux); opacity: .7; }
+  .jalon__carte { border: 1px solid var(--filet); border-radius: 14px; padding: 1.25rem 1.5rem 1.35rem; background: var(--fond); }
+  .jalon--atteint .jalon__carte { border-color: rgba(201,164,103,.55); }
+  .jalon--prochain .jalon__carte, .jalon--encours .jalon__carte { border-color: var(--accent); box-shadow: 0 14px 34px -24px rgba(122,90,40,.6); }
+  .jalon--avenir .jalon__carte { background: transparent; }
+  .jalon--avenir h2 { color: var(--texte-doux); }
+  .jalon--dernier .jalon__carte { background: var(--lagon); border-color: var(--lagon); color: #D7CBB1; }
+  .jalon--dernier h2 { color: #F1E2C2; }
+  .jalon--dernier.jalon--avenir .jalon__statut, .jalon--dernier .jalon__statut { color: var(--laiton); }
+  .jalon--dernier.jalon--avenir h2 { color: #F1E2C2; }
+  .jalon--dernier .jalon__repere { color: var(--laiton); opacity: 1; }
+  .jalon__statut { margin: 0 0 .35rem; font-size: .88rem; letter-spacing: .04em; color: var(--accent); display: flex; flex-wrap: wrap; gap: .4rem .8rem; align-items: center; }
+  .jalon--avenir .jalon__statut { color: var(--texte-doux); }
+  .jalon__etiquette { font-family: var(--serif); font-style: italic; font-size: 1.1rem; letter-spacing: 0; }
+  .jalon h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.45rem, 3vw, 1.8rem); line-height: 1.15; margin: 0 0 .5rem; }
+  .jalon p { margin: 0 0 .6rem; }
+  .jalon__note { font-style: italic; color: var(--accent); }
+  .jalon .pastilles { margin-top: .9rem; }
+  .prog-intro { max-width: 42rem; padding-top: 2.5rem; margin: 0; }
+  .prog-fin { padding: 1rem 0 4.5rem; max-width: 42rem; color: var(--texte-doux); }
+</style>
+</head>
+<body>
+<div class="barre">
+  <div class="conteneur">
+    <a class="marque" href="en.html"><svg viewBox="66 66 368 368" aria-hidden="true"><circle cx="250" cy="250" r="184" fill="#0B2227"/><circle cx="250" cy="250" r="172" fill="none" stroke="#C9A467" stroke-width="10"/><path d="M80,300 C150,290 176,252 200,229 C236,200 250,240 288,190 C320,200 340,254 420,300 Z" fill="#1F4B53"/><g transform="translate(250 250) rotate(-55)"><polygon points="0,-92 -14,-12 0,20 14,-12" fill="#F4ECDD"/></g><g transform="translate(250 250) rotate(60)"><polygon points="0,-134 -13,-14 0,22 13,-14" fill="#C9A467"/></g></svg>Les Aiguilles du Fenua</a>
+    <!--menu--><nav class="menu" aria-label="Navigation">
+      <a href="watches.html">My watches</a>
+      <a href="progress.html" aria-current="page">Progress</a>
+      <a href="making.html">Making</a>
+      <a href="how-to-use.html">How to use</a>
+      <div class="sous-menu"><a class="sous-menu__titre" href="glossary.html">Encyclopedia</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Show the encyclopedia pages"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="glossary.html">Glossary</a></li><li><a href="exterior.html">Exterior</a></li><li><a href="technology.html">Technologies</a></li><li><a href="history.html">History</a></li></ul></div>
+      <a id="lienLangue" class="drapeau" href="progression.html" hreflang="fr" lang="fr" title="Version française" aria-label="Version française"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="dfr"><circle cx="12" cy="12" r="10.5"/></clipPath></defs><g clip-path="url(#dfr)"><rect width="8" height="24" fill="#2B4C7E"/><rect x="8" width="8" height="24" fill="#EDE6D3"/><rect x="16" width="8" height="24" fill="#B4533C"/></g><circle cx="12" cy="12" r="10.5" fill="none" stroke="#C9A467" stroke-width="1.6"/></svg></a>
+    </nav><script class="js-menu">(function(){var b=document.querySelectorAll(".sous-menu__bouton");function fermer(){document.querySelectorAll(".sous-menu.ouvert").forEach(function(m){m.classList.remove("ouvert");m.querySelector(".sous-menu__bouton").setAttribute("aria-expanded","false");});}b.forEach(function(x){x.addEventListener("click",function(e){e.stopPropagation();var m=x.parentNode,o=!m.classList.contains("ouvert");fermer();if(o){m.classList.add("ouvert");x.setAttribute("aria-expanded","true");}});});document.addEventListener("click",fermer);document.addEventListener("keydown",function(e){if(e.key==="Escape")fermer();});})();</script><!--/menu-->
+  </div>
+</div>
+<header class="entete">
+  <div class="conteneur">
+        <h1>My progress</h1>
+    <p class="entete__intro">Every watch takes me one step further. Here is the path I have set myself, from my first kit to restoring a vintage watch.</p>
+  </div>
+  <svg class="vagues" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C120,20 240,20 360,40 C480,60 600,60 720,40 C840,20 960,20 1080,40 C1200,60 1320,60 1440,40 L1440,70 L0,70 Z" fill="var(--fond)"/><path d="M0,40 C120,20 240,20 360,40 C480,60 600,60 720,40 C840,20 960,20 1080,40 C1200,60 1320,60 1440,40" fill="none" stroke="#C9A467" stroke-width="1.5" opacity=".6"/></svg>
+</header>
+<main class="conteneur">
+<p class="prog-intro doux">No deadline: it’s a passion, not a race. Achieved goals stay on the page, along with the watches that made them possible. Come back now and then to see where I am.</p><div id="progression"></div><p class="prog-fin">One watch after another, the journey goes on.</p>
+<script src="montres.js"></script>
+<script src="progression.js"></script>
+<script src="site.js"></script>
+</main>
+<footer>
+  <div class="conteneur">
+    <span>© 2026 Les Aiguilles du Fenua, Tahiti</span>
+    <a href="https://www.instagram.com/aiguilles.du.fenua/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+</body>
+</html>
