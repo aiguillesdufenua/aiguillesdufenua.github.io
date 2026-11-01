@@ -435,21 +435,41 @@ const ILLUSTRATIONS = (function () {
   }
 
   function calNH70(lang) {
-    var s = '<circle cx="150" cy="150" r="132" fill="#1F2E31" stroke="' + PLATINE_F + '" stroke-width="1.5"/>';
-    // rouage visible à travers les ajours
-    s += roue(150, 150, 22, DORE, 50) + roue(194, 120, 16, DORE, 36) + roue(206, 176, 12, DORE, 28) + roue(112, 98, 32, '#D2D8D8', 64);
-    // ponts ajourés : arcs pleins qui laissent voir le mécanisme
-    var pont = PLATINE;
-    s += '<path d="M 18,150 A 132,132 0 0 1 282,150 L 262,150 A 112,112 0 0 0 38,150 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
-    s += '<path d="M 282,150 A 132,132 0 0 1 18,150 L 38,150 A 112,112 0 0 0 262,150 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
-    s += '<path d="M 40,128 Q 96,60 176,66 L 182,84 Q 110,82 64,140 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
-    s += '<path d="M 150,40 L 162,40 L 214,160 L 236,214 L 222,220 L 200,170 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
-    s += '<path d="M 44,196 Q 70,160 120,176 L 132,190 Q 90,190 64,226 Z" fill="' + pont + '" stroke="' + PLATINE_F + '"/>';
-    // cœur ouvert : le balancier qui bat
-    s += '<circle cx="100" cy="208" r="34" fill="#162326" stroke="' + PLATINE_F + '"/>' + balancier(100, 208, 26);
-    s += rubis(100, 208) + rubis(150, 150) + rubis(194, 120) + rubis(206, 176) + rubis(112, 98);
-    s += vis(52, 132) + vis(170, 72) + vis(226, 210) + vis(58, 206) + vis(250, 120) + vis(46, 176);
-    s += '<line x1="262" y1="150" x2="296" y2="150" stroke="' + PLATINE_F + '" stroke-width="4"/>';
+    // un mouvement « partiellement squelette » : la platine reste, percée de fenêtres
+    var FEN = '#132326', ANGLE = '#EEF2F2';
+    var fenetreRouage = 'M 176,92 Q 220,80 250,116 Q 266,152 252,198 Q 236,230 198,236 Q 178,210 190,178 Q 200,150 178,128 Z';
+    var s = '<defs><clipPath id="n70b"><circle cx="110" cy="102" r="50"/></clipPath><clipPath id="n70t"><path d="' + fenetreRouage + '"/></clipPath>' +
+      '<clipPath id="n70h"><circle cx="96" cy="212" r="42"/></clipPath><clipPath id="n70p"><circle cx="150" cy="150" r="128"/></clipPath></defs>';
+    s += '<circle cx="150" cy="150" r="132" fill="' + PLATINE + '" stroke="' + PLATINE_F + '" stroke-width="1.5"/>';
+    // colimaçonnage de la platine
+    s += '<g clip-path="url(#n70p)" fill="none" stroke="#D8DEDE" stroke-width="1">';
+    for (var r = 8; r < 130; r += 7) s += '<circle cx="150" cy="150" r="' + r + '"/>';
+    s += '</g>';
+    // séparations entre les ponts
+    s += '<g fill="none" stroke="' + PLATINE_F + '" stroke-width="1.2"><path d="M 40,150 Q 90,160 128,128"/><path d="M 168,60 Q 160,100 172,132"/><path d="M 150,280 Q 160,236 196,236"/><path d="M 262,96 Q 230,70 176,66"/></g>';
+    // fenêtre du barillet : on voit le ressort moteur enroulé
+    s += '<circle cx="110" cy="102" r="50" fill="' + FEN + '"/><g clip-path="url(#n70b)">' + roue(110, 102, 44, '#D2D8D8', 90);
+    s += '<circle cx="110" cy="102" r="38" fill="#2A3B3E"/>';
+    var spire = 'M 110,102';
+    for (var k = 1; k <= 140; k++) { var q = pt(110, 102, 7 + k * 0.21, k * 15); spire += ' L ' + f(q[0]) + ',' + f(q[1]); }
+    s += '<path d="' + spire + '" fill="none" stroke="#AEB9BA" stroke-width="1.6"/><circle cx="110" cy="102" r="7" fill="' + PLATINE + '" stroke="' + PLATINE_F + '"/></g>';
+    s += '<circle cx="110" cy="102" r="50" fill="none" stroke="' + ANGLE + '" stroke-width="2.5"/>';
+    // fenêtre du rouage
+    s += '<path d="' + fenetreRouage + '" fill="' + FEN + '"/><g clip-path="url(#n70t)">' + roue(206, 122, 20, DORE, 44) + roue(232, 168, 15, DORE, 34) + roue(210, 208, 12, DORE, 26) + '</g>';
+    s += '<path d="' + fenetreRouage + '" fill="none" stroke="' + ANGLE + '" stroke-width="2.5"/>';
+    // centre : roue de centre visible
+    s += '<circle cx="150" cy="150" r="24" fill="' + FEN + '"/>' + roue(150, 150, 18, DORE, 40) + '<circle cx="150" cy="150" r="24" fill="none" stroke="' + ANGLE + '" stroke-width="2.5"/>';
+    // cœur ouvert : le balancier qui bat sous son pont
+    s += '<circle cx="96" cy="212" r="42" fill="' + FEN + '"/><g clip-path="url(#n70h)">' + balancier(96, 212, 31) + '</g>';
+    s += '<circle cx="96" cy="212" r="42" fill="none" stroke="' + ANGLE + '" stroke-width="2.5"/>';
+    s += '<path d="M 52,236 Q 74,226 96,212 L 104,220 Q 82,236 62,250 Z" fill="' + PLATINE + '" stroke="' + PLATINE_F + '"/>';
+    // petites fenêtres décoratives
+    s += '<path d="M 176,258 Q 212,250 232,226 Q 244,240 236,252 Q 214,272 182,272 Z" fill="' + FEN + '" stroke="' + ANGLE + '" stroke-width="2"/>';
+    s += '<path d="M 60,140 Q 70,130 84,138 L 80,160 Q 66,162 58,154 Z" fill="' + FEN + '" stroke="' + ANGLE + '" stroke-width="2"/>';
+    // rubis et vis
+    s += rubis(96, 212) + rubis(150, 150) + rubis(206, 122) + rubis(232, 168) + rubis(210, 208) + rubis(110, 102);
+    s += vis(52, 120) + vis(176, 52) + vis(250, 236) + vis(46, 186) + vis(264, 120) + vis(150, 266) + vis(130, 196);
+    s += '<line x1="283" y1="150" x2="299" y2="150" stroke="' + PLATINE_F + '" stroke-width="4"/>';
     return svg(s, lang === 'en' ? 'Seiko NH70A skeleton movement, with openworked bridges' : 'Seiko NH70A squelette, aux ponts ajourés');
   }
 
