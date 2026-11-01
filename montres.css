@@ -234,3 +234,26 @@ footer a { color: var(--accent); }
 @keyframes balancier { from { transform: rotate(-120deg); } to { transform: rotate(120deg); } }
 @keyframes pas { to { transform: rotate(60deg); } }
 @media (prefers-reduced-motion: reduce) { .anim-rotor, .anim-balancier, .anim-pas { animation: none; } }
+
+/* --- Menu : sous-menu Encyclopédie et drapeaux --- */
+.menu { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1.4rem; }
+.menu .sous-menu { position: relative; display: inline-flex; align-items: center; gap: .2rem; }
+.menu .sous-menu::after { content: ""; position: absolute; left: -.5rem; right: -.5rem; top: 100%; height: .8rem; }
+.menu .sous-menu__bouton { display: inline-flex; align-items: center; justify-content: center; width: 1.4rem; height: 1.4rem; padding: 0; border: 0; border-radius: 50%; background: none; color: #D7CBB1; cursor: pointer; }
+.menu .sous-menu__bouton svg { width: 12px; height: 12px; transition: transform .2s ease; }
+.menu .sous-menu__bouton:hover { color: #C9A467; }
+.menu .sous-menu__liste { position: absolute; top: calc(100% + .6rem); right: -.5rem; z-index: 60; min-width: 12.5rem; margin: 0; padding: .45rem 0; list-style: none;
+  background: #0B2227; border: 1px solid rgba(201,164,103,.4); border-radius: 12px; box-shadow: 0 20px 40px -18px rgba(0,0,0,.7);
+  opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility .18s; }
+.menu .sous-menu:hover .sous-menu__liste, .menu .sous-menu:focus-within .sous-menu__liste, .menu .sous-menu.ouvert .sous-menu__liste { opacity: 1; visibility: visible; transform: none; }
+.menu .sous-menu:hover .sous-menu__bouton svg, .menu .sous-menu.ouvert .sous-menu__bouton svg { transform: rotate(180deg); }
+.menu .sous-menu__liste li { margin: 0; }
+.menu .sous-menu__liste a { display: block; margin: 0; padding: .55rem 1.15rem; border: 0; color: #D7CBB1; white-space: nowrap; text-decoration: none; }
+.menu .sous-menu__liste a:hover, .menu .sous-menu__liste a[aria-current="page"] { color: #C9A467; background: rgba(201,164,103,.08); }
+.menu .sous-menu__liste a[aria-current="page"]::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 .55rem .15rem -.7rem; border-radius: 50%; background: #C9A467; }
+.menu .sous-menu.actif > .sous-menu__titre { color: #C9A467; border-bottom-color: #C9A467; }
+.menu a.drapeau { display: inline-flex; padding: 0; border: 0; line-height: 0; }
+.menu a.drapeau svg { width: 22px; height: 22px; transition: transform .2s ease; }
+.menu a.drapeau:hover svg { transform: scale(1.12); }
+@media (prefers-reduced-motion: reduce) { .menu .sous-menu__liste, .menu .sous-menu__bouton svg, .menu a.drapeau svg { transition: none; } }
+@media (max-width: 760px) { .menu .sous-menu__liste { right: auto; left: -.5rem; } }
