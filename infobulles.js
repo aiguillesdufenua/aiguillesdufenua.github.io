@@ -9,7 +9,7 @@
   var PAGE_LEXIQUE = lang === 'en' ? 'glossary.html' : 'lexique.html';
   var TXT = lang === 'en' ? { voir: 'Read the full entry →', fermer: 'Close' } : { voir: 'Lire la fiche complète →', fermer: 'Fermer' };
   // zones où l’on ne pose jamais d’infobulle
-  var EXCLUS = 'a, button, h1, h2, h3, h4, h5, h6, nav, header, footer, svg, figcaption, script, style, label, input, select, textarea, .terme, .bulle, .barre, .pastilles, .carte-fiche, .champ, .lex-fiche, .calibre__tuiles dd, .calibre__sur';
+  var EXCLUS = 'a, button, summary, h1, h2, h3, h4, h5, h6, nav, header, footer, svg, figcaption, script, style, label, input, select, textarea, .terme, .bulle, .barre, .pastilles, .carte-fiche, .champ, .lex-fiche, .calibre__tuiles dd, .calibre__sur';
 
   function charger(suite) {
     if (typeof LEXIQUE !== 'undefined') { suite(); return; }
