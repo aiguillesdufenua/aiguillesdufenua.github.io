@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script class="js-theme-init">try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Les Aiguilles du Fenua – A watchmaking passion in Tahiti</title>
 <meta name="description" content="Les Aiguilles du Fenua: a passion for watchmaking, in Tahiti. Watches assembled by hand, for myself and the people close to me.">
@@ -38,8 +39,17 @@
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+      --fond: var(--lagon-nuit);
+      --fond-alt: #0D272D;
+      --texte: #EFE4CE;
+      --texte-doux: #A9B7B5;
+      --accent: var(--laiton);
+      --filet: #24464D;
+      --carte: #113139;
+      color-scheme: dark;
+    } }
+:root[data-theme="dark"] {
       --fond: var(--lagon-nuit);
       --fond-alt: #0D272D;
       --texte: #EFE4CE;
@@ -49,7 +59,7 @@
       --carte: #113139;
       color-scheme: dark;
     }
-  }
+:root[data-theme="light"] { color-scheme: light; }
   *, *::before, *::after { box-sizing: inherit; }
   html { scroll-behavior: smooth; scroll-padding-top: env(safe-area-inset-top, 0px); }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -287,6 +297,16 @@
   .origine .prose p:first-of-type { color: #F1E2C2; }
   .origine .prose p:first-of-type::first-letter { float: left; font-family: var(--serif); font-weight: 600; font-size: 4.2em; line-height: .82; margin: .06em .12em 0 0; color: var(--laiton); }
   .origine .prose p:last-of-type { margin-bottom: 0; }
+
+/* --- Bouton de thème jour / nuit --- */
+.menu .theme-bouton { display: inline-flex; padding: 0; border: 0; background: none; cursor: pointer; line-height: 0; border-radius: 50%; }
+.menu .theme-bouton svg { width: 28px; height: 28px; transition: transform .2s ease; }
+.menu .theme-bouton:hover svg { transform: scale(1.12); }
+.menu .theme-bouton:focus-visible { outline: 2px solid #C9A467; outline-offset: 3px; }
+.jn-disque { transform-box: view-box; transform-origin: 12px 12px; transition: transform .7s cubic-bezier(.5,0,.2,1); }
+:root[data-theme="dark"] .jn-disque { transform: rotate(180deg); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .jn-disque { transform: rotate(180deg); } }
+@media (prefers-reduced-motion: reduce) { .jn-disque, .menu .theme-bouton svg { transition: none; } }
 </style>
 </head>
 <body>
@@ -298,8 +318,9 @@
       <a href="making.html">Making</a>
       <div class="sous-menu"><a class="sous-menu__titre" href="how-to-use.html">How to use</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Show the how-to-use pages"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="how-to-use.html">User guide</a></li><li><a href="faq-en.html">FAQ</a></li></ul></div>
       <div class="sous-menu"><a class="sous-menu__titre" href="glossary.html">Encyclopedia</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Show the encyclopedia pages"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="glossary.html">Glossary</a></li><li><a href="calibers.html">Calibres</a></li><li><a href="watch-complications.html">Complications</a></li><li><a href="exterior.html">Exterior</a></li><li><a href="technology.html">Technologies</a></li><li><a href="history.html">History</a></li><li><a href="space.html">Watches in space</a></li><li><a href="diving.html">Dive watches</a></li><li><a href="anti-magnetic.html">Anti-magnetic watches</a></li><li><a href="pilot-watches.html">Pilot watches</a></li></ul></div>
+      <button type="button" class="theme-bouton" aria-label="Thème" title="Thème"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="jn-c"><circle cx="12" cy="12" r="10.5"/></clipPath></defs><g clip-path="url(#jn-c)"><g class="jn-disque"><rect x="0" y="0" width="24" height="12" fill="#6FB3CF"/><g stroke="#F2C14E" stroke-width="1.2" stroke-linecap="round"><line x1="12" y1="1.2" x2="12" y2="2.6"/><line x1="6.4" y1="3.4" x2="7.4" y2="4.4"/><line x1="17.6" y1="3.4" x2="16.6" y2="4.4"/><line x1="4.2" y1="8.6" x2="5.6" y2="8.6"/><line x1="19.8" y1="8.6" x2="18.4" y2="8.6"/></g><circle cx="12" cy="8" r="3.4" fill="#F2C14E"/><rect x="0" y="12" width="24" height="12" fill="#1B2B4A"/><g transform="rotate(180 12 12)"><circle cx="12.6" cy="8" r="3.4" fill="#F1DE9C"/><circle cx="14.2" cy="7" r="3" fill="#1B2B4A"/><circle cx="6.5" cy="5" r=".6" fill="#FFFFFF"/><circle cx="17.5" cy="9.5" r=".5" fill="#FFFFFF"/><circle cx="8.5" cy="9.8" r=".45" fill="#FFFFFF"/></g></g><path d="M 0,12 Q 6,9.2 12,12 Q 18,9.2 24,12 L 24,24 L 0,24 Z" fill="#0F2C33"/></g><circle cx="12" cy="12" r="10.5" fill="none" stroke="#C9A467" stroke-width="1.6"/></svg></button>
       <a id="lienLangue" class="drapeau" href="index.html" hreflang="fr" lang="fr" title="Version française" aria-label="Version française"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="dfr"><circle cx="12" cy="12" r="10.5"/></clipPath></defs><g clip-path="url(#dfr)"><rect width="8" height="24" fill="#2B4C7E"/><rect x="8" width="8" height="24" fill="#EDE6D3"/><rect x="16" width="8" height="24" fill="#B4533C"/></g><circle cx="12" cy="12" r="10.5" fill="none" stroke="#C9A467" stroke-width="1.6"/></svg></a>
-    </nav><script class="js-menu">(function(){var b=document.querySelectorAll(".sous-menu__bouton");function fermer(){document.querySelectorAll(".sous-menu.ouvert").forEach(function(m){m.classList.remove("ouvert");m.querySelector(".sous-menu__bouton").setAttribute("aria-expanded","false");});}b.forEach(function(x){x.addEventListener("click",function(e){e.stopPropagation();var m=x.parentNode,o=!m.classList.contains("ouvert");fermer();if(o){m.classList.add("ouvert");x.setAttribute("aria-expanded","true");}});});document.addEventListener("click",fermer);document.addEventListener("keydown",function(e){if(e.key==="Escape")fermer();});})();</script><!--/menu-->
+    </nav><script class="js-menu">(function(){var b=document.querySelectorAll(".sous-menu__bouton");function fermer(){document.querySelectorAll(".sous-menu.ouvert").forEach(function(m){m.classList.remove("ouvert");m.querySelector(".sous-menu__bouton").setAttribute("aria-expanded","false");});}b.forEach(function(x){x.addEventListener("click",function(e){e.stopPropagation();var m=x.parentNode,o=!m.classList.contains("ouvert");fermer();if(o){m.classList.add("ouvert");x.setAttribute("aria-expanded","true");}});});document.addEventListener("click",fermer);document.addEventListener("keydown",function(e){if(e.key==="Escape")fermer();});})();</script><script class="js-theme">(function(){var b=document.querySelector(".theme-bouton");if(!b)return;var r=document.documentElement,fr=r.lang!=="en";var mq=window.matchMedia("(prefers-color-scheme: dark)");function actuel(){return r.dataset.theme||(mq.matches?"dark":"light");}function maj(){var sombre=actuel()==="dark";var t=fr?(sombre?"Passer au thème clair":"Passer au thème sombre"):(sombre?"Switch to light theme":"Switch to dark theme");b.setAttribute("aria-label",t);b.title=t;b.setAttribute("aria-pressed",sombre?"true":"false");}b.addEventListener("click",function(){var n=actuel()==="dark"?"light":"dark";r.dataset.theme=n;try{localStorage.setItem("theme",n);}catch(e){}maj();});if(mq.addEventListener)mq.addEventListener("change",maj);maj();})();</script><!--/menu-->
   <div class="conteneur hero__grille">
     <div>
       <h1>Les Aiguilles<br>du Fenua</h1>
