@@ -91,3 +91,13 @@ Elles sont dans `calibres.js`. Une montre affiche automatiquement la fiche de so
 ## Les infobulles
 
 Elles sont automatiques. Les mots déclencheurs de chaque fiche sont listés dans le champ `termes` de `lexique.js`. Pour qu’un nouveau mot affiche une infobulle, ajoutez-le à cette liste, en français et en anglais.
+
+## Le carnet d’atelier
+
+Tout est dans `carnet.js`. Après une séance :
+
+1. Réduisez vos photos (1 800 pixels de large suffisent) et déposez-les dans `images`, par exemple `atelier-005.jpg`.
+2. Copiez un bloc de séance, collez-le en haut de la liste, et changez la date, le titre, le texte et les photos.
+3. Chaque photo a sa légende, en français et en anglais.
+
+Pour relier une séance à une de vos montres, ajoutez `montre: 2` (le numéro de la montre). Pensez à ne pas publier les photos des montres qui doivent rester une surprise !

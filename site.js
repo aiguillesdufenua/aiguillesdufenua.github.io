@@ -419,4 +419,41 @@
       (suivant ? '. ' + esc(P.prochaine) + (lang === 'en' ? ': ' : ' : ') + '<em>' + esc(t(suivant.titre)) + '</em>' : '') + '</p>' +
       '<a class="bouton" href="' + progressionPage + '">' + esc(P.voir) + '</a>';
   }
+
+  /* ---------- Carnet d’atelier ---------- */
+  var carnet = document.getElementById('carnet');
+  if (carnet && typeof CARNET !== 'undefined') {
+    var CT = lang === 'en' ? { fermer: 'Close', agrandir: 'Enlarge photo', montre: 'Watch', vide: 'The first notes are coming soon.' }
+                           : { fermer: 'Fermer', agrandir: 'Agrandir la photo', montre: 'Montre', vide: 'Les premières notes arrivent bientôt.' };
+    var seances = CARNET.slice().sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); });
+    if (!seances.length) { carnet.innerHTML = '<p class="doux">' + esc(CT.vide) + '</p>'; }
+    else {
+      carnet.innerHTML = '<ol class="carnet">' + seances.map(function (e, k) {
+        var lien = '';
+        if (typeof e.montre === 'number') {
+          var mm = liste.filter(function (x) { return x.numero === e.montre; })[0];
+          if (mm) lien = '<a class="pastille pastille--montre" href="' + T.fiche + '?n=' + mm.numero + '">' + T.numero + ' ' + num(mm.numero) + ' ' + esc(t(mm.modele)) + '</a>';
+        }
+        return '<li class="seance"><p class="seance__date">' + esc(dateLisible(e.date)) + '</p><h2 class="seance__titre">' + esc(t(e.titre)) + '</h2>' +
+          (e.texte ? '<div class="seance__texte">' + t(e.texte).split(/\n\s*\n/).map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>' : '') + (lien ? '<p>' + lien + '</p>' : '') +
+          '<ol class="etapes-photos">' + (e.photos || []).map(function (ph, i) {
+            return '<li><button type="button" class="vignette-photo' + (ph.portrait ? ' vignette-photo--portrait' : '') + '" data-src="' + esc(ph.src) + '" data-legende="' + esc(t(ph.legende)) + '" aria-label="' + esc(CT.agrandir) + '">' +
+              '<img src="' + esc(ph.src) + '" alt="' + esc(t(ph.legende)) + '" loading="lazy"><span class="etape-num">' + (i + 1) + '</span></button>' +
+              '<p>' + esc(t(ph.legende)) + '</p></li>';
+          }).join('') + '</ol></li>';
+      }).join('') + '</ol>';
+      var dlg = document.createElement('dialog');
+      dlg.className = 'visionneuse';
+      dlg.innerHTML = '<button type="button" class="visionneuse__fermer" aria-label="' + esc(CT.fermer) + '">×</button><img alt=""><p></p>';
+      document.body.appendChild(dlg);
+      carnet.addEventListener('click', function (ev) {
+        var b = ev.target.closest('.vignette-photo'); if (!b) return;
+        dlg.querySelector('img').src = b.dataset.src; dlg.querySelector('img').alt = b.dataset.legende;
+        dlg.querySelector('p').textContent = b.dataset.legende;
+        if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+      });
+      dlg.querySelector('.visionneuse__fermer').addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('click', function (ev) { if (ev.target === dlg) dlg.close(); });
+    }
+  }
 })();

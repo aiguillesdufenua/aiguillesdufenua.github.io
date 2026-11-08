@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script class="js-theme-init">try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Workshop journal – Les Aiguilles du Fenua</title>
+<meta name="description" content="Behind the scenes at the workbench, session after session: the assembly steps of my watches in pictures.">
+<meta name="theme-color" content="#0F2C33">
+<!--og--><meta property="og:type" content="website"><meta property="og:site_name" content="Les Aiguilles du Fenua"><meta property="og:title" content="Workshop journal – Les Aiguilles du Fenua"><meta property="og:description" content="Behind the scenes at the workbench, session after session: the assembly steps of my watches in pictures."><meta property="og:url" content="https://aiguillesdufenua.github.io/workshop-journal.html"><meta property="og:image" content="https://aiguillesdufenua.github.io/images/partage.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Les Aiguilles du Fenua, création et horlogerie passion, Tahiti"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" hreflang="fr" href="https://aiguillesdufenua.github.io/carnet.html"><link rel="alternate" hreflang="en" href="https://aiguillesdufenua.github.io/workshop-journal.html"><!--/og-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='66 66 368 368'%3E%3Ccircle cx='250' cy='250' r='184' fill='%230F2C33'/%3E%3Ccircle cx='250' cy='250' r='170' fill='none' stroke='%23C9A467' stroke-width='12'/%3E%3Cpath d='M60 300 C150 290 176 252 200 229 C236 200 250 240 288 190 C320 200 340 254 440 300 Z' fill='%231F4B53'/%3E%3Cg transform='translate(250 250) rotate(-55)'%3E%3Cpolygon points='0,-92 -16,-12 0,20 16,-12' fill='%23F4ECDD'/%3E%3C/g%3E%3Cg transform='translate(250 250) rotate(60)'%3E%3Cpolygon points='0,-134 -14,-14 0,22 14,-14' fill='%23C9A467'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="montres.css">
+<style>
+  .fil { margin: 0 0 1.25rem; font-size: .95rem; }
+  .fil a { color: #D7CBB1; text-decoration: none; }
+  .fil a:hover { color: var(--laiton); }
+  .sommaire { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 0; padding: 2.5rem 0 0; list-style: none; }
+  .sommaire a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--filet); }
+  .sommaire a:hover { border-bottom-color: var(--accent); }
+  .bloc { padding-top: clamp(3rem, 7vw, 4.5rem); scroll-margin-top: 1rem; }
+  .bloc__titre { font-family: var(--serif); font-weight: 600; font-size: clamp(2.1rem, 4.8vw, 3.1rem); line-height: 1.05; margin: 0 0 .8rem; }
+  .bloc__intro { max-width: 42rem; color: var(--texte-doux); font-size: 1.08rem; margin: 0 0 2rem; }
+  .sous-titre { font-family: var(--serif); font-weight: 600; font-size: 1.7rem; margin: 2.5rem 0 1rem; }
+  .cartes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; }
+  .cartes--larges { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .carte { border: 1px solid var(--filet); border-radius: 12px; padding: 1.2rem 1.3rem 1.25rem; }
+  .carte__visuel { background: var(--lagon); border-radius: 10px; margin: -.4rem -.5rem 1rem; padding: .75rem; display: grid; place-items: center; }
+  .carte__visuel svg { width: 100%; max-width: 150px; height: auto; display: block; }
+  .carte h3 { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; line-height: 1.15; margin: 0 0 .4rem; }
+  .carte p { margin: 0; color: var(--texte-doux); font-size: .97rem; }
+  .carte .pm { margin-top: .7rem; font-size: .92rem; }
+  .carte .pm span { display: block; }
+  .carte .pm .plus { color: var(--accent); }
+  .planche { margin: 0 0 1.5rem; background: var(--lagon); border-radius: 12px; padding: 1rem; overflow-x: auto; }
+  .planche svg { display: block; width: 100%; min-width: 560px; height: auto; }
+  .planche figcaption { color: #AFC0BD; font-size: .92rem; padding: .5rem .25rem 0; }
+  .definitions { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .25rem 2.5rem; }
+  .definitions div { padding: .75rem 0; border-top: 1px solid var(--filet); }
+  .definitions dt { font-weight: 500; margin-bottom: .2rem; }
+  .definitions dd { margin: 0; color: var(--texte-doux); font-size: .97rem; }
+  .fenua { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start; background: var(--lagon); color: #D7CBB1; border-radius: 14px; padding: 1.6rem 1.8rem; margin: 2.5rem 0 0; }
+  .fenua svg { width: 64px; height: 64px; }
+  .fenua h3 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; color: #F1E2C2; margin: 0 0 .5rem; }
+  .fenua p { margin: 0 0 .7em; }
+  .fenua p:last-child { margin-bottom: 0; }
+  .fenua ul { margin: .3rem 0 .7rem; padding-left: 1.1rem; }
+  .fenua li { margin-bottom: .3rem; }
+  .tableau { overflow-x: auto; margin: 1rem 0 0; border: 1px solid var(--filet); border-radius: 12px; }
+  .tableau table { width: 100%; border-collapse: collapse; min-width: 540px; font-size: .97rem; }
+  .tableau th, .tableau td { text-align: left; padding: .75rem 1rem; border-bottom: 1px solid var(--filet); vertical-align: top; }
+  .tableau tbody tr:last-child th, .tableau tbody tr:last-child td { border-bottom: none; }
+  .tableau thead th { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; background: var(--fond-alt); }
+  .tableau tbody th { font-weight: 500; white-space: nowrap; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .duo figure { margin: 0; background: var(--lagon); border-radius: 12px; padding: 1rem; }
+  .duo figure svg { display: block; width: 100%; height: auto; }
+  .duo p { margin: 0 0 1em; }
+  .suite-pages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; padding: 3.5rem 0 4.5rem; }
+  .suite-pages a { display: block; border: 1px solid var(--filet); border-radius: 12px; padding: 1.2rem 1.4rem; text-decoration: none; color: inherit; }
+  .suite-pages a:hover { border-color: var(--accent); }
+  .suite-pages span { display: block; color: var(--accent); font-size: .92rem; }
+  .suite-pages strong { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; }
+  @media (max-width: 760px) { .duo { grid-template-columns: 1fr; } .fenua { grid-template-columns: 1fr; } }
+</style><style>
+  .c-ancre { transform-box: view-box; animation: c-ancre 1s ease-in-out infinite alternate; }
+  .c-roue { transform-box: view-box; animation: c-roue 15s steps(30) infinite; }
+  @keyframes c-ancre { from { transform: rotate(-6deg); } to { transform: rotate(6deg); } }
+  @keyframes c-roue { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .c-ancre, .c-roue { animation: none; } }
+  .prose-large { max-width: 46rem; }
+  .prose-large p { margin: 0 0 1em; }
+  .etapes-tic { list-style: none; counter-reset: tic; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .etapes-tic li { counter-increment: tic; border-top: 2px solid var(--laiton); padding-top: .8rem; }
+  .etapes-tic li::before { content: counter(tic); font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1; color: var(--accent); display: block; margin-bottom: .3rem; }
+  .etapes-tic p { margin: 0; color: var(--texte-doux); }
+  .carte h3 small { display: block; font-family: var(--sans); font-weight: 400; font-size: .85rem; color: var(--accent); letter-spacing: .03em; margin-top: .15rem; }
+</style>
+</head>
+<body>
+<div class="barre">
+  <div class="conteneur">
+    <a class="marque" href="en.html"><svg viewBox="66 66 368 368" aria-hidden="true"><circle cx="250" cy="250" r="184" fill="#0B2227"/><circle cx="250" cy="250" r="172" fill="none" stroke="#C9A467" stroke-width="10"/><path d="M80,300 C150,290 176,252 200,229 C236,200 250,240 288,190 C320,200 340,254 420,300 Z" fill="#1F4B53"/><g transform="translate(250 250) rotate(-55)"><polygon points="0,-92 -14,-12 0,20 14,-12" fill="#F4ECDD"/></g><g transform="translate(250 250) rotate(60)"><polygon points="0,-134 -13,-14 0,22 13,-14" fill="#C9A467"/></g></svg>Les Aiguilles du Fenua</a>
+    <!--menu--><nav class="menu" aria-label="Navigation">
+      <a href="watches.html">My watches</a>
+      <a href="progress.html">Progress</a>
+      <div class="sous-menu actif"><a class="sous-menu__titre" href="making.html">Making</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Show the making pages"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="making.html">How a watch is born</a></li><li><a href="workshop-journal.html" aria-current="page">Workshop journal</a></li></ul></div>
+      <div class="sous-menu"><a class="sous-menu__titre" href="how-to-use.html">How to use</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Show the how-to-use pages"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="how-to-use.html">User guide</a></li><li><a href="faq-en.html">FAQ</a></li></ul></div>
+      <div class="sous-menu"><a class="sous-menu__titre" href="glossary.html">Encyclopedia</a><button type="button" class="sous-menu__bouton" aria-expanded="false" aria-label="Show the encyclopedia pages"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 L6 8 L9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="sous-menu__liste"><li><a href="glossary.html">Glossary</a></li><li><a href="calibers.html">Calibres</a></li><li><a href="watch-complications.html">Complications</a></li><li><a href="exterior.html">Exterior</a></li><li><a href="technology.html">Technologies</a></li><li><a href="watchmaker-equipment.html">Watchmaker’s equipment</a></li><li><a href="history.html">History</a></li><li><a href="space.html">Watches in space</a></li><li><a href="diving.html">Dive watches</a></li><li><a href="anti-magnetic.html">Anti-magnetic watches</a></li><li><a href="pilot-watches.html">Pilot watches</a></li></ul></div>
+      <button type="button" class="theme-bouton" aria-label="Thème" title="Thème"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="jn-c"><circle cx="12" cy="12" r="10.5"/></clipPath></defs><g clip-path="url(#jn-c)"><g class="jn-disque"><rect x="0" y="0" width="24" height="12" fill="#6FB3CF"/><g stroke="#F2C14E" stroke-width="1.2" stroke-linecap="round"><line x1="12" y1="1.2" x2="12" y2="2.6"/><line x1="6.4" y1="3.4" x2="7.4" y2="4.4"/><line x1="17.6" y1="3.4" x2="16.6" y2="4.4"/><line x1="4.2" y1="8.6" x2="5.6" y2="8.6"/><line x1="19.8" y1="8.6" x2="18.4" y2="8.6"/></g><circle cx="12" cy="8" r="3.4" fill="#F2C14E"/><rect x="0" y="12" width="24" height="12" fill="#1B2B4A"/><g transform="rotate(180 12 12)"><circle cx="12.6" cy="8" r="3.4" fill="#F1DE9C"/><circle cx="14.2" cy="7" r="3" fill="#1B2B4A"/><circle cx="6.5" cy="5" r=".6" fill="#FFFFFF"/><circle cx="17.5" cy="9.5" r=".5" fill="#FFFFFF"/><circle cx="8.5" cy="9.8" r=".45" fill="#FFFFFF"/></g></g><path d="M 0,12 Q 6,9.2 12,12 Q 18,9.2 24,12 L 24,24 L 0,24 Z" fill="#0F2C33"/></g><circle cx="12" cy="12" r="10.5" fill="none" stroke="#C9A467" stroke-width="1.6"/></svg></button>
+      <a id="lienLangue" class="drapeau" href="carnet.html" hreflang="fr" lang="fr" title="Version française" aria-label="Version française"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="dfr"><circle cx="12" cy="12" r="10.5"/></clipPath></defs><g clip-path="url(#dfr)"><rect width="8" height="24" fill="#2B4C7E"/><rect x="8" width="8" height="24" fill="#EDE6D3"/><rect x="16" width="8" height="24" fill="#B4533C"/></g><circle cx="12" cy="12" r="10.5" fill="none" stroke="#C9A467" stroke-width="1.6"/></svg></a>
+    </nav><script class="js-menu">(function(){var b=document.querySelectorAll(".sous-menu__bouton");function fermer(){document.querySelectorAll(".sous-menu.ouvert").forEach(function(m){m.classList.remove("ouvert");m.querySelector(".sous-menu__bouton").setAttribute("aria-expanded","false");});}b.forEach(function(x){x.addEventListener("click",function(e){e.stopPropagation();var m=x.parentNode,o=!m.classList.contains("ouvert");fermer();if(o){m.classList.add("ouvert");x.setAttribute("aria-expanded","true");}});});document.addEventListener("click",fermer);document.addEventListener("keydown",function(e){if(e.key==="Escape")fermer();});})();</script><script class="js-theme">(function(){var b=document.querySelector(".theme-bouton");if(!b)return;var r=document.documentElement,fr=r.lang!=="en";var mq=window.matchMedia("(prefers-color-scheme: dark)");function actuel(){return r.dataset.theme||(mq.matches?"dark":"light");}function maj(){var sombre=actuel()==="dark";var t=fr?(sombre?"Passer au thème clair":"Passer au thème sombre"):(sombre?"Switch to light theme":"Switch to dark theme");b.setAttribute("aria-label",t);b.title=t;b.setAttribute("aria-pressed",sombre?"true":"false");}b.addEventListener("click",function(){var n=actuel()==="dark"?"light":"dark";r.dataset.theme=n;try{localStorage.setItem("theme",n);}catch(e){}maj();});if(mq.addEventListener)mq.addEventListener("change",maj);maj();})();</script><!--/menu-->
+  </div>
+</div>
+<header class="entete">
+  <div class="conteneur">
+    <p class="fil"><a href="making.html">Making</a> › Workshop journal</p>
+    <h1>Workshop journal</h1>
+    <p class="entete__intro">Behind the scenes at the workbench, session after session: the gestures, the tools, the successes… and sometimes the mishaps. Click a photo to enlarge it.</p>
+  </div>
+  <svg class="vagues" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C120,20 240,20 360,40 C480,60 600,60 720,40 C840,20 960,20 1080,40 C1200,60 1320,60 1440,40 L1440,70 L0,70 Z" fill="var(--fond)"/><path d="M0,40 C120,20 240,20 360,40 C480,60 600,60 720,40 C840,20 960,20 1080,40 C1200,60 1320,60 1440,40" fill="none" stroke="#C9A467" stroke-width="1.5" opacity=".6"/></svg>
+</header>
+<main class="conteneur">
+<div id="carnet"></div>
+<script src="montres.js"></script>
+<script src="carnet.js"></script>
+<script src="site.js"></script>
+</main>
+<footer>
+  <div class="conteneur">
+    <span>© 2026 Les Aiguilles du Fenua, Tahiti</span>
+    <a href="https://www.instagram.com/aiguilles.du.fenua/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+<script src="infobulles.js" defer></script>
+</body>
+</html>
