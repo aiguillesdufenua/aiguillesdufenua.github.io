@@ -16,6 +16,47 @@ const CARNET = [
 
   {
     date: "2026-11",
+    titre: { fr: "La pose du cadran et des aiguilles", en: "Fitting the dial and hands" },
+    texte: {
+      fr: "Une séance tout en délicatesse : un cadran en nacre, la date à régler bien au centre de son guichet, puis les aiguilles à poser sans laisser la moindre trace.",
+      en: "A session all about delicacy: a mother-of-pearl dial, the date to centre in its window, then the hands to fit without leaving the slightest mark."
+    },
+    photos: [
+      { src: "images/atelier-014.jpg",
+        legende: { fr: "Le cadran en nacre présenté face au mouvement, tenu du bout des doigtiers pour ne laisser aucune empreinte sur ses reflets.",
+                   en: "The mother-of-pearl dial offered up to the movement, held by the finger cots to leave no fingerprint on its sheen." } },
+      { src: "images/atelier-015.jpg",
+        legende: { fr: "Côté cadran, avant la pose : un dernier contrôle du mouvement, brucelle en main, autour du disque de date et de la tige.",
+                   en: "Dial side, before fitting: a last check of the movement, tweezers in hand, around the date disc and the stem." } },
+      { src: "images/atelier-016.jpg",
+        legende: { fr: "Le cadran maintenu en place sur le mouvement, pendant qu’on actionne la tige.",
+                   en: "The dial held in place on the movement while the stem is operated." } },
+      { src: "images/atelier-017.jpg",
+        legende: { fr: "Le cadran posé : ses index facettés, et le 25 bien visible dans le guichet de date à 3 heures.",
+                   en: "The dial in place: its faceted indices, and the 25 clearly visible in the date window at 3 o’clock." } },
+      { src: "images/atelier-018.jpg", portrait: true,
+        legende: { fr: "En tournant la couronne, le disque de date avance : le chiffre change dans le guichet.",
+                   en: "Turning the crown, the date disc moves on: the number changes in the window." } },
+      { src: "images/atelier-019.jpg", portrait: true,
+        legende: { fr: "Le 26 s’affiche, bien centré dans son guichet : le cadran est parfaitement aligné sur le disque de date.",
+                   en: "The 26 appears, well centred in its window: the dial is perfectly aligned with the date disc." } },
+      { src: "images/atelier-020.jpg", portrait: true,
+        legende: { fr: "La pose de l’aiguille des heures à la brucelle. Dans l’autre main, un peu de pâte Rodico pour attraper les poussières ; les aiguilles attendent dans leur boîte.",
+                   en: "Fitting the hour hand with tweezers. In the other hand, a little Rodico putty to pick up dust; the hands wait in their box." } },
+      { src: "images/atelier-021.jpg", portrait: true,
+        legende: { fr: "L’aiguille enfoncée bien à plat avec un pose-aiguilles en plastique, qui ne marque ni l’aiguille ni le cadran.",
+                   en: "The hand pressed on perfectly flat with a plastic hand setter, which marks neither the hand nor the dial." } },
+      { src: "images/atelier-022.jpg", portrait: true,
+        legende: { fr: "Vient ensuite l’aiguille des minutes, posée à la brucelle sur son canon.",
+                   en: "Next comes the minute hand, set on its pinion with tweezers." } },
+      { src: "images/atelier-023.jpg",
+        legende: { fr: "Un dernier appui au pose-aiguilles pour l’enfoncer.",
+                   en: "A final press with the hand setter to push it home." } },
+    ]
+  },
+
+  {
+    date: "2026-11",
     titre: { fr: "Une séance d’assemblage", en: "An assembly session" },
     texte: {
       fr: "Les étapes d’une séance à l’établi, de la préparation jusqu’à l’ajustement de la tige. Les montres elles-mêmes restent secrètes pour l’instant…",
